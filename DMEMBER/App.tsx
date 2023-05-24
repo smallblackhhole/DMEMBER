@@ -1,12 +1,18 @@
-import { View,Text  } from "react-native";
-import Screnn from "./Screen/Screen";
 
+import React from 'react';
+import MenuAccount from './Menu Tài Khoản/MenuAccount';
+import InfomationScreen from './InfomationAccount/InfomationScreen';
+import DetailScreen from './DetailProduct/DetailScreen';
+import CreateAccount from './CreateAccount/CreateAccount';2
+import AccountScreenBeforeLogin from './AccountScreenBFLOG/BeforeLoginScreen';
 const App = () => {
-return(
-  <View>
-  <Text>Transfers </Text>
+  return(
+    // <AccountScreenBeforeLogin/>
+     <MenuAccount/>
+    // <InfomationScreen/>
+    // <DetailScreen/>
+    // <CreateAccount/>
+  );
+}
 
-</View>
-);
-};
 export default App;
