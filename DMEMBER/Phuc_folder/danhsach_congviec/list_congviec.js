@@ -2,7 +2,7 @@ import { Image, Text, View, TextInput, TouchableOpacity,Dimensions } from 'react
 import React, { useState } from 'react';
 import styles from './style_list_congviec'
 
-const list_congviec = () => {
+const List_congviec = () => {
 
   const {
     height: height_screen,
@@ -21,20 +21,20 @@ const list_congviec = () => {
       <View style={styles.view_list_cv}>
         {/* view header */}
       <View style={{ flexDirection:'row', marginTop: width_screen * 0.055}}>
-      <Image source={require('../image/back_p.png')} style={styles.icon_back} />
+      <Image source={require('../../image/back_p.png')} style={styles.icon_back} />
         <Text style={styles.textlistcv}>Danh sách công việc</Text>
       </View>
         {/* thanh search */}
         <View style={styles.view_thanhsearch}>
           {/* icon search */}
-          <Image source={require('../image/ei_search.png')} style={styles.icon_search} />
+          <Image source={require('../../image/ei_search.png')} style={styles.icon_search} />
           {/* input search */}
           <TextInput style={styles.input_search}
             placeholder="Tên công việc/ Người tạo"
             placeholderTextColor='color: rgba(0, 0, 0, 0.5);'
           />
           {/* icon delete */}
-          <Image source={require('../image/iocn_filtter.png')} style={styles.icon_delete} />
+          <Image source={require('../../image/iocn_filtter.png')} style={styles.icon_delete} />
         </View>
         {/* view 2 BUTTON */}
         <View style={styles.view_2button}>
@@ -121,4 +121,4 @@ const list_congviec = () => {
   )
 }
 
-export default list_congviec
+export default List_congviec

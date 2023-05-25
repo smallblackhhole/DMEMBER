@@ -1,30 +1,38 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Dimensions, View } from 'react-native'
+
+const {
+    height: height_screen,
+    width: width_screen
+} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#FBAE35",
+        alignItems: 'center',
+        justifyContent: 'center',
     },
+    //text giỏ hàng
     textgiohang: {
         fontSize: 21,
         color: '#000000',
         fontWeight: '500',
-        marginTop: 20,
+        marginLeft: 58
     },
     view_chitiet_thontin: {
         flex: 1,
-        width: '88%',
-        marginLeft: '6%',
-        marginTop: '8%',
-
-        //backgroundColor:'pink'
+        width: width_screen * 0.90,
+        // height: height_screen * 0.88,
+        // marginLeft: width_screen * 0.06,
+        // marginTop: width_screen * 0.08,
+        flexDirection: 'column',
+         //backgroundColor:'green',
     },
     //view tổng mã đơn
     view_madon: {
-        width: '100%',
-        height: 120,
+        height: height_screen * 0.154,//120
         backgroundColor: '#FFFFFF',
-        marginTop: 10,
+        marginTop: 35,
         borderRadius: 10,
         flexDirection: 'column',
         color: '#000000',
@@ -34,16 +42,16 @@ const styles = StyleSheet.create({
         color: '#000000',
         fontWeight: '500',
         fontSize: 19,
-        width: '80%',
-        height: 25,
+        width: width_screen * 0.85,
         marginTop: 16,
-        marginLeft: 20
+        marginLeft: 20,
+       // backgroundColor: 'red',
 
     },
     //item ghi chú trong mã đơn
     view_ghichu: {
-        width: '88%',
-        height: 41,
+        width: width_screen * 0.793,
+        height:  height_screen * 0.054,//120
         borderWidth: 1,
         borderStyle: 'dashed',
         borderColor: '#E5E5E5',
@@ -60,16 +68,16 @@ const styles = StyleSheet.create({
     },
     //text thông tin all
     text_tt_all: {
-        width: '60%',
+        width: width_screen * 0.58,
         color: '#000000',
         fontWeight: '500',
         fontSize: 17,
-        marginTop: 16
+        marginTop: 16,
+        //backgroundColor: '#FFFFFF',
     },
     //view thanh toán tổng tiền xuất bán
     view_ttxb: {
-        width: '100%',
-        height: 122,
+        height:  height_screen * 0.156,//121
         backgroundColor: '#FFFFFF',
         marginTop: 16,
         borderRadius: 10,
@@ -77,17 +85,17 @@ const styles = StyleSheet.create({
         color: '#000000',
     },
     view_tt_so: {
-        width: "87%",
-        height: 20,
+        width:  width_screen * 0.785,
+        height: height_screen * 0.026,//20
         flexDirection: 'row',
         marginLeft: 20,
         marginTop: 13,
         justifyContent: 'space-between',
-        // backgroundColor: 'red',
+        // backgroundColor: 'green',
     },
     view_thanhtoan: {
-        width: "87%",
-        height: 20,
+        width: width_screen * 0.78,
+        height: height_screen * 0.026,//20
         flexDirection: 'row',
         marginLeft: 20,
         marginTop: 12.5,
@@ -132,7 +140,7 @@ const styles = StyleSheet.create({
     },
     //line ngang
     horizontalLine: {
-        width: '80%',
+        width: width_screen * 0.72,
         height: 1,
         backgroundColor: '#C4C4C4',
         marginLeft: 33,
@@ -140,8 +148,7 @@ const styles = StyleSheet.create({
     },
     //view thông tin đơn hàng
     view_ttdh: {
-        width: '100%',
-        height: 189,
+        height: height_screen * 0.242,//189
         backgroundColor: '#FFFFFF',
         marginTop: 16,
         borderRadius: 10,
@@ -150,8 +157,7 @@ const styles = StyleSheet.create({
     },
     //view địa chỉ nhận hàng
     view_dcnh: {
-        width: '100%',
-        height: 80,
+        height: height_screen * 0.102,//180
         backgroundColor: '#FFFFFF',
         marginTop: 16,
         borderRadius: 10,
@@ -161,15 +167,16 @@ const styles = StyleSheet.create({
     },
     //img địa chỉ nhận hàng
     img_diachi: {
-        width: 34,
-        height: 34,
+        width: width_screen * 0.090,//34
+        height: height_screen * 0.0452,//34
         marginLeft: 10,
     },
     //view column img vs text
     view_cl: {
         flexDirection: 'column',
-        width: 258,
+        width: width_screen * 0.655,//258
         marginLeft: 22,
+       // backgroundColor: 'red',
 
 
     },
@@ -182,7 +189,7 @@ const styles = StyleSheet.create({
     //1 gạch dọc đen ngắn
     verticalLine: {
         width: 1,
-        height: 17,
+        height: height_screen * 0.020,//17
         backgroundColor: '#000000',
         marginLeft: 10,
         marginRight: 10,
@@ -195,8 +202,7 @@ const styles = StyleSheet.create({
     },
     //san phẩm đã mua
     view_sp: {
-        width: '100%',
-        height: 72,
+        height: height_screen * 0.091,//72
         backgroundColor: '#FFFFFF',
         marginTop: 10,
         borderRadius: 10,
@@ -207,8 +213,8 @@ const styles = StyleSheet.create({
     //item hình ảnh
 
     img_item: {
-        width: 53,
-        height: 53,
+        width: width_screen * 0.140,//53
+        height: height_screen * 0.068,//53
         marginLeft: 5,
 
     },
@@ -218,9 +224,9 @@ const styles = StyleSheet.create({
         color: '#000000',
         fontWeight: '500',
         fontSize: 11,
-        width: 284,
-        height: 26,
-        marginBottom: 7
+        width: width_screen * 0.675,//260
+        marginBottom: 7,
+       // backgroundColor: 'red',
 
     },
     gia_chietkhau: {
