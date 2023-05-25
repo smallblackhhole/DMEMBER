@@ -2,7 +2,7 @@ import { Image, Text, View, TextInput, TouchableOpacity, Dimensions } from 'reac
 import React, { useState } from 'react';
 import styles from './style_chitiet_cv'
 
-const list_congviec = () => {
+const Chitiet_congviec = () => {
 
     const {
         height: height_screen,
@@ -19,9 +19,9 @@ const list_congviec = () => {
             {/* view tổng  */}
             <View style={styles.view_list_cv}>
                 <View style={styles.view_hander}>
-                    <Image source={require('../image/back_p.png')} style={styles.icon_back} />
+                    <Image source={require('../../image/back_p.png')} style={styles.icon_back} />
                     <Text style={styles.textlistcv}>Chi tiết công việc</Text>
-                    <Image source={require('../image/icon_more.png')} style={styles.icon_more} />
+                    <Image source={require('../../image/icon_more.png')} style={styles.icon_more} />
                 </View>
                 {/* text công việc */}
                 <Text style={styles.text_congivec}>Công việc</Text>
@@ -60,4 +60,4 @@ const list_congviec = () => {
     )
 }
 
-export default list_congviec
+export default Chitiet_congviec

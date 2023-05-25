@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity } from 'react-native'
 import Line from "../Component/Line";
 const { height: HeightScreen } = Dimensions.get('window');
@@ -7,6 +8,7 @@ const { width: WidthScreen } = Dimensions.get('window');
 
 
 const HistoryScreen = () => {
+    const navigation = useNavigation();
     const [activeOption, setActiveOption] = useState('done');
 
     const handleOptionPress = (
@@ -98,7 +100,7 @@ const HistoryScreen = () => {
                     {activeOption === 'done' && (
                         <React.Fragment>
                             <View style={styles.DetailView}>
-                                <View style={styles.BordeDetailView}>
+                                <TouchableOpacity style={styles.BordeDetailView}  onPress={() => { navigation.navigate('chitiet_donghang') }}>
                                     <View style={styles.flex1}>
                                         <View style={styles.logoShip}>
                                             <Image style={{ zIndex: 999 }} source={require('../Assets/logoShip.png')} />
@@ -139,7 +141,7 @@ const HistoryScreen = () => {
                                         <Text style={styles.text1}>5 sản phẩm</Text>
                                         <Text style={styles.text3}>5,200,000</Text>
                                     </View>
-                                </View>
+                                </TouchableOpacity>
                             </View>
                             <View style={styles.DetailView2}>
                                 <View style={styles.BordeDetailView}>

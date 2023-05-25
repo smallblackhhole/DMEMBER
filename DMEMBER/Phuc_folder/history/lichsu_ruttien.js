@@ -1,7 +1,7 @@
 import { Image, Text, View } from 'react-native'
 import React from 'react'
 import styles from './style_lichsu_all'
-const lichsu_ruttien = () => {
+const Lichsu_ruttien = () => {
     return (
         <View style={styles.container}>
             {/* text */}
@@ -14,7 +14,7 @@ const lichsu_ruttien = () => {
                 <View style={styles.view_lichsu_ruttien}>
                     {/* view image */}
                     <View style={styles.view_img}>
-                        <Image source={require('../image/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
+                        <Image source={require('../../image/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
                     </View>
                     {/* view thông tin rút tiền  */}
                     <View style={styles.view_tt}>
@@ -45,7 +45,7 @@ const lichsu_ruttien = () => {
                 <View style={styles.view_lichsu_ruttien}>
                     {/* view image */}
                     <View style={styles.view_img}>
-                        <Image source={require('../image/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
+                        <Image source={require('../../image/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
                     </View>
                     {/* view thông tin rút tiền  */}
                     <View style={styles.view_tt}>
@@ -76,7 +76,7 @@ const lichsu_ruttien = () => {
                 <View style={styles.view_lichsu_ruttien}>
                     {/* view image */}
                     <View style={styles.view_img}>
-                        <Image source={require('../image/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
+                        <Image source={require('../../image/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
                     </View>
                     {/* view thông tin rút tiền  */}
                     <View style={styles.view_tt}>
@@ -108,4 +108,4 @@ const lichsu_ruttien = () => {
     )
 }
 
-export default lichsu_ruttien
+export default Lichsu_ruttien

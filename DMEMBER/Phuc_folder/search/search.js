@@ -1,7 +1,7 @@
 import { Image, Text, TextInput, View, TouchableOpacity } from 'react-native'
 import React from 'react'
 import styles from './style_search'
-const search = () => {
+const Search = () => {
     const handlePress = () => {
         // Xử lý logic khi nút được nhấn
         console.log("Nút Đăng kí đã được nhấn!");
@@ -13,14 +13,14 @@ const search = () => {
                 {/* thanh search */}
                 <View style={styles.view_thanhsearch}>
                     {/* icon search */}
-                    <Image source={require('../image/icon_search.png')} style={styles.icon_search} />
+                    <Image source={require('../../image/icon_search.png')} style={styles.icon_search} />
                     {/* input search */}
                     <TextInput style={styles.input_search}
                         placeholder="Tìm kiếm..."
                         placeholderTextColor='color: rgba(0, 0, 0, 0.5);'
                     />
                     {/* icon delete */}
-                    <Image source={require('../image/X_delete.png')} style={styles.icon_delete} />
+                    <Image source={require('../../image/X_delete.png')} style={styles.icon_delete} />
                 </View>
                 {/* view tìm kiếm gần đây */}
                 <View style={styles.view_tkgd}>
@@ -30,17 +30,17 @@ const search = () => {
                 </View>
                 {/* các text đã tìm kiếm gần đây */}
                 <View style={styles.lichsu_search}>
-                    <Image source={require('../image/fa6-solid_clock-rotate-left.png')} style={styles.icon_lichsu} />
+                    <Image source={require('../../image/fa6-solid_clock-rotate-left.png')} style={styles.icon_lichsu} />
                     <Text style={styles.text_lichsu}>Nước hoa hồng</Text>
                 </View>
                 {/* các text đã tìm kiếm gần đây */}
                 <View style={styles.lichsu_search}>
-                    <Image source={require('../image/fa6-solid_clock-rotate-left.png')} style={styles.icon_lichsu} />
+                    <Image source={require('../../image/fa6-solid_clock-rotate-left.png')} style={styles.icon_lichsu} />
                     <Text style={styles.text_lichsu}>Nước hoa hồng</Text>
                 </View>
                 {/* các text đã tìm kiếm gần đây */}
                 <View style={styles.lichsu_search}>
-                    <Image source={require('../image/fa6-solid_clock-rotate-left.png')} style={styles.icon_lichsu} />
+                    <Image source={require('../../image/fa6-solid_clock-rotate-left.png')} style={styles.icon_lichsu} />
                     <Text style={styles.text_lichsu}>Nước hoa hồng</Text>
                 </View>
                 {/* text kết quả liên */}
@@ -49,15 +49,13 @@ const search = () => {
                 <View style={styles.sp_search}>
                     {/* hình ảnh sản phẩm */}
                     <View style={styles.img_all}>
-                        <Image source={require('../image/img_sp.png')} style={styles.img_sp} />
+                        <Image source={require('../../image/img_sp.png')} style={styles.img_sp} />
                         <View style={styles.img_corner}>
-                            <Image source={require('../image/red_sale.png')} style={styles.img_cornerIcon} />
+                            <Image source={require('../../image/red_sale.png')} style={styles.img_cornerIcon} />
                         </View>
                     </View>
-
                     {/* tên sản phẩm */}
                     <Text style={styles.ten_sp}>Nước tẩy trang Dearanchy Purifying Pure Cleansing 30ml</Text>
-
                     {/* view tổng 2 text 1 button */}
                     <View style={styles.view_text_btn}>
                         {/* view giá bán , giá khấu */}
@@ -85,5 +83,5 @@ const search = () => {
     )
 }
 
-export default search
+export default Search
 

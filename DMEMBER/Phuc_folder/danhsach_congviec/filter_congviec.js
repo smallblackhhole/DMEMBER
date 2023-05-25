@@ -3,7 +3,7 @@ import { Dropdown } from 'react-native-element-dropdown';
 import React, { useState } from 'react';
 import styles from './style_filter'
 
-const filter_congviec = () => {
+const Filter_congviec = () => {
 
   const data = [
     { label: 'Tất cả chi nhánh', value: '1' },
@@ -30,7 +30,7 @@ const filter_congviec = () => {
     <ScrollView style={styles.container}>
       {/* icon X */}
       <View style={styles.view_icon_out}>
-        <Image source={require('../image/icon_outX.png')} style={styles.img_icon_out} />
+        <Image source={require('../../image/icon_outX.png')} style={styles.img_icon_out} />
       </View>
       {/* view tổng */}
       <View style={styles.view_filter}>
@@ -174,7 +174,7 @@ const filter_congviec = () => {
             <Text style={styles.text_btn}>Từ ngày</Text>
             <View style={{ flexDirection: 'row' }}>
               <Text style={styles.text_date}>25/05/2022</Text>
-              <Image source={require('../image/akar-icons_calendar.png')} style={styles.img_date} />
+              <Image source={require('../../image/akar-icons_calendar.png')} style={styles.img_date} />
             </View>
           </View>
           {/* view đến ngày */}
@@ -182,7 +182,7 @@ const filter_congviec = () => {
             <Text style={styles.text_btn}>Đến ngày</Text>
             <View style={{ flexDirection: 'row' }}>
               <Text style={styles.text_date}>25/05/2022</Text>
-              <Image source={require('../image/akar-icons_calendar.png')} style={styles.img_date} />
+              <Image source={require('../../image/akar-icons_calendar.png')} style={styles.img_date} />
             </View>
           </View>
         </View>
@@ -197,4 +197,4 @@ const filter_congviec = () => {
   )
 }
 
-export default filter_congviec
+export default Filter_congviec
