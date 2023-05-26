@@ -118,13 +118,13 @@ const HomeScreen = () => {
                                     <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome5.png')} />
                                     </View>
-                                    <Text style={styles.textOption}>Rút Dcash</Text>
+                                    <Text style={styles.textOption}>Nạp Dcash</Text>
                                 </View>
                                 <View style={styles.ItemOption}>
                                     <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome6.png')} />
                                     </View>
-                                    <Text style={styles.textOption}>Nạp Dcash</Text>
+                                    <Text style={styles.textOption}>Rút Dcash</Text>
                                 </View>
                             </View>
                         </View>
@@ -148,9 +148,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     balanceBord: {
-        width: '90%',
-        height: '90%',
-        backgroundColor: 'white',
+        width: WidthScreen * 0.9,
+        height:HeightScreen * 0.141,//108
+        backgroundColor: '#FFFFFF',
         borderRadius: 15,
         flexDirection: "row"
     },
@@ -165,30 +165,30 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     Imgbalance: {
-        width: '90%',
-        height: '90%',
-        resizeMode: "stretch"
+        width:   WidthScreen * 0.299,
+        height:  HeightScreen * 0.126,
+        resizeMode: "stretch",
     },
     textbalance1: {
         color: 'black',
         fontWeight: "400",
-        fontSize: 16
+        fontSize: 14
     },
     textbalance2: {
         color: 'black',
-        fontWeight: "600",
-        fontSize: 18
+        fontWeight: "500",
+        fontSize: 17
     },
     textbalance3: {
         color: '#19A538',
-        fontWeight: "400",
-        fontSize: 12
+        fontWeight: "500",
+        fontSize: 11
     },
     textbalance4: {
         color: '#19A538',
         fontWeight: "600",
-        fontSize: 18,
-        marginLeft: 5
+        fontSize: 17,
+        marginLeft: 2
     },
     ViewItemBalance: {
         flexDirection: "row",
@@ -213,38 +213,39 @@ const styles = StyleSheet.create({
     },
     ListWalletView: {
         width: WidthScreen,
-        height: '30%',
+        height: HeightScreen * 0.3,
         alignItems: "center",
     },
     ListWalletBord: {
-        width: '90%',
-        height: '25%',
-        backgroundColor: 'white',
+        width: WidthScreen * 0.9,
+        height:HeightScreen * 0.075,
+        backgroundColor: '#FFFFFF',
         flexDirection: "row",
         borderRadius: 10,
-        margin: 10,
+        margin: 5,
     },
     borderListWal: {
-        width: 40,
-        height: 40,
+        width: WidthScreen * 0.106,//40
+        height: HeightScreen * 0.053,//40
         borderRadius: 20,
         backgroundColor: 'rgba(17, 81, 245, 0.1)',
         justifyContent: "center",
         alignItems: "center",
         marginTop: 10,
         marginLeft: 15,
+        //backgroundColor: 'red',
     },
     ImgList: {
-        width: 40,
-        height: 40
+        width: WidthScreen * 0.106,//40
+        height: HeightScreen * 0.053,//40
     },
     textList: {
-        fontSize: 16,
+        fontSize: 13,
         fontWeight: "500",
         color: 'black'
     },
     textList1: {
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: "600",
         color: '#F55B00'
     },
@@ -273,21 +274,22 @@ const styles = StyleSheet.create({
     },
     Seeall: {
         color: 'black',
-        fontSize: 14,
+        fontSize: 13,
         fontWeight: "400"
     },
     optionView: {
         width: WidthScreen,
-        height: '30%',
+        height: HeightScreen * 0.3,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 20
+        marginTop: 50,
+        //backgroundColor: 'red',
     },
     optionBord: {
-        width: '90%',
-        height: '90%',
-        backgroundColor: 'white',
-        borderRadius: 12,
+        width: WidthScreen * 0.9,
+        height: HeightScreen * 0.335,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 15,
         flexDirection: "column",
         justifyContent: "center",
     },
@@ -298,25 +300,28 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     borderOption: {
-        width: 60,
-        height: 60,
+        width: WidthScreen * 0.152,//60
+        height: HeightScreen * 0.078,//60
         borderRadius: 15,
-        backgroundColor: '#D9D9D9',
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 5
+        marginTop: 5,
+         backgroundColor: 'rgba(196, 196, 196, 0.3)',
     },
     ItemOption: {
         flexDirection: "column",
         flex: 1,
         alignItems: "center"
     },
-    textOption: {
+    textOption: {   
+        width: WidthScreen * 0.229,//86
+        height: HeightScreen * 0.050,//60
         color: 'black',
         fontWeight: "500",
-        fontSize: 16,
+        fontSize: 15,
         textAlign: "center",
-        marginTop: 5
+        marginTop: 5,
+       // backgroundColor:'pink'
     }
 });
 export default HomeScreen;

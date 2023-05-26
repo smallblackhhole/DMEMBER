@@ -66,8 +66,8 @@ const AccountScreen = () => {
                             navi={'Security'} />
                         <BorderAccount
                             icon={require('../Assets/map.png')}
-                            name={"Quản lí địa chỉ"} 
-                            navi={"Map"}/>
+                            name={"Quản lí địa chỉ"}
+                            navi={"Map"} />
                         <BorderAccount
                             icon={require('../Assets/education.png')}
                             name={"Đào tạo"} />
@@ -154,8 +154,8 @@ const styles = StyleSheet.create({
     viewdayend: {
         backgroundColor: '#16C7BD',
         flexDirection: "row",
-        width: '50%',
-        height: '5%',
+        width: WidthScreen * 0.55,
+        height: HeightScreen * 0.04,
         borderRadius: 30,
         bottom: 25,
         justifyContent: "center",
@@ -171,9 +171,9 @@ const styles = StyleSheet.create({
         height: 15
     },
     viewSale: {
-        width: '90%',
-        height: '25%',
-        backgroundColor: 'white',
+        width: WidthScreen * 0.9,
+        height: HeightScreen * 0.212,
+        backgroundColor: '#FFFFFF',
         borderRadius: 30,
         elevation: 6
     },
@@ -192,13 +192,12 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     SaleView: {
-        width: '100%',
-        height: '70%',
+        height: HeightScreen * 0.7,
         flexDirection: "row",
     },
     salecase1: {
-        width: 120,
-        height: '60%',
+        width: WidthScreen * 0.315,//120
+        height: HeightScreen * 0.082,
         backgroundColor: '#FBCC80',
         borderRadius: 15,
         justifyContent: "center",
@@ -207,8 +206,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     salecase2: {
-        width: 120,
-        height: '60%',
+        width: WidthScreen * 0.315,//120
+        height: HeightScreen * 0.082,
         backgroundColor: '#5EC7C1',
         borderRadius: 15,
         alignItems: "center",
@@ -217,8 +216,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     salecase3: {
-        width: 120,
-        height: '60%',
+        width: WidthScreen * 0.315,//120
+        height: HeightScreen * 0.082,
         backgroundColor: '#8ABF3D',
         alignItems: "center",
         borderRadius: 15,
@@ -266,8 +265,9 @@ const styles = StyleSheet.create({
     },
     MoreOption: {
         width: WidthScreen,
-        height: '100%',
+        height: HeightScreen,
         alignItems: "center",
+        // backgroundColor:'pink'
     },
     ViewtextTitle2: {
         marginTop: 10,
@@ -277,8 +277,8 @@ const styles = StyleSheet.create({
     },
     TextTitle2: {
         color: 'black',
-        fontSize: 18,
-        fontWeight: "600",
+        fontSize: 17,
+        fontWeight: "500",
         marginLeft: 20
     },
 });

@@ -1,6 +1,10 @@
 import React from "react";
-import { View, StyleSheet, Image, Text, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Image, Text, TouchableOpacity,Dimensions } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
+
+const { height: HeightScreen } = Dimensions.get('window');
+const { width: WidthScreen } = Dimensions.get('window');
+
 const BorderAccount = ({ icon, name, navi }) => {
     const navigation = useNavigation();
     return (
@@ -21,19 +25,20 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        width: '100%',
-        height: '100%',
+        width: WidthScreen * 0.9,
+        backgroundColor:'#FFFFFF',
+        borderRadius: 10,
     },
     Opa: {
         elevation : 5,
         borderRadius: 10,
-        backgroundColor : 'white',
+        backgroundColor : '#FFFFFF',
         flexDirection: 'row',
         alignItems: "center",
         justifyContent: "center",
         margin: 10,
-        width: '90%',
-        height: '5%',
+        width: WidthScreen * 0.9,
+        height: HeightScreen * 0.065,
     },
     textname: {
         color: 'black',

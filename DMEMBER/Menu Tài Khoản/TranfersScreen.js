@@ -81,13 +81,15 @@ const styles = StyleSheet.create({
         width: WidthScreen,
         height: HeightScreen * 0.06,
         flexDirection: "row",
+
+        justifyContent: 'center',
     },
     flexhead1: {
-        flex: 6.5,
-        justifyContent: "center"
+        flex: 1.6,
+        justifyContent: "center",
     },
     flexhead2: {
-        flex: 3.5,
+        flex: 1,
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center"
@@ -95,13 +97,13 @@ const styles = StyleSheet.create({
     title: {
         color: 'black',
         fontWeight: "500",
-        fontSize: 22,
-        margin: 10,
-        textAlign: "right"
+        fontSize: 21,
+        textAlign: "right",
+       // backgroundColor: 'red',
     },
     moneyborder: {
-        width: '80%',
-        height: '60%',
+        width: WidthScreen * 0.29,
+        height: HeightScreen * 0.045,
         backgroundColor: 'white',
         borderRadius: 20,
         flexDirection: "row",
@@ -123,9 +125,11 @@ const styles = StyleSheet.create({
         marginLeft: 15
     },
     searchBar: {
-        width: WidthScreen,
+        width: 350,
         height: HeightScreen * 0.07,
-        flexDirection: "row"
+        flexDirection: "row",
+        marginLeft:10,
+        //backgroundColor: 'red',
     },
     ViewtextTitle2: {
         marginTop: 10,

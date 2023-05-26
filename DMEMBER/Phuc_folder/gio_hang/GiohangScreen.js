@@ -9,7 +9,6 @@ const GiohangScreen = () => {
         height: height_screen,
         width: width_screen
     } = Dimensions.get('window');
-
     const handlePress = () => {
         // Xử lý logic khi nút được nhấn
         console.log("Nút Đăng kí đã được nhấn!");
