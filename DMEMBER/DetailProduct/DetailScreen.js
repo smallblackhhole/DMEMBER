@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, Image, Dimensions, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import ButtonBack from "../Component/ButtonBack";
 import detailproData from "../dataShopScreen/detailproData";
 import { useNavigation } from "@react-navigation/native";
 import Carticon from "../Component/Carticon";
+import Carousel, { Pagination } from 'react-native-snap-carousel';
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 
 const DetailScreen = ({ route }) => {
+    const [currentPage, setCurrentPage] = useState(0);
+    const [numberCart, setnumberCart] = useState(1);
     const navigation = useNavigation();
     const itemchaged = route.params;
     const FlatlistrenderDetail = ({ item }) => {
+
         const renderListPro = ({ item }) => {
             return (
                 <View style={styles.InfoPro}>
@@ -162,24 +166,57 @@ const DetailScreen = ({ route }) => {
                 </View>
             );
         }
+
+        const renderCarouselItem = ({ item, index }) => {
+            return (
+                <View
+                    style={{
+                        marginTop: 12,
+                        width: '100%',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                >
+                    <Image style={{ width: 150, height: 180 }} source={item.img} />
+                </View>
+            );
+        };
+
+
         return (
             <View style={{ flex: 1, }}>
                 <View style={styles.detailView}>
                     <View style={styles.borderDetail}>
                         <View style={styles.holderView}>
-                            <Image style={{ width: '100%', height: ' 100%', justifyContent: 'center', alignContent: "center", alignItems: "center" }} source={require('../Assets/viewDetail.png')} />
-                            <Image style={{ width: '70%', height: '90%', position: "absolute", top: 15, left: 30, zIndex: 999 }} source={itemchaged.item.imgproduct} />
-                            <Image style={{
-                                position: "absolute", width: '90%', height: '50%',
-                                top: 100, left: 12, borderRadius: 15
-                            }} source={require('../Assets/backDetail.png')} />
-                            <Image style={{ position: "relative", left: 55, bottom: 2 }} source={require('../Assets/CurrentDetail.png')} />
+                            <Image style={{ width: '100%', height: ' 100%', justifyContent: 'center', alignItems: "center" }} source={require('../Assets/viewDetail.png')} />
+                            <View style={{ position: "absolute", zIndex: 999, alignItems: "center", justifyContent: "center" }}>
+                                <Carousel
+                                    data={item.Data4}
+                                    renderItem={renderCarouselItem}
+                                    sliderWidth={WidthScreen}
+                                    itemWidth={250}
+                                    loop={true}
+                                    autoplay={true}
+                                    autoplayDelay={2000}
+                                    autoplayInterval={3000}
+                                    onSnapToItem={(index) => setCurrentPage(index)}
+                                />
+                                <Pagination
+                                    dotsLength={item.Data4.length}
+                                    activeDotIndex={currentPage}
+                                    containerStyle={styles.paginationContainer}
+                                    dotStyle={styles.dotStyle}
+                                    inactiveDotStyle={styles.indotStyle}
+                                />
+                            </View>
+                            <Image style={{ position: "absolute", width: '90%', height: '60%', bottom: 10 }} source={require('../Assets/backDetail.png')} />
                         </View>
                     </View>
-                    <View style={styles.price}>
-                        <Text style={styles.text}>Giá bán : </Text>
-                        <Text style={styles.textprice22}>{itemchaged.item.price}</Text>
-                    </View>
+
+                </View>
+                <View style={styles.price}>
+                    <Text style={styles.text}>Giá bán : </Text>
+                    <Text style={styles.textprice22}>{itemchaged.item.price}</Text>
                 </View>
                 <View>
                     <FlatList
@@ -213,7 +250,7 @@ const DetailScreen = ({ route }) => {
                         keyExtractor={(item, index) => index.toString()}
                     />
                 </View>
-                <TouchableOpacity onPress={() => {navigation.navigate('CreateTopic',{itemchaged})}}>
+                <TouchableOpacity onPress={() => { navigation.navigate('CreateTopic', { itemchaged }) }}>
                     <View style={styles.btncreatetopicView}>
                         <View style={styles.btncreatetopicBord}>
                             <Text style={styles.texthot2}>Tạo bài viết mẫu</Text>
@@ -222,14 +259,23 @@ const DetailScreen = ({ route }) => {
                 </TouchableOpacity>
                 <View style={styles.AddtoCartView}>
                     <View style={styles.ViewBtn}>
-                        <Image style={{ margin: 5 }} source={require('../Assets/minus.png')} />
-                        <Text style={{ margin: 5, color: 'black', fontWeight: "500" }}>1</Text>
-                        <Image style={{ margin: 5 }} source={require('../Assets/plus.png')} />
+                        <TouchableOpacity onPress={() => {
+                            setnumberCart(numberCart - 1)
+                            if (numberCart <= 1) {
+                                setnumberCart(1)
+                            }
+                        }}>
+                            <Image style={{ margin: 5 }} source={require('../Assets/minus.png')} />
+                        </TouchableOpacity>
+                        <Text style={{ margin: 5, color: 'black', fontWeight: "500" }}>{numberCart}</Text>
+                        <TouchableOpacity onPress={() => { setnumberCart(numberCart + 1) }}>
+                            <Image style={{ margin: 5 }} source={require('../Assets/plus.png')} />
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.ViewBtn2}>
-                        <View style={styles.btnAdd}>
-                            <Text style={{ color: 'white', fontWeight: "600", fontSize: 16 }}>Thêm vào giỏ</Text>
-                        </View>
+                        <TouchableOpacity style={styles.btnAdd} onPress={() => {navigation.navigate('Cart2',{itemchaged,numberCart})}}>         
+                                <Text style={{ color: 'white', fontWeight: "600", fontSize: 16 }}>Thêm vào giỏ</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
@@ -296,22 +342,24 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.3,
         alignItems: "center",
         justifyContent: 'center',
-        marginTop: 20,
+        marginBottom: 10
     },
     borderDetail: {
-        width: '60%',
+        width: '65%',
         height: '100%',
         alignItems: "center",
-        justifyContent: 'center',
+        justifyContent: "center"
     },
     holderView: {
         width: '90%',
-        height: '80%'
+        alignItems: "center",
+        height: '88%'
     },
     price: {
         width: WidthScreen,
-        height: 70,
+        height: 30,
         flexDirection: 'row',
+        marginBottom: 10,
         justifyContent: "center",
     },
     text: {
@@ -347,7 +395,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
     },
     ViewNameInfo: {
-        marginTop : 20,
+        marginTop: 20,
         width: '100%',
         alignItems: "center"
     },
@@ -603,8 +651,20 @@ const styles = StyleSheet.create({
         width: '50%',
         height: '90%',
         borderRadius: 10
+    },
+    paginationContainer: {
+        height: 1,
+        width: 60,
+    },
+    dotStyle: {
+        width: 20,
+        marginHorizontal: 10,
+        height: 5,
+        backgroundColor: 'white',
+    },
+    indotStyle: {
+        backgroundColor: 'black'
     }
-
 })
 
 export default DetailScreen;
