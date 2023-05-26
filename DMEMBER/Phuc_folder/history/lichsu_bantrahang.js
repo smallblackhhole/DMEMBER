@@ -1,7 +1,7 @@
 import { Image, Text, View } from 'react-native'
 import React from 'react'
 import styles from './style_lichsu_all'
-const lichsu_bantrahang = () => {
+const Lichsu_bantrahang = () => {
     return (
         <View style={styles.container}>
             {/* text */}
@@ -15,7 +15,7 @@ const lichsu_bantrahang = () => {
                 <View style={styles.view_lichsu_bantrahang}>
                     {/* view image */}
                     <View style={styles.view_img}>
-                        <Image source={require('../image/icon_lichsu_bantrahang.png')} style={styles.img_ruttien} />
+                        <Image source={require('../../image/icon_lichsu_bantrahang.png')} style={styles.img_ruttien} />
                     </View>
                     {/* view thông tin rút tiền  */}
                     <View style={styles.view_tt}>
@@ -50,7 +50,7 @@ const lichsu_bantrahang = () => {
                   <View style={styles.view_lichsu_bantrahang}>
                     {/* view image */}
                     <View style={styles.view_img}>
-                        <Image source={require('../image/icon_lichsu_bantrahang.png')} style={styles.img_ruttien} />
+                        <Image source={require('../../image/icon_lichsu_bantrahang.png')} style={styles.img_ruttien} />
                     </View>
                     {/* view thông tin rút tiền  */}
                     <View style={styles.view_tt}>
@@ -85,7 +85,7 @@ const lichsu_bantrahang = () => {
                   <View style={styles.view_lichsu_bantrahang}>
                     {/* view image */}
                     <View style={styles.view_img}>
-                        <Image source={require('../image/icon_lichsu_bantrahang.png')} style={styles.img_ruttien} />
+                        <Image source={require('../../image/icon_lichsu_bantrahang.png')} style={styles.img_ruttien} />
                     </View>
                     {/* view thông tin rút tiền  */}
                     <View style={styles.view_tt}>
@@ -121,4 +121,4 @@ const lichsu_bantrahang = () => {
     )
 }
 
-export default lichsu_bantrahang
+export default Lichsu_bantrahang

@@ -1,7 +1,7 @@
 import { Image, Text, View, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 import styles from './style_ttkhachang'
-const thongtin_khachang = () => {
+const Thongtin_khachang = () => {
     return (
         <View style={styles.container}>
             {/* view tổng thông tin khách hàng */}
@@ -11,7 +11,7 @@ const thongtin_khachang = () => {
                 {/* thanh search */}
                 <View style={styles.view_thanhsearch}>
                     {/* icon search */}
-                    <Image source={require('../image/icon_search.png')} style={styles.icon_search} />
+                    <Image source={require('../../image/icon_search.png')} style={styles.icon_search} />
                     {/* input search */}
                     <TextInput style={styles.input_search}
                         placeholder="Chọn/ thêm khách hàng"
@@ -24,9 +24,9 @@ const thongtin_khachang = () => {
                 <View style={styles.view_sp}>
                     {/* image sản phẩm */}
                     <View style={styles.img_all}>
-                        <Image source={require('../image/img_sp.png')} style={styles.img_item} />
+                        <Image source={require('../../image/img_sp.png')} style={styles.img_item} />
                         <View style={styles.img_corner}>
-                            <Image source={require('../image/red_sale.png')} style={styles.img_cornerIcon} />
+                            <Image source={require('../../image/red_sale.png')} style={styles.img_cornerIcon} />
                         </View>
                     </View>
                     {/* view colum  */}
@@ -63,9 +63,9 @@ const thongtin_khachang = () => {
                 <View style={styles.view_sp}>
                     {/* image sản phẩm */}
                     <View style={styles.img_all}>
-                        <Image source={require('../image/img_sp.png')} style={styles.img_item} />
+                        <Image source={require('../../image/img_sp.png')} style={styles.img_item} />
                         <View style={styles.img_corner}>
-                            <Image source={require('../image/red_sale.png')} style={styles.img_cornerIcon} />
+                            <Image source={require('../../image/red_sale.png')} style={styles.img_cornerIcon} />
                         </View>
                     </View>
                     {/* view colum  */}
@@ -103,4 +103,4 @@ const thongtin_khachang = () => {
     )
 }
 
-export default thongtin_khachang
+export default Thongtin_khachang

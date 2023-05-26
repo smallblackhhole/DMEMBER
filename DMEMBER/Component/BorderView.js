@@ -1,3 +1,4 @@
+
 import React from 'react-native';
 import { View, StyleSheet, Image, Text } from 'react-native';
 const BorderViewWallet = () => {
@@ -5,9 +6,9 @@ const BorderViewWallet = () => {
         <View style={styles.BorderView}>
             <View >
                 <View style={{justifyContent : 'center' , alignItems : 'center'}}>
-                    <Image style={styles.img} source={require('../image/ViewHolder.png')} />
+                    <Image style={styles.img} source={require('../Assets/BorderViewImg.png')} />
                 <View style={{flexDirection : 'column' , alignItems : 'center' , position : 'absolute'}}>
-                    <Image source={require('../image/tuitien.png')} />
+                    <Image source={require('../Assets/tuitien.png')} />
                     <Text style={styles.textBorder}>434,403</Text>
                 </View>
                 </View>

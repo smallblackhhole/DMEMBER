@@ -73,7 +73,7 @@ const ShopScreen = () => {
 
         const renderProduct = ({ item }) => {
             return (
-                <TouchableOpacity onPress={() => { navigation.navigate('Detail',{item}) }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Detail', { item }) }}>
                     <View style={styles.ViewBorderPro}>
                         <View style={styles.borderPro}>
                             <View>
@@ -175,10 +175,10 @@ const ShopScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.headerBar}>
-                <View style={styles.borderSearch}>
+                <TouchableOpacity style={styles.borderSearch} onPress={() => {navigation.navigate('Search')}}>
                     <Image style={styles.customsearchicon} source={require('../Assets/search.png')} />
-                    <TextInput placeholder="TÌm kiếm..." />
-                </View>
+                    <Text>TÌm kiếm...</Text>
+                </TouchableOpacity>
                 <View>
                     <Image style={styles.iconheader} source={require('../Assets/Notification.png')} />
                     <View style={styles.customnumbernotification}></View>
@@ -215,6 +215,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         borderWidth: 0,
         borderRadius: 7,
+        alignItems: "center",
         width: '70%',
         backgroundColor: 'white',
         margin: 10,

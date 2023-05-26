@@ -15,13 +15,12 @@ import Security from "../AccountFunction/Security";
 import Team from "../AccountFunction/Team";
 import Map from "../AccountFunction/Map";
 import Report from "../AccountFunction/Report";
+import GiohangScreen from "../gio_hang/GiohangScreen";
 import DetailTeam from "../AccountFunction/DetailTeam";
 import DetailScreen from "../DetailProduct/DetailScreen";
 import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
-import Register from "../login/Register";
-import Login from "../login/Login";
-import Screnn from "../Screen/Screen";
-import Quenmatkhau from "../login/quenmatkhau";
+import Payment from "../Payment_confirm/PayConfirm";
+import SearchScreen from "../SearchScreen/SearchScreen";
 const Tab = createBottomTabNavigator();
 
 
@@ -31,18 +30,6 @@ function MyStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Screnn" component={Screnn} options={{
-          headerShown: false
-        }} />
-        <Stack.Screen name="Login" component={Login} options={{
-          headerShown: false
-        }} />
-        <Stack.Screen name="Register" component={Register} options={{
-          headerShown: false
-        }} />
-        <Stack.Screen name="Quenmatkhau" component={Quenmatkhau} options={{
-          headerShown: false
-        }} />
         <Stack.Screen name="MenuScreen" component={MenuAccount} options={{
           headerShown: false
         }} />
@@ -76,7 +63,15 @@ function MyStack() {
         <Stack.Screen name="CreateTopic" component={CreateTopicScreen} options={{
           headerShown: false
         }} />
-
+        <Stack.Screen name="Cart2" component={GiohangScreen} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="PayComfirm" component={Payment} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Search" component={SearchScreen} options={{
+          headerShown: false
+        }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

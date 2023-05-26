@@ -54,10 +54,8 @@ const Search = () => {
                             <Image source={require('../../image/red_sale.png')} style={styles.img_cornerIcon} />
                         </View>
                     </View>
-
                     {/* tên sản phẩm */}
                     <Text style={styles.ten_sp}>Nước tẩy trang Dearanchy Purifying Pure Cleansing 30ml</Text>
-
                     {/* view tổng 2 text 1 button */}
                     <View style={styles.view_text_btn}>
                         {/* view giá bán , giá khấu */}
