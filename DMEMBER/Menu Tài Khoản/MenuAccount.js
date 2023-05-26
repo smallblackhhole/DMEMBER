@@ -18,6 +18,10 @@ import Report from "../AccountFunction/Report";
 import DetailTeam from "../AccountFunction/DetailTeam";
 import DetailScreen from "../DetailProduct/DetailScreen";
 import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
+import Register from "../login/Register";
+import Login from "../login/Login";
+import Screnn from "../Screen/Screen";
+import Quenmatkhau from "../login/quenmatkhau";
 const Tab = createBottomTabNavigator();
 
 
@@ -27,6 +31,18 @@ function MyStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Screnn" component={Screnn} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Login" component={Login} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Register" component={Register} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Quenmatkhau" component={Quenmatkhau} options={{
+          headerShown: false
+        }} />
         <Stack.Screen name="MenuScreen" component={MenuAccount} options={{
           headerShown: false
         }} />
@@ -60,6 +76,7 @@ function MyStack() {
         <Stack.Screen name="CreateTopic" component={CreateTopicScreen} options={{
           headerShown: false
         }} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
