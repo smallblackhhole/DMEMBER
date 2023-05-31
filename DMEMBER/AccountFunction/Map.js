@@ -16,9 +16,9 @@ const Map = () => {
                     title={"Quản lý địa chỉ"} />
             </View>
             <View style={styles.addCustomer}>
-                <View style={styles.addCustomerBord}>
+                <TouchableOpacity style={styles.addCustomerBord}>
                     <Text style={styles.text1}>Thêm khách hàng mới</Text>
-                </View>
+                </TouchableOpacity>
             </View>
             <View style={styles.ViewtextTitle2}>
                 <Text style={styles.TextTitle2}>Danh sách khách hàng</Text>

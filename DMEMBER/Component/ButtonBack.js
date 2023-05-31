@@ -9,16 +9,11 @@ const ButtonBack = ({ icon, title }) => {
     const navigation = useNavigation();
     return (
         <View style={styles.headerBar}>
-            <View style={{ flex: 3, backgroundColor: 'red' , zIndex : 100 }}>
                 <TouchableOpacity onPress={() => { navigation.goBack() }}>
                     <Image source={icon} />
                 </TouchableOpacity>
-            </View>
-            <View style={{ flex: 7, backgroundColor: 'blue' }}>
-            </View>
-            <View style={styles.Viewtitle}>
                 <Text style={styles.title}>{title}</Text>
-            </View>
+            <View style={{ width:30, height:30}}></View>
         </View>
     );
 }
@@ -27,22 +22,23 @@ const styles = StyleSheet.create({
     headerBar: {
         width: WidthScreen,
         height: HeightScreen * 0.1,
-        justifyContent: "center",
+        justifyContent: "space-between",
         alignItems: "center",
         flexDirection: "row",
-        padding: 20
+        padding: 20,
+        //backgroundColor: 'pink',
     },
+    // Viewtitle : {
+    //     height:29,
+    //     justifyContent : "center" , 
+    //     alignItems : "center",
+    //   // backgroundColor: 'red',
+    // },
     title: {
         color: 'black',
-        fontSize: 22,
+        fontSize:21,
         fontWeight: "500",
     },
-    Viewtitle : {
-        width : '100%',
-        height : '100%',
-        justifyContent : "center" , 
-        alignItems : "center",
-    }
 })
 
 export default ButtonBack;

@@ -12,8 +12,8 @@ const Avatar = ({img , name}) => {
                     <Image source={img} />
                 </View>
             </View >
-            <View style={{ flex: 1 }}>
-                <Text>{name}</Text>
+            <View style={{ flex: 1 , maxWidth : 70 , maxHeight : 17 }}>
+                <Text style={style.text22}>{name}</Text>
             </View>
         </View>
     );
@@ -39,5 +39,10 @@ const style = StyleSheet.create({
     reangle62: {
         width: 50,
         height: 51,
+    },
+    text22 : {
+        color : 'black',
+        fontSize : 12,
+        fontWeight : "500"
     }
 });

@@ -1,98 +1,104 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, Dimensions, TouchableOpacity } from "react-native";
-
+import { useNavigation } from '@react-navigation/native';
 import Memberslist from '../Component/Memberslist';
 import Avatar from '../Component/Avata';
-import Search from '../Component/Search';
+import ButtonBack from '../Component/ButtonBack';
+
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 const DcashTransfer_1 = () => {
+    const navigation = useNavigation();
+    const [selectedMembers, setSelectedMembers] = useState([]);
+    const shouldShowBorder = selectedMembers.length > 2;
+
+    const handleMemberSelection = (member) => {
+        const isSelected = selectedMembers.some((item) => item.member === member.member);
+        if (isSelected) {
+            setSelectedMembers(selectedMembers.filter((item) => item.member !== member.member));
+        } else {
+            setSelectedMembers([...selectedMembers, member]);
+        }
+    };
+
     return (
-        <View style={style.container}>
-            <View style={{ flexDirection: 'row', margin: 20, justifyContent: 'center', alignContent: 'center' }}>
-                <View style={{ flex: 3 }}>
-                    <Image source={require('../image/back.png')} />
-                </View>
-                <View style={{ flex: 7 }}>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold', }}>Chuyển Dcash</Text>
-                </View>
+        <View style={styles.container}>
+            <View style={styles.headerBar}>
+                <ButtonBack
+                    icon={require('../Assets/Back.png')}
+                    title={"Chuyển Dcash"}
+                />
             </View>
-            <View style={style.searchh}>
-                <Search
-                    img={require('../image/search.png')}
-                    text={"Nhập tên, sđt, email người nhận"}
-                    add={require('../image/add.png')}
+            <View style={styles.members}>
+                <Memberslist
+                    selectedMembers={selectedMembers}
+                    handleMemberSelection={handleMemberSelection}
                 />
             </View>
 
-            <View style={style.text}>
-                <Text style={{ fontSize: 16, color: 'black', marginLeft: 20 }}>Danh sách thành viên</Text>
-            </View>
-            <View style={style.thanhvien}>
-
-                <Memberslist
-                    name={"Lê Kim Ngân"}
-                    img={require('../image/kimngan.png')}
-                    sđt={"0839020007"}
-                />
-                <Memberslist
-                    name={"Thanh toán Dstore Hồ Chí Minh"}
-                    img={require('../image/thanhtoan.png')}
-                    sđt={"190070030"}
-                />
-                <Memberslist
-                    name={"Dstore Global"}
-                    img={require('../image/global.png')}
-                    sđt={"190070030"}
-                />
-                <Memberslist
-                    name={"Lê Ánh Uyên"}
-                    img={require('../image/leanhuyen.png')}
-                    sđt={"0839020007"}
-                />
-            </View>
-            <View style={{ backgroundColor: 'white', width: WidthScreen, height: HeightScreen * 0.11, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 20, marginTop: 240 }}>
-
-                <View style={{ flexDirection: 'row', flex: 6.5 }}>
-                    <Avatar
-                        img={require('../image/leanhuyen.png')}
-                        name={"Lê Ánh Uyên"}
-                    />
-                    <Avatar
-                        img={require('../image/kimngan.png')}
-                        name={"Lê Kim Ngân"}
-                    />
+            <View style={styles.bottomBar}>
+                <View style={styles.avatarsContainer}>
+                    {selectedMembers.slice(0, 2).map((member, index) => (
+                        <Avatar key={index} img={member.img} name={member.member} />
+                    ))}
+                    {shouldShowBorder && (
+                            <View style={styles.bordSelected}>
+                                <Text>+{selectedMembers.length - 2}</Text>
+                            </View>
+                    )}
                 </View>
-                <View style={{ flex: 3.5 }}>
-                    <TouchableOpacity style={style.loginn}>
+                <View style={styles.continueButtonContainer}>
+                    <TouchableOpacity
+                        style={styles.continueButton}
+                        onPress={() => {
+                            navigation.navigate('DcashTransfer2', { selectedMembers });
+                        }}
+                    >
                         <Text style={{ color: 'white' }}>Tiếp tục</Text>
                     </TouchableOpacity>
                 </View>
-
             </View>
         </View>
     );
 };
 
 export default DcashTransfer_1;
-const style = StyleSheet.create({
+
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#FBAE35",
-        flexDirection: 'column'
+        flexDirection: 'column',
+        justifyContent: 'space-between'
     },
-    text: {
-        justifyContent: 'center',
+    headerBar: {
         width: WidthScreen,
-        height: HeightScreen * 0.04,
+        height: HeightScreen * 0.07,
+        flexDirection: "row",
     },
-    thanhvien: {
-        width: WidthScreen,
-        height: HeightScreen * 0.40,
+
+    members: {
+        flex: 1,
         justifyContent: 'center'
     },
-    loginn: {
+    bottomBar: {
+        backgroundColor: 'white',
+        width: WidthScreen,
+        height: HeightScreen * 0.1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    avatarsContainer: {
+        flexDirection: 'row',
+        flex: 6.5,
+        justifyContent: 'center',
+    },
+    continueButtonContainer: {
+        flex: 3.5
+    },
+    continueButton: {
         width: WidthScreen * 0.3,
         height: HeightScreen * 0.07,
         color: 'white',
@@ -101,4 +107,14 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
+    bordSelected: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        backgroundColor: '#C4C4C4',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop : 5
+    },
+
 });

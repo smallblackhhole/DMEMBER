@@ -1,12 +1,15 @@
 import { Image, Text, View } from 'react-native'
 import React from 'react'
 import styles from './style_lichsu_all'
+import ButtonBack from '../Component/ButtonBack'
 const Lichsu_ruttien = () => {
     return (
         <View style={styles.container}>
             {/* text */}
-            <View style={{ alignItems: 'center' }}>
-                <Text style={styles.textlichsu}>Lịch sử rút tiền</Text>
+            <View style={styles.headerBar}>
+                <ButtonBack 
+                icon={require('../Assets/Back.png')}
+                title={"Lịch sử rút tiền"}/>
             </View>
             {/* view tổng lịch sử  */}
             <View style={styles.view_lichsu}>
@@ -14,7 +17,7 @@ const Lichsu_ruttien = () => {
                 <View style={styles.view_lichsu_ruttien}>
                     {/* view image */}
                     <View style={styles.view_img}>
-                        <Image source={require('../../image/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
+                        <Image source={require('../Assets/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
                     </View>
                     {/* view thông tin rút tiền  */}
                     <View style={styles.view_tt}>
@@ -45,7 +48,7 @@ const Lichsu_ruttien = () => {
                 <View style={styles.view_lichsu_ruttien}>
                     {/* view image */}
                     <View style={styles.view_img}>
-                        <Image source={require('../../image/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
+                        <Image source={require('../Assets/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
                     </View>
                     {/* view thông tin rút tiền  */}
                     <View style={styles.view_tt}>
@@ -76,7 +79,7 @@ const Lichsu_ruttien = () => {
                 <View style={styles.view_lichsu_ruttien}>
                     {/* view image */}
                     <View style={styles.view_img}>
-                        <Image source={require('../../image/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
+                        <Image source={require('../Assets/icon_lichsu_ruttien.png')} style={styles.img_ruttien} />
                     </View>
                     {/* view thông tin rút tiền  */}
                     <View style={styles.view_tt}>

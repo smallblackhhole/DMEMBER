@@ -18,26 +18,26 @@ const CreateTopicScreen = ({ route }) => {
                                 <Image source={require('../Assets/logocreatetopic.png')} />
                                 <View style={{ flexDirection: "column", marginLeft: 10 }}>
                                     <Text style={styles.textnamecreatetopic}>Mỹ phẩm Milky Dress</Text>
-                                    <Text>17/06/2022, 17:50</Text>
+                                    <Text style={{color : 'rgba(0, 0, 0, 0.8)'}}>17/06/2022, 17:50</Text>
                                 </View>
                             </View>
                             <View style={styles.ViewNameInfo}>
                                 <Text style={styles.NameInfo}>{itemtopic.itemchaged.item.nameproduct}</Text>
                             </View>
                             <View style={styles.ViewPrice}>
-                                <Image style={{ margin: 20 }} source={require('../Assets/pricegood.png')} />
+                                <Image style={{ marginLeft:20 }} source={require('../Assets/pricegood.png')} />
                                 <Text style={styles.textprice}>{itemtopic.itemchaged.item.price}</Text>
                             </View>
                             <View>
-                                <Image style={{ margin: 10 }} source={require('../Assets/whylike.png')} />
+                                <Image style={{ margin: 20 }} source={require('../Assets/whylike.png')} />
                             </View>
-                            <View style={{ width: '95%', alignItems: "center", margin: 10 }}>
+                            <View style={{width: '85%', alignItems: "center", marginLeft: 20}}>
                                 <Text style={styles.textcontent}>{item.whylike}</Text>
                             </View>
                             <View>
-                                <Image style={{ margin: 10 }} source={require('../Assets/uudiem.png')} />
+                                <Image style={{ margin: 20 }} source={require('../Assets/uudiem.png')} />
                             </View>
-                            <View style={{ width: '95%', alignItems: "center", margin: 10 }}>
+                            <View style={{ width: '85%', alignItems: "center", marginLeft: 20}}>
                                 <Text style={styles.textcontent}>{item.uudiem}</Text>
                             </View>
                             <View style={styles.imgtopic}>
@@ -89,22 +89,18 @@ const CreateTopicScreen = ({ route }) => {
         const renderItemSame = ({ item }) => {
             return (
                 <View style={styles.borderTopProduct}>
-                    <View style={styles.flex1}>
-                        <Image style={{ width: '90%', height: '90%' }} source={item.imgpro} />
+                    <View>
+                        <Image style={styles.image_product} source={item.imgpro} />
                     </View>
-                    <View style={styles.flex2}>
-                        <Text style={styles.textTopProduct}>{item.namepro}</Text>
+                    <Text style={styles.textTopProduct}>{item.namepro}</Text>
+                    <View style={styles.priceanddiscount2}>
+                        <Text style={styles.textpridis}>Giá bán : </Text>
+                        <Text style={styles.pricenum}>{item.price}</Text>
                     </View>
-                    <View style={styles.flex3}>
-                        <View style={styles.priceanddiscount}>
-                            <Text style={styles.textpridis}>Giá bán : </Text>
-                            <Text style={styles.pricenum}>{item.price}</Text>
-                        </View>
-                        <View style={styles.priceanddiscount}>
-                            <Text style={styles.textpridis}>Chiết khấu : </Text>
-                            <Text style={styles.disnum}>{item.dis}</Text>
-                            <Image style={{ marginBottom: 2 }} source={require('../Assets/addbtn.png')} />
-                        </View>
+                    <View style={styles.priceanddiscount}>
+                        <Text style={styles.textpridis}>Chiết khấu : </Text>
+                        <Text style={styles.disnum}>{item.dis}</Text>
+                        <Image style={{ marginBottom: 2, marginLeft:10 }} source={require('../Assets/addbtn.png')} />
                     </View>
                 </View>
             );
@@ -133,7 +129,7 @@ const CreateTopicScreen = ({ route }) => {
                     />
                 </View>
                 <View style={styles.AddtoCartView}>
-                    <View style={styles.ViewBtn2}>
+                    <View style={styles.ViewBtn}>
                         <View style={styles.btncreatetopicBord}>
                             <Text style={styles.texthot2}>Thêm vào giỏ</Text>
                         </View>
@@ -171,31 +167,27 @@ const CreateTopicScreen = ({ route }) => {
 }
 
 const styles = StyleSheet.create({
+    AddtoCartView: {
+        width:WidthScreen * 0.898,//345
+        height: HeightScreen * 0.1,
+        flexDirection: 'row',
+        marginTop : 70,
+        marginLeft: 20,
+        //backgroundColor: 'pink',
+        justifyContent:"space-between",
+    },
     btncreatetopicBord: {
-        backgroundColor: 'black',
+        backgroundColor: '#000000',
         justifyContent: "center",
         alignItems: "center",
-        width: '95%',
-        height: '90%',
+        width: 163,
+        height: 50,
         borderRadius: 10
     },
     ViewBtn: {
-        flex: 5,
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: "center"
-    },
-    ViewBtn2: {
-        flex: 5,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: "center",
-    },
-    AddtoCartView: {
-        width: '100%',
-        height: HeightScreen * 0.1,
-        flexDirection: 'row',
-        marginTop : 70
     },
     container: {
         flex: 1,
@@ -204,8 +196,8 @@ const styles = StyleSheet.create({
     },
     viewfull: {
         flex: 1,
-        width: '100%',
         alignItems: 'center',
+        //backgroundColor: 'red',
     },
     ProSame: {
         width: WidthScreen,
@@ -216,7 +208,7 @@ const styles = StyleSheet.create({
     headerbar: {
         width: WidthScreen,
         justifyContent: "center",
-        height: HeightScreen * 0.07
+        height: HeightScreen * 0.09,
     },
     InfoPro: {
         flex: 1,
@@ -230,38 +222,44 @@ const styles = StyleSheet.create({
         color: 'black'
     },
     texthot2: {
-        fontSize: 18,
+        fontSize: 15,
         fontWeight: "600",
         color: 'white'
     },
     srollInffo: {
-        width: '90%',
-        backgroundColor: 'white',
+        // width: '90%',
+        backgroundColor: '#FFFFFF',
         borderRadius: 15,
     },
     ViewNameInfo: {
-        width: '100%',
-        alignItems: "center"
+        marginLeft:20,
+        width:WidthScreen * 0.75,
+        height:HeightScreen * 0.082,
+        // backgroundColor: 'pink'
     },
     NameInfo: {
-        color: 'black',
-        fontSize: 18,
+        width:WidthScreen * 0.8,//300,
+        // height: HeightScreen * 0.082,//63
+        color: '#000000',
+        fontSize: 17,
         fontWeight: "500",
         textAlign: "left",
+       //  backgroundColor: 'yellow',
     },
     line: {
-        borderWidth: 0.2,
-        color: '#D9D9D9',
-        width: '90%',
-        opacity: 0.4,
-        marginTop: 20
+        borderWidth: 0.3,
+        backgroundColor: '#C4C4C4',
+        width: WidthScreen * 0.64,
+        opacity: 0.1,
+        marginTop: 17,
+        marginBottom:13
     },
     createtopic: {
-        width: '100%',
         alignItems: "center",
         flexDirection: "row",
-        height: 70,
-        margin: 10,
+        height: HeightScreen * 0.066,//50
+        margin: 20,
+       //backgroundColor: 'red',
     },
     textnamecreatetopic: {
         color: 'black',
@@ -270,8 +268,8 @@ const styles = StyleSheet.create({
     },
     ViewPrice: {
         flexDirection: "row",
-        width: '100%',
-        alignItems: "center"
+        alignItems: "center",
+       // backgroundColor: 'pink',
     },
     textprice: {
         color: '#EE2525',
@@ -284,8 +282,9 @@ const styles = StyleSheet.create({
         fontWeight: "500",
     },
     imgtopic: {
-        width: '100%',
         flexDirection: "column",
+        // backgroundColor: 'pink',
+        marginTop:25
     },
     Line1: {
         flexDirection: "row",
@@ -296,40 +295,40 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     borderLine1: {
-        borderWidth: 1,
+        borderWidth: 0.3,
         borderColor: 'black',
         backgroundColor: 'white',
         justifyContent: "center",
         alignItems: "center",
         margin: 2,
-        width: '45%',
-        height: 120
+        width: WidthScreen * 0.40,
+        height: HeightScreen * 0.154
     },
     borderLine2: {
-        borderWidth: 1,
+        borderWidth: 0.3,
         borderColor: 'black',
         justifyContent: "center",
         backgroundColor: 'white',
         alignItems: "center",
         margin: 2,
-        width: '30%',
-        height: 110
+        width: WidthScreen * 0.26,
+        height: HeightScreen * 0.142
     },
     borderLine3: {
-        borderWidth: 1,
+        borderWidth: 0.3,
         borderColor: 'black',
         justifyContent: "center",
         backgroundColor: 'rgba(0, 0, 0, 0.2)',
         alignItems: "center",
         margin: 2,
-        width: '30%',
-        height: 110
+        width: WidthScreen * 0.27,
+        height: HeightScreen * 0.142
     },
     footer: {
         flexDirection: "row",
-        height: 70,
-        justifyContent: "center",
-        alignItems: "center"
+        height: HeightScreen * 0.07,
+        alignItems: "center",
+        // backgroundColor: 'pink',
     },
     flexfooter1: {
         flex: 1,
@@ -351,44 +350,58 @@ const styles = StyleSheet.create({
     },
     ProductTop: {
         width: WidthScreen,
-        height: HeightScreen * 0.32,
         justifyContent: "space-between",
         alignItems: "center",
+        // backgroundColor: 'pink',
     },
     borderTopProduct: {
         backgroundColor: 'white',
         flexDirection: "column",
-        width: WidthScreen * 0.35,
-        height: '90%',
-        margin: 10,
+        width: WidthScreen * 0.375,
+        height: HeightScreen * 0.285,//229
+        justifyContent: "center",
+        alignItems:'center',
+        marginLeft:19,
         borderRadius: 15
     },
     textTopProduct: {
+        width: WidthScreen * 0.343,
+        height: HeightScreen * 0.048,
         color: 'black',
-        fontSize: 13,
+        fontSize: 10,
         fontWeight: "500",
         textAlign: "center",
         margin: 5,
-        paddingBottom: 7
+
     },
     priceanddiscount: {
         flexDirection: "row",
-        marginLeft: 10
+        marginLeft:10
+    },
+    priceanddiscount2: {
+        flexDirection: "row",
+        marginRight:33
     },
     textpridis: {
         color: 'black',
-        fontSize: 12,
-        fontWeight: "600"
+        fontSize: 10,
+        fontWeight: "400"
     },
     pricenum: {
         color: '#BE7229',
-        fontSize: 12,
+        fontSize: 10,
         fontWeight: "600"
     },
     disnum: {
         color: '#1151F5',
-        fontSize: 12,
+        fontSize: 10,
         fontWeight: "600"
+    },
+    image_product:{
+        width:WidthScreen * 0.32,//122
+        height:HeightScreen * 0.145,//116
+        marginTop:15,
+       // backgroundColor: 'red',
     },
     flex1: {
         flex: 5,

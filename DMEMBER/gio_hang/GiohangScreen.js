@@ -17,7 +17,7 @@ const GiohangScreen = ({ route }) => {
     });
     const RightSwipe = () => {
         return (
-            <View style={{ justifyContent: 'center', alignItems: 'center', marginRight: 30, marginLeft: 17 }}>
+            <View style={styles.right_delete}>
                 <View style={styles.OptionBox}>
                     <Image style={styles.xoa}
                         source={require('../Assets/binCart.png')} />
@@ -27,20 +27,20 @@ const GiohangScreen = ({ route }) => {
     };
     return (
         <View style={styles.container}>
+            <View style={styles.headerbar}>
+                <ButtonBack
+                    icon={require('../Assets/Back.png')}
+                    title={"Giỏ hàng"} />
+            </View>
             {/* view tổng nội dung */}
             <View style={styles.view_gh}>
                 {/* view header */}
-                <View style={styles.headerbar}>
-                    <ButtonBack
-                        icon={require('../Assets/Back.png')}
-                        title={""} />
-                </View>
+
                 {/* san pham gio hang */}
 
                 {/* item */}
                 <Swipeable renderRightActions={RightSwipe}>
                     <View style={styles.view_sp}>
-
                         {/* image sản phẩm */}
                         <View style={styles.img_all}>
                             <Image source={itemcart.itemchaged.item.imgproduct} style={styles.img_item} />
@@ -49,7 +49,7 @@ const GiohangScreen = ({ route }) => {
                             </View>
                         </View>
                         {/* view colum  */}
-                        <View style={{ flexDirection: 'column', marginLeft: 10 }}>
+                        <View style={{ flexDirection: 'column', marginLeft: 15, }}>
                             {/* tên sản phẩm */}
                             <Text style={styles.ten_sp}>{itemcart.itemchaged.item.nameproduct}</Text>
                             {/* view row */}
@@ -88,27 +88,30 @@ const GiohangScreen = ({ route }) => {
                         </View>
                     </View>
                 </Swipeable>
-
-                {/* thanh toán */}
             </View>
             <View style={styles.tongtien_gh}>
                 {/* //image bag */}
                 <View style={styles.img_all}>
-                    {/* <Image source={require('../../image/Bag.png')} style={styles.img_bag} /> */}
-                    <View style={styles.img_corner}>
-                        {/* <Image source={require('../../image/br_red.png')} style={styles.img_cornerIcon2} ></Image> */}
+                    <Image source={require('../image/Bag.png')} style={styles.img_bag} />
+                    <View style={styles.img_corner2}>
+                        <Image source={require('../image/br_red.png')} style={styles.img_cornerIcon2} ></Image>
                     </View>
+                    <View style={{ flexDirection: 'row', margin: 20 }}>
+                        <View>
+                            <Image source={require('../Assets/BagCart.png')} />
+                            <View style={styles.img_corner}>
+                                <Text style={{ color: 'white', fontSize: 12 }}>{numberCart}</Text>
+                            </View>
+                        </View>
+                        <Text style={styles.text_tt}>{formattedTotal},000</Text>
+                    </View>
+                    <TouchableOpacity style={styles.button_tt} onPress={() => { navigation.navigate('PayComfirm', { itemcart, numberCart }) }}>
+                        <Text style={styles.buttonText}>Tiếp tục</Text>
+                    </TouchableOpacity>
                 </View>
-                {/* text thanh toán */}
-                <Text style={styles.text_tt}>{formattedTotal},000</Text>
-                {/* button tiep tuc */}
-                <TouchableOpacity style={styles.button_tt} onPress={() => { navigation.navigate('PayComfirm', { itemcart, soluong }) }}>
-                    <Text style={styles.buttonText}>Tiếp tục</Text>
-                </TouchableOpacity>
             </View>
         </View>
     )
 }
-
-export default GiohangScreen
+export default GiohangScreen;
 

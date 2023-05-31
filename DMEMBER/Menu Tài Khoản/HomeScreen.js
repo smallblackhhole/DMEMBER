@@ -112,49 +112,49 @@ const HomeScreen = () => {
                                 </View>
                             </View>
                             <View style={styles.Line2}>
-                                <View style={styles.ItemOption}>
+                                <TouchableOpacity style={styles.ItemOption} onPress={() => navigation.navigate('Bord')}>
                                     <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome4.png')} />
                                     </View>
                                     <Text style={styles.textOption}>QR</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <TouchableOpacity style={styles.ItemOption} onPress={toggleModal}>
                                     <View style={styles.borderOption}>
-                                        <Image source={require('../Assets/optionHome6.png')} />
+                                        <Image source={require('../Assets/optionHome5.png')} />
                                     </View>
                                     <Text style={styles.textOption}>Nạp Dcash</Text>
                                     <Modal isVisible={isModalVisible} onBackdropPress={toggleModal}>
                                         <View style={styles.ViewModal}>
                                             <View style={styles.header}></View>
                                             <View style={styles.header2}>
-                                                <View style={{ flex: 2, width: '100%', alignItems: "center" }}>
+                                                <View style={{ flex: 2, alignItems: "center" }}>
                                                     <Image style={{ position: "absolute", top: -50 }} source={require('../Assets/warningrecharge.png')} />
                                                 </View>
-                                                <View style={{ flex: 2, width: '100%', alignItems: "center" , justifyContent : "center" }}>
+                                                <View style={{ flex: 2, alignItems: "center" , justifyContent : "center",marginTop:20  }}>
                                                     <Text style={{ color: '#FBAE35', fontSize: 18, fontWeight: "600" }}>Thông báo</Text>
                                                 </View>
-                                                <View style={{ flex: 2, width: '100%', alignItems: "center", justifyContent : "center"  }}>
-                                                    <Text style={{ color: 'black', fontSize: 18, fontWeight: "600" }}>Vui lòng nạp tối thiểu 50,000</Text>
+                                                <View style={{ flex: 2, alignItems: "center", justifyContent : "center"  }}>
+                                                    <Text style={{ color: 'black', fontSize: 16, fontWeight: "500", marginBottom:13 }}>Vui lòng nạp tối thiểu 50,000</Text>
                                                 </View>
-                                                <View style={{ flex: 4, width: '100%', alignItems: "center", justifyContent: "center" }}>
+                                                <View style={{ flex: 4, alignItems: "center", justifyContent: "center" }}>
                                                     <TouchableOpacity style={styles.borderAgree} onPress={toggleModal} >
-                                                        <Text style={{ color: 'white', fontSize: 16, fontWeight: "500" }}>Đồng ý</Text>
+                                                        <Text style={{ color: 'white', fontSize: 14, fontWeight: "600" }}>Đồng ý</Text>
                                                     </TouchableOpacity>
                                                 </View>
                                             </View>
                                         </View>
                                     </Modal>
                                 </TouchableOpacity>
-                                <View style={styles.ItemOption}>
+                                <TouchableOpacity style={styles.ItemOption} onPress={() => {navigation.navigate('WithdrawDcash')}}>
                                     <View style={styles.borderOption}>
-                                        <Image source={require('../Assets/optionHome5.png')} />
+                                        <Image source={require('../Assets/optionHome6.png')} />
                                     </View>
                                     <Text style={styles.textOption}>Rút Dcash</Text>
-                                </View>
+                                </TouchableOpacity>
                             </View>
-                        </View>
+                        </View>                        
                     </View>
-                </View>
+                </View>         
             </ScrollView>
         </View>
     );
@@ -173,9 +173,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     balanceBord: {
-        width: '90%',
-        height: '90%',
-        backgroundColor: 'white',
+        width: WidthScreen * 0.9,
+        height:HeightScreen * 0.141,//108
+        backgroundColor: '#FFFFFF',
         borderRadius: 15,
         flexDirection: "row"
     },
@@ -190,30 +190,30 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     Imgbalance: {
-        width: '90%',
-        height: '90%',
-        resizeMode: "stretch"
+        width:   WidthScreen * 0.299,
+        height:  HeightScreen * 0.126,
+        resizeMode: "stretch",
     },
     textbalance1: {
         color: 'black',
         fontWeight: "400",
-        fontSize: 16
+        fontSize: 14
     },
     textbalance2: {
         color: 'black',
-        fontWeight: "600",
-        fontSize: 18
+        fontWeight: "500",
+        fontSize: 17
     },
     textbalance3: {
         color: '#19A538',
-        fontWeight: "400",
-        fontSize: 12
+        fontWeight: "500",
+        fontSize: 11
     },
     textbalance4: {
         color: '#19A538',
         fontWeight: "600",
-        fontSize: 18,
-        marginLeft: 5
+        fontSize: 17,
+        marginLeft: 2
     },
     ViewItemBalance: {
         flexDirection: "row",
@@ -238,38 +238,39 @@ const styles = StyleSheet.create({
     },
     ListWalletView: {
         width: WidthScreen,
-        height: '30%',
+        height: HeightScreen * 0.3,
         alignItems: "center",
     },
     ListWalletBord: {
-        width: '90%',
-        height: '25%',
-        backgroundColor: 'white',
+        width: WidthScreen * 0.9,
+        height:HeightScreen * 0.075,
+        backgroundColor: '#FFFFFF',
         flexDirection: "row",
         borderRadius: 10,
-        margin: 10,
+        margin: 5,
     },
     borderListWal: {
-        width: 40,
-        height: 40,
+        width: WidthScreen * 0.106,//40
+        height: HeightScreen * 0.053,//40
         borderRadius: 20,
         backgroundColor: 'rgba(17, 81, 245, 0.1)',
         justifyContent: "center",
         alignItems: "center",
         marginTop: 10,
         marginLeft: 15,
+        //backgroundColor: 'red',
     },
     ImgList: {
-        width: 40,
-        height: 40
+        width: WidthScreen * 0.106,//40
+        height: HeightScreen * 0.053,//40
     },
     textList: {
-        fontSize: 16,
+        fontSize: 13,
         fontWeight: "500",
         color: 'black'
     },
     textList1: {
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: "600",
         color: '#F55B00'
     },
@@ -298,21 +299,22 @@ const styles = StyleSheet.create({
     },
     Seeall: {
         color: 'black',
-        fontSize: 14,
+        fontSize: 13,
         fontWeight: "400"
     },
     optionView: {
         width: WidthScreen,
-        height: '30%',
+        height: HeightScreen * 0.3,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 20
+        marginTop: 50,
+        //backgroundColor: 'red',
     },
     optionBord: {
-        width: '90%',
-        height: '90%',
-        backgroundColor: 'white',
-        borderRadius: 12,
+        width: WidthScreen * 0.9,
+        height: HeightScreen * 0.335,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 15,
         flexDirection: "column",
         justifyContent: "center",
     },
@@ -323,47 +325,52 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     borderOption: {
-        width: 60,
-        height: 60,
+        width: WidthScreen * 0.152,//60
+        height: HeightScreen * 0.078,//60
         borderRadius: 15,
-        backgroundColor: '#D9D9D9',
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 5
+        marginTop: 5,
+         backgroundColor: 'rgba(196, 196, 196, 0.3)',
     },
     ItemOption: {
         flexDirection: "column",
         flex: 1,
         alignItems: "center"
     },
-    textOption: {
+    textOption: {   
+        width: WidthScreen * 0.229,//86
+        height: HeightScreen * 0.050,//60
         color: 'black',
         fontWeight: "500",
-        fontSize: 16,
+        fontSize: 15,
         textAlign: "center",
-        marginTop: 5
+        marginTop: 5,
+       // backgroundColor:'pink'
+       
     },
     ViewModal: {
-        width: '100%',
-        height: '30%',
+        height: HeightScreen * 0.340,//262
         flexDirection: "column",
     },
     header: {
         flex: 3,
         backgroundColor: '#FBAE35',
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+       
     },
     header2: {
         flex: 7,
         backgroundColor: 'white',
         alignItems: "center",
-        borderBottomLeftRadius: 25,
-        borderBottomRightRadius: 25
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30,
+        
     },
     borderAgree: {
-        width: '35%',
-        height: '70%',
+        width: WidthScreen * 0.305,//116
+        height: HeightScreen * 0.059,//46
         backgroundColor: 'black',
         borderRadius: 30,
         justifyContent: "center",

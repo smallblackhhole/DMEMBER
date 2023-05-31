@@ -33,11 +33,11 @@ const TranfersScreen = () => {
                         <View style={{ flex: 4 }}>
                             <Image style={styles.Imagesty} source={require('../Assets/ima1.png')} />
                         </View>
-                        <View style={{ flex: 6, flexDirection: "column" }}>
+                        <View style={{ flex: 6, flexDirection: "column", marginLeft: 16, }}>
                             <Text style={styles.name}>Immune Boost </Text>
                             <Text style={styles.disre}>Siêu phẩm tăng cường sức đề kháng toàn diện </Text>
                             <View style={styles.pointS}>
-                                <Text>1,790,000 Dpoint </Text>
+                                <Text style={styles.text_pointS} >1,790,000 Dpoint </Text>
                             </View>
                         </View>
                     </View>
@@ -45,11 +45,11 @@ const TranfersScreen = () => {
                         <View style={{ flex: 4 }}>
                             <Image style={styles.Imagesty} source={require('../Assets/ima2.png')} />
                         </View>
-                        <View style={{ flex: 6, flexDirection: "column" }}>
+                        <View style={{ flex: 6, flexDirection: "column", marginLeft: 16, }}>
                             <Text style={styles.name}>Dfix</Text>
                             <Text style={styles.disre}>Trà giảm cân thiên nhiên</Text>
                             <View style={styles.pointS}>
-                                <Text>1,790,000 Dpoint </Text>
+                                <Text style={styles.text_pointS} >1,790,000 Dpoint </Text>
                             </View>
                         </View>
                     </View>
@@ -57,11 +57,11 @@ const TranfersScreen = () => {
                         <View style={{ flex: 4 }}>
                             <Image style={styles.Imagesty} source={require('../Assets/ima3.png')} />
                         </View>
-                        <View style={{ flex: 6, flexDirection: "column" }}>
+                        <View style={{ flex: 6, flexDirection: "column", marginLeft: 16, }}>
                             <Text style={styles.name}>Brilliant Cell Mask</Text>
                             <Text style={styles.disre}>Mặt nạ tinh chất cô đặc trắng da, mờ thâm </Text>
                             <View style={styles.pointS}>
-                                <Text>1,790,000 Dpoint </Text>
+                                <Text style={styles.text_pointS} >1,790,000 Dpoint </Text>
                             </View>
                         </View>
                     </View>
@@ -81,13 +81,15 @@ const styles = StyleSheet.create({
         width: WidthScreen,
         height: HeightScreen * 0.06,
         flexDirection: "row",
+        justifyContent: 'center',
+        //backgroundColor: 'red',
     },
     flexhead1: {
-        flex: 6.5,
-        justifyContent: "center"
+        flex: 1.6,
+        justifyContent: "center",
     },
     flexhead2: {
-        flex: 3.5,
+        flex: 1,
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center"
@@ -95,13 +97,13 @@ const styles = StyleSheet.create({
     title: {
         color: 'black',
         fontWeight: "500",
-        fontSize: 22,
-        margin: 10,
-        textAlign: "right"
+        fontSize: 21,
+        textAlign: "right",
+        // backgroundColor: 'red',
     },
     moneyborder: {
-        width: '80%',
-        height: '60%',
+        width: WidthScreen * 0.29,
+        height: HeightScreen * 0.045,
         backgroundColor: 'white',
         borderRadius: 20,
         flexDirection: "row",
@@ -115,7 +117,8 @@ const styles = StyleSheet.create({
         color: '#19A538',
         fontWeight: "600",
         fontSize: 14,
-        marginRight: 5
+        marginRight: 5,
+
     },
     iconheader: {
         position: "relative",
@@ -123,27 +126,29 @@ const styles = StyleSheet.create({
         marginLeft: 15
     },
     searchBar: {
-        width: WidthScreen,
+        width: WidthScreen * 0.958,//370
         height: HeightScreen * 0.07,
-        flexDirection: "row"
+        flexDirection: "row",
+        marginLeft: 10,
+        //backgroundColor: 'red',
     },
     ViewtextTitle2: {
-        marginTop: 10,
-        width: WidthScreen,
-        height: HeightScreen * 0.05,
+        marginTop: 15,
         justifyContent: "center",
+        //backgroundColor: 'red',
     },
     TextTitle2: {
         color: 'black',
-        fontSize: 18,
-        fontWeight: "600",
+        fontSize: 17,
+        fontWeight: "500",
         marginLeft: 20
     },
+
     borderSearch: {
         flexDirection: "row",
         borderWidth: 0,
         borderRadius: 7,
-        width: '80%',
+        width: WidthScreen * 0.76,
         backgroundColor: 'white',
         margin: 10,
     },
@@ -155,41 +160,49 @@ const styles = StyleSheet.create({
     },
     ViewBorItem: {
         flexDirection: "row",
-        justifyContent :'center',
-        alignItems : "center",
-        width: '90%',
-        height: '15%',
-        borderRadius: 15,
-        margin: 20,
+        justifyContent: 'center',
+        alignItems: "center",
+        width: WidthScreen * 0.9,
+        height: HeightScreen * 0.143,//112
+        borderRadius: 10,
+        marginTop: 22,
         backgroundColor: 'white'
     },
-    Imagesty: {
-        width: '100%',
-        height: '100%',
-        resizeMode: "stretch"
-    },
+    // Imagesty: {
+    //     width: '100%',
+    //     height: '100%',
+    //     resizeMode: "stretch"
+    // },
     pointS: {
         width: '55%',
-        borderRadius: 15,
+        borderRadius: 7,
         justifyContent: "center",
         alignItems: "center",
-        marginLeft : 10,
+        marginTop: 10,
         height: 30,
         backgroundColor: '#E3721E'
     },
-    name : {
-        color : 'black',
-        fontWeight : "600",
-        fontSize : 18,
-        marginLeft : 10,
-        marginBottom : 10,
+    name: {
+        color: 'black',
+        fontWeight: "600",
+        fontSize: 15,
+        // marginLeft : 10,
+        // marginBottom : 10,
+        // backgroundColor: 'blue'
     },
-    disre : {
-        color : 'black',
-        fontWeight : "500",
-        fontSize : 16,
-        marginLeft : 10,
-        marginBottom : 10,
+    disre: {
+        height: 35,
+        color: 'black',
+        fontWeight: "500",
+        fontSize: 13,
+        // marginLeft : 10,
+        // marginBottom : 10,
+        // backgroundColor: 'red'
+    },
+    text_pointS: {
+        color: '#FFFFFF',
+        fontWeight: "600",
+        fontSize: 13,
     }
 });
 

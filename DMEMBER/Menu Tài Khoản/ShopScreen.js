@@ -5,6 +5,7 @@ import shopData from "../dataShopScreen/shopData";
 const { height: screenHeight } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
+
 const ShopScreen = () => {
     const navigation = useNavigation();
     const Flatlistrender = ({ item }) => {
@@ -18,7 +19,6 @@ const ShopScreen = () => {
                 </View>
             </View>
         );
-
         const renderOption = ({ item }) => {
             return (
                 <View style={styles.itemOption}>
@@ -31,7 +31,6 @@ const ShopScreen = () => {
                 </View>
             )
         }
-
         const renderTopProduct = ({ item }) => {
             return (
                 <View style={styles.borderTopProduct}>
@@ -48,10 +47,9 @@ const ShopScreen = () => {
                     <View style={styles.priceanddiscount}>
                         <Text style={styles.textpridis}>Chiết khấu : </Text>
                         <Text style={styles.disnum}>{item.dis}</Text>
-                        <Image style={{ marginBottom: 2 }} source={require('../Assets/addbtn.png')} />
+                        <Image style={{ width: 30, height: 30, marginLeft: 8 }} source={require('../Assets/addbtn.png')} />
                     </View>
                 </View>
-
             );
         }
         const renderBanner2 = ({ item }) => (
@@ -65,8 +63,8 @@ const ShopScreen = () => {
         const renderOption2 = ({ item }) => {
             return (
                 <View style={styles.borderOptionPro}>
-                    <Image style={{ marginTop: 5 }} source={item.imgoption} />
-                    <Text style={styles.textTopProduct}>{item.nameoption}</Text>
+                    <Image style={{ marginTop: 20, width: 39, height: 38, }} source={item.imgoption} />
+                    <Text style={styles.textTopProduct2}>{item.nameoption}</Text>
                 </View>
             )
         }
@@ -77,11 +75,11 @@ const ShopScreen = () => {
                     <View style={styles.ViewBorderPro}>
                         <View style={styles.borderPro}>
                             <View>
-                                <Image source={item.imgproduct} />
-                                <Image style={{ width: 27, height: 30, position: "absolute", left: 110, top: 10 }}
+                                <Image style={styles.img_sp} source={item.imgproduct} />
+                                <Image style={{ width: 27, height: 30, position: "absolute", left: 95, top: -1 }}
                                     source={item.tag} />
                             </View>
-                            <Text style={styles.textTopProduct}>{item.nameproduct}</Text>
+                            <Text style={styles.name_sp}>{item.nameproduct}</Text>
                             <View style={{ flexDirection: "row" }}>
                                 <View style={{ flexDirection: "column" }}>
                                     <View style={styles.priceanddiscount}>
@@ -93,15 +91,13 @@ const ShopScreen = () => {
                                         <Text style={styles.disnum}>{item.dis}</Text>
                                     </View>
                                 </View>
-                                <Image style={{ marginLeft: 20 }} source={require('../Assets/addbtn.png')} />
+                                <Image style={{ marginLeft: 24, marginTop: 9, width: 30, height: 30 }} source={require('../Assets/addbtn.png')} />
                             </View>
                         </View>
                     </View>
                 </TouchableOpacity>
             );
         }
-
-
         return (
             <View>
                 <FlatList
@@ -120,6 +116,7 @@ const ShopScreen = () => {
                         />
                     </SafeAreaView>
                 </View>
+                {/* text sản phẩm bán chạy  */}
                 <View style={styles.textProductHot}>
                     <View style={styles.textProductHot2}>
                         <Text style={styles.texthot}>SẢN PHẨM BÁN CHẠY</Text>
@@ -135,7 +132,8 @@ const ShopScreen = () => {
                         showsHorizontalScrollIndicator={false}
                     />
                 </View>
-                <View style={styles.textProductHot}>
+                {/* text mỹ phẩm milkdress */}
+                <View style={styles.textProductHot1}>
                     <View style={styles.textProductHot2}>
                         <Text style={styles.texthot}>MỸ PHẨM MILKYDRESS</Text>
                         <Image style={{ top: 5 }} source={require('../Assets/Vector.png')} />
@@ -175,7 +173,7 @@ const ShopScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.headerBar}>
-                <TouchableOpacity style={styles.borderSearch} onPress={() => {navigation.navigate('Search')}}>
+                <TouchableOpacity style={styles.borderSearch} onPress={() => { navigation.navigate('Search') }}>
                     <Image style={styles.customsearchicon} source={require('../Assets/search.png')} />
                     <Text>TÌm kiếm...</Text>
                 </TouchableOpacity>
@@ -183,6 +181,7 @@ const ShopScreen = () => {
                     <Image style={styles.iconheader} source={require('../Assets/Notification.png')} />
                     <View style={styles.customnumbernotification}></View>
                 </View>
+                {/* cart */}
                 <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
                     <Image style={styles.iconheader} source={require('../Assets/Cart.png')} />
                 </TouchableOpacity>
@@ -205,140 +204,176 @@ const styles = StyleSheet.create({
         alignItems: "center",
         flexDirection: "column"
     },
+    //header search, thông báo, cart
     headerBar: {
         flexDirection: "row",
-        width: '100%',
-        height: 60,
+        width: WidthScreen,
+        height: screenHeight * 0.070,//60
         justifyContent: "space-between",
+        //backgroundColor: 'green',
+        alignItems: "center",
     },
     borderSearch: {
         flexDirection: "row",
         borderWidth: 0,
         borderRadius: 7,
+        width: WidthScreen * 0.70,
+        height: screenHeight * 0.050,//43
+        marginLeft: 17,
+         backgroundColor: '#FFFFFF',
         alignItems: "center",
-        width: '70%',
-        backgroundColor: 'white',
-        margin: 10,
 
     },
     iconheader: {
+        width: WidthScreen * 0.070,//26
+        height: screenHeight * 0.032,//25
         position: "relative",
-        marginTop: 15,
         left: -15,
+        //backgroundColor: 'red',
     },
+    //icon search
     customsearchicon: {
-        margin: 5
+        margin: 5,
     },
     customnumbernotification: {
-        backgroundColor: '#EE2525',
-        width: 10,
-        height: 10,
-        borderRadius: 10,
+        backgroundColor: 'red',
+        width: WidthScreen * 0.025,//10
+        height: screenHeight * 0.012,//10
+        borderRadius: 50,
         position: "absolute",
-        top: 30
+        top: 14,
+
     },
+    //view slide
     containerSlide: {
+        width: WidthScreen,
+        height: screenHeight * 0.30,
+        alignItems: "center",
+        justifyContent: "center",
+        // backgroundColor: 'green',
+    },
+    containerSlide2: {
         width: WidthScreen,
         height: screenHeight * 0.25,
         alignItems: "center",
         justifyContent: "center",
+        // backgroundColor: 'green',
     },
-    containerSlide2: {
-        width: WidthScreen,
-        height: screenHeight * 0.20,
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    Viewbanner: {
-        width: '90%',
-        height: '90%',
-        borderRadius: 20,
-    },
+    //image slide
+    // Viewbanner: {
+    //     width: 360,//365
+    //     height: 185,//185
+    //     borderRadius: 20,
+
+    // },
     custombanner: {
-        width: '100%',
-        height: '100%',
-        resizeMode: "stretch"
+        width: WidthScreen * 0.91,//350
+        height: screenHeight * 0.239,
+        resizeMode: "stretch",
+        borderRadius: 20,
+
     },
     SelectOption: {
-        width: '100%',
+        width: WidthScreen * 1,
         height: screenHeight * 0.1,
         alignItems: 'center',
         justifyContent: "center",
-        marginTop: 10,
+        marginTop: 5,
+        //backgroundColor: 'green',
     },
+    // VIEW item danh sách ngang
     borderOption: {
-        width: '90%',
+        width: WidthScreen * 0.91,//365
         justifyContent: "center",
         alignItems: "center",
-        height: '100%',
-        backgroundColor: 'white',
-        borderRadius: 10
+        height: screenHeight * 0.135,//106
+        backgroundColor: '#FFFFFF',
+        borderRadius: 10,
+        marginTop: 10,
     },
     itemback1: {
         justifyContent: "center",
         alignItems: "center",
     },
+    //icon trong danh sách nằm ngang
     itemback: {
-        width: 45,
-        height: 45,
-        borderRadius: 20,
+        width: WidthScreen * 0.122,//46
+        height: screenHeight * 0.060,//46
+        borderRadius: 50,
         backgroundColor: 'rgba(17, 81, 245, 0.1)',
         justifyContent: "center",
         alignItems: "center",
 
     },
+    //item ngang
     itemOption: {
-        marginHorizontal: 5,
-        justifyContent: 'space-between',
+        marginHorizontal: 10,
+        //backgroundColor: 'green',
     },
+    //TEXT item ngang
     nameoption: {
+        width: WidthScreen * 0.132,//46
+        height: screenHeight * 0.039,//30
         textAlign: "center",
-        fontSize: 12,
+        fontSize: 11,
         fontWeight: "500",
-        color: 'black'
+        color: 'black',
+        //backgroundColor:'green'
     },
     viewLineOption: {
         flexDirection: "column",
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        margin: 10
+        margin: 10,
+
     },
     textProductHot: {
-        width: '100%',
-        height: 40,
-        marginTop: 10,
+        marginTop: 40,
+        //backgroundColor:'pink',
+        justifyContent: 'center',
+        marginBottom: 18
     },
+    textProductHot1: {
+        marginTop: 18,
+        //backgroundColor:'pink',
+        justifyContent: 'center',
+        marginBottom: 15
+    },
+    //VIEW sản phẩm bán chạy và icon >
     textProductHot2: {
         justifyContent: "space-between",
         flexDirection: "row",
-        marginHorizontal: 15,
-        margin: 10
+        marginHorizontal: 20,
+        //backgroundColor:'green'
     },
+    //full screen
     viewfull: {
         flex: 1,
-        width: '100%',
         alignItems: 'center',
+        //backgroundColor: 'green',
     },
     texthot: {
         fontSize: 18,
         fontWeight: "600",
         color: 'black'
     },
+    //VIEW sản phẩm ngang 
     ProductTop: {
         width: WidthScreen,
         height: screenHeight * 0.30,
         justifyContent: "space-between",
         alignItems: "center",
+        //backgroundColor: 'blue',
+
     },
     borderTopProduct: {
-        backgroundColor: 'white',
+        backgroundColor: '#FFFFFF',
         flexDirection: "column",
-        width: WidthScreen * 0.35,
-        height: '90%',
-        margin: 10,
-        paddingBottom: 10,
-        borderRadius: 15
+        width: WidthScreen * 0.385,//143
+        height: screenHeight * 0.298,//229
+        borderRadius: 10,
+        marginLeft: 17,
     },
     textTopProduct: {
         color: 'black',
@@ -346,16 +381,25 @@ const styles = StyleSheet.create({
         fontWeight: "500",
         textAlign: "center",
         margin: 5,
+        paddingBottom: 7,
+
+    },
+    textTopProduct2: {
+        color: 'black',
+        fontSize: 10,
+        fontWeight: "400",
+        textAlign: "center",
+        margin: 5,
         paddingBottom: 7
     },
     priceanddiscount: {
         flexDirection: "row",
-        marginLeft: 10
+        marginLeft: 15
     },
     textpridis: {
         color: 'black',
-        fontSize: 12,
-        fontWeight: "600"
+        fontSize: 10,
+        fontWeight: "400"
     },
     pricenum: {
         color: '#BE7229',
@@ -375,43 +419,65 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     borderOptionPro: {
-        backgroundColor: 'white',
-        width: WidthScreen * 0.2,
-        height: '100%',
+        width: WidthScreen * 0.21,//80
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: 15,
-        marginLeft: 7.5,
-        marginRight: 7.5
+        borderRadius: 10,
+        marginLeft: 17,
+        backgroundColor: '#FFFFFF',
     },
     ProView: {
         width: WidthScreen,
-        height: '100%',
-        marginTop: 10,
+        marginTop: 17,
         flex: 1,
-        flexDirection: "column"
+        flexDirection: "column",
+        //backgroundColor: 'red',
     },
-    ViewBorderPro: {
-        flexDirection: "row",
-        justifyContent: "center",
-        width: WidthScreen * 0.5,
-        height: screenHeight * 0.33,
-        alignItems: "center"
-    },
+    // ViewBorderPro: {
+    //     flexDirection: "row",
+    //     justifyContent: "center",
+    //     width: WidthScreen * 0.5,
+    //     height: screenHeight * 0.33,
+    //     alignItems: "center",
+    //     //  backgroundColor: 'red',
+    // },
+    //VIEW sản phẩm
     borderPro: {
-        width: '90%',
-        height: '90%',
-        backgroundColor: 'white',
+        width: WidthScreen * 0.433,
+        height: screenHeight * 0.295,
+        backgroundColor: '#FFFFFF',
         borderRadius: 15,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+       // backgroundColor: 'pink',
+        marginLeft: 16,
+        marginBottom: 17
+    },
+    //image item
+    img_sp: {
+        width: WidthScreen * 0.265,//100
+        height: screenHeight * 0.162,//125
+         //backgroundColor: 'pink',
+    },
+    //name item
+    name_sp: {
+        width: WidthScreen * 0.343,
+        height: screenHeight * 0.055,
+        color: 'black',
+        fontSize: 10,
+        fontWeight: "500",
+        textAlign: "center",
+        margin: 5,
+        paddingBottom: 7,
+        // backgroundColor: 'pink',
     },
     ItemSeeAll: {
         right: '20%',
         bottom: '20%',
         alignItems: "flex-end",
         justifyContent: "center",
-        flexDirection: "column"
+        flexDirection: "column",
+        // backgroundColor: 'pink',
     }
 
 });

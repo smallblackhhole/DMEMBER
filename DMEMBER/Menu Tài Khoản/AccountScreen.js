@@ -66,8 +66,8 @@ const AccountScreen = () => {
                             navi={'Security'} />
                         <BorderAccount
                             icon={require('../Assets/map.png')}
-                            name={"Quản lí địa chỉ"} 
-                            navi={"Map"}/>
+                            name={"Quản lí địa chỉ"}
+                            navi={"Map"} />
                         <BorderAccount
                             icon={require('../Assets/education.png')}
                             name={"Đào tạo"} />
@@ -89,7 +89,6 @@ const AccountScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        height: '100%',
         backgroundColor: '#FBAE35',
         flexDirection: "column"
     },
@@ -103,10 +102,9 @@ const styles = StyleSheet.create({
     },
     AccountBackground: {
         backgroundColor: 'white',
-        width: '100%',
         height: HeightScreen,
-        borderTopRightRadius: 40,
-        borderTopLeftRadius: 40,
+        borderTopRightRadius: 50,
+        borderTopLeftRadius: 50,
         alignItems: "center",
         marginTop: 100,
         paddingBottom: 120
@@ -118,19 +116,19 @@ const styles = StyleSheet.create({
     borderRadiusImage: {
         position: "relative",
         bottom: 45,
-        width: 110,
-        height: 110,
-        backgroundColor: 'white',
+        width: WidthScreen * 0.290,//110
+        height: HeightScreen * 0.141,//110
+        backgroundColor: '#FFFFFF',
         borderRadius: 55
     },
     viewname: {
         flexDirection: "row",
         paddingLeft: 25,
         bottom: 30,
-        width: '100%',
-        height: '5%',
+        height: HeightScreen * 0.042,//110
         justifyContent: "center",
-        textAlign: "center"
+        textAlign: "center",
+       // backgroundColor: 'red',
     },
     textName: {
         fontFamily: 'Montserrat',
@@ -140,8 +138,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     editname: {
-        width: 25,
-        height: 25,
+        width: WidthScreen * 0.066,//25
+        height: HeightScreen * 0.033,//25
         marginLeft: 20
     },
     potision: {
@@ -154,8 +152,8 @@ const styles = StyleSheet.create({
     viewdayend: {
         backgroundColor: '#16C7BD',
         flexDirection: "row",
-        width: '50%',
-        height: '5%',
+        width: WidthScreen * 0.55,
+        height: HeightScreen * 0.04,
         borderRadius: 30,
         bottom: 25,
         justifyContent: "center",
@@ -171,9 +169,9 @@ const styles = StyleSheet.create({
         height: 15
     },
     viewSale: {
-        width: '90%',
-        height: '25%',
-        backgroundColor: 'white',
+        width: WidthScreen * 0.9,
+        height: HeightScreen * 0.212,
+        backgroundColor: '#FFFFFF',
         borderRadius: 30,
         elevation: 6
     },
@@ -192,13 +190,12 @@ const styles = StyleSheet.create({
         textAlign: "center",
     },
     SaleView: {
-        width: '100%',
-        height: '70%',
+        height: HeightScreen * 0.7,
         flexDirection: "row",
     },
     salecase1: {
-        width: 120,
-        height: '60%',
+        width: WidthScreen * 0.315,//120
+        height: HeightScreen * 0.082,
         backgroundColor: '#FBCC80',
         borderRadius: 15,
         justifyContent: "center",
@@ -207,8 +204,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     salecase2: {
-        width: 120,
-        height: '60%',
+        width: WidthScreen * 0.315,//120
+        height: HeightScreen * 0.082,
         backgroundColor: '#5EC7C1',
         borderRadius: 15,
         alignItems: "center",
@@ -217,8 +214,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     salecase3: {
-        width: 120,
-        height: '60%',
+        width: WidthScreen * 0.315,//120
+        height: HeightScreen * 0.082,
         backgroundColor: '#8ABF3D',
         alignItems: "center",
         borderRadius: 15,
@@ -248,11 +245,10 @@ const styles = StyleSheet.create({
 
     },
     touchOptionView: {
-        backgroundColor: 'white',
+        backgroundColor: '#FFFFFF',
         elevation: 2,
         borderRadius: 10,
-        width: '100%',
-        height: 50,
+        height: 100,
         flexDirection: 'row',
         padding: 15,
         marginTop: 10,
@@ -266,8 +262,9 @@ const styles = StyleSheet.create({
     },
     MoreOption: {
         width: WidthScreen,
-        height: '100%',
+        height: HeightScreen,
         alignItems: "center",
+        // backgroundColor:'pink'
     },
     ViewtextTitle2: {
         marginTop: 10,
@@ -277,8 +274,8 @@ const styles = StyleSheet.create({
     },
     TextTitle2: {
         color: 'black',
-        fontSize: 18,
-        fontWeight: "600",
+        fontSize: 17,
+        fontWeight: "500",
         marginLeft: 20
     },
 });

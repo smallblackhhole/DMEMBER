@@ -22,9 +22,9 @@ const SearchScreen = () => {
             <View style={styles.ViewBorderPro}>
                 <View style={styles.borderPro}>
                     <View>
-                        <Image source={item.imgproduct} />
+                        <Image style={styles.img_sp} source={item.imgproduct} />
                         <Image
-                            style={{ width: 27, height: 30, position: 'absolute', left: 110, top: 10 }}
+                            style={{  width: 27, height: 30, position: "absolute", left: 95, top: -1  }}
                             source={item.tag}
                         />
                     </View>
@@ -40,7 +40,7 @@ const SearchScreen = () => {
                                 <Text style={styles.disnum}>{item.dis}</Text>
                             </View>
                         </View>
-                        <Image style={{ marginLeft: 20 }} source={require('../Assets/addbtn.png')} />
+                        <Image style={{ marginLeft: 24, marginTop: 9, width: 30, height: 30 }} source={require('../Assets/addbtn.png')} />
                     </View>
                 </View>
             </View>
@@ -53,9 +53,12 @@ const SearchScreen = () => {
                 <View style={styles.viewSearchbar}>
                     <Image style={{ marginLeft: 10 }} source={require('../Assets/search.png')} />
                     <TextInput
+                    style={{color:'#000000', marginLeft: 10}}
                         ref={searchInputRef}
                         placeholder='Tìm kiếm sản phẩm...'
+                        placeholderTextColor='color: rgba(0, 0, 0, 0.5);'
                         value={search}
+                        autoFocus
                         onChangeText={setSearch}
                     />
                 </View>
@@ -68,8 +71,8 @@ const SearchScreen = () => {
                     <View style={{ flex: 9, justifyContent: 'center' }}>
                         <Text style={styles.texttitle}>Sản phẩm chọn mua</Text>
                     </View>
-                    <View style={{ flex: 1, justifyContent: 'center' }}>
-                        <Text style={{ color: '#EE2525', fontSize: 14, fontWeight: '500' }}>Xóa</Text>
+                    <View style={{ flex: 1.3, justifyContent: 'center' }}>
+                        <Text style={{ color: '#EE2525', fontSize: 15, fontWeight: '500' }}>Xóa</Text>
                     </View>
                 </View>
 
@@ -100,7 +103,7 @@ const SearchScreen = () => {
                     />
                 ) : (
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 20, }}>Chưa có sản phẩm nào cần tìm...</Text>
+                        <Text style={{ fontSize: 20,color:'#000000',marginBottom:70 }}>Chưa có sản phẩm nào cần tìm...</Text>
                     </View>
                 )}
             </View>
@@ -115,27 +118,31 @@ const styles = StyleSheet.create({
     },
     hearder: {
         flexDirection: 'row',
-        height: HeightScreen * 0.09,
+        height: HeightScreen * 0.1,
+       // backgroundColor: 'red',
+       marginLeft:20,
+       alignItems: 'center',
     },
     viewSearchbar: {
-        flex: 8.5,
+        width:309,
+        height: HeightScreen * 0.072,//56
         borderRadius: 10,
         alignItems: 'center',
-        margin: 10,
         backgroundColor: 'white',
         flexDirection: 'row',
     },
     btndeleteText: {
-        flex: 1.5,
+        height:17,
         justifyContent: 'center',
         alignItems: 'center',
+        //backgroundColor: 'red',
+        marginLeft:17,
     },
     contentContainer: {
         width: WidthScreen,
-        height: '100%',
-        marginTop: 10,
         flex: 1,
         flexDirection: 'column',
+        //backgroundColor: 'green',
     },
     titleView: {
         flexDirection: 'row',
@@ -147,15 +154,15 @@ const styles = StyleSheet.create({
         marginRight: 20,
     },
     texttitle: {
-        fontSize: 16,
+        fontSize: 15,
         color: 'black',
         fontWeight: '500',
         marginLeft: 20
     },
     texttitle2: {
-        fontSize: 18,
+        fontSize: 17,
         color: 'black',
-        fontWeight: 'bold',
+        fontWeight: '500',
     },
     ViewsearchNear: {
         width: WidthScreen,
@@ -173,8 +180,8 @@ const styles = StyleSheet.create({
     },
     text1: {
         color: 'black',
-        fontSize: 16,
-        fontWeight: '600',
+        fontSize: 15,
+        fontWeight: '400',
     },
     ViewBorderPro: {
         flexDirection: 'row',
@@ -182,41 +189,54 @@ const styles = StyleSheet.create({
         width: WidthScreen * 0.5,
         height: HeightScreen * 0.33,
         alignItems: 'center',
+       
     },
+    //view sản phẩm
     borderPro: {
-        width: '90%',
-        height: '90%',
-        backgroundColor: 'white',
+        width: WidthScreen * 0.433,
+        height: HeightScreen * 0.295,
+        backgroundColor: '#FFFFFF',
         borderRadius: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: "center",
+        justifyContent: "center",
+       // backgroundColor: 'pink',
     },
+    //image item
+    img_sp: {
+        width: WidthScreen * 0.265,//100
+        height: HeightScreen * 0.162,//125
+        //backgroundColor: 'pink',
+    },
+    //tên sp
     textTopProduct: {
+        width: WidthScreen * 0.343,
+        height: HeightScreen * 0.055,
         color: 'black',
-        fontSize: 13,
-        fontWeight: '500',
-        textAlign: 'center',
+        fontSize: 10,
+        fontWeight: "500",
+        textAlign: "center",
         margin: 5,
         paddingBottom: 7,
+        // backgroundColor: 'pink',
     },
     priceanddiscount: {
         flexDirection: 'row',
-        marginLeft: 10,
+        marginLeft: 20
     },
     textpridis: {
         color: 'black',
-        fontSize: 12,
-        fontWeight: '600',
+        fontSize: 10,
+        fontWeight: "400"
     },
     pricenum: {
         color: '#BE7229',
-        fontSize: 12,
-        fontWeight: '600',
+        fontSize: 10,
+        fontWeight: "400"
     },
     disnum: {
         color: '#1151F5',
-        fontSize: 12,
-        fontWeight: '600',
+        fontSize: 10,
+        fontWeight: "400"
     },
     clearButton: {
         flex: 1,
