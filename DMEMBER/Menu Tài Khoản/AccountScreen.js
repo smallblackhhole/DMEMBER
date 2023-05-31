@@ -89,7 +89,6 @@ const AccountScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        height: '100%',
         backgroundColor: '#FBAE35',
         flexDirection: "column"
     },
@@ -103,10 +102,9 @@ const styles = StyleSheet.create({
     },
     AccountBackground: {
         backgroundColor: 'white',
-        width: '100%',
         height: HeightScreen,
-        borderTopRightRadius: 40,
-        borderTopLeftRadius: 40,
+        borderTopRightRadius: 50,
+        borderTopLeftRadius: 50,
         alignItems: "center",
         marginTop: 100,
         paddingBottom: 120
@@ -118,19 +116,19 @@ const styles = StyleSheet.create({
     borderRadiusImage: {
         position: "relative",
         bottom: 45,
-        width: 110,
-        height: 110,
-        backgroundColor: 'white',
+        width: WidthScreen * 0.290,//110
+        height: HeightScreen * 0.141,//110
+        backgroundColor: '#FFFFFF',
         borderRadius: 55
     },
     viewname: {
         flexDirection: "row",
         paddingLeft: 25,
         bottom: 30,
-        width: '100%',
-        height: '5%',
+        height: HeightScreen * 0.042,//110
         justifyContent: "center",
-        textAlign: "center"
+        textAlign: "center",
+       // backgroundColor: 'red',
     },
     textName: {
         fontFamily: 'Montserrat',
@@ -140,8 +138,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     editname: {
-        width: 25,
-        height: 25,
+        width: WidthScreen * 0.066,//25
+        height: HeightScreen * 0.033,//25
         marginLeft: 20
     },
     potision: {
@@ -247,11 +245,10 @@ const styles = StyleSheet.create({
 
     },
     touchOptionView: {
-        backgroundColor: 'white',
+        backgroundColor: '#FFFFFF',
         elevation: 2,
         borderRadius: 10,
-        width: '100%',
-        height: 50,
+        height: 100,
         flexDirection: 'row',
         padding: 15,
         marginTop: 10,

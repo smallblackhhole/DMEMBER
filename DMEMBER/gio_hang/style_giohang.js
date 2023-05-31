@@ -12,6 +12,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    //headerbar
+    headerbar : {
+        height : height_screen*0.07,
+        justifyContent : 'center',
+       // backgroundColor: "red",
+        
+    },
+    //view kéo xóa sản phẩm 
+    right_delete: {
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        marginRight: 30, 
+        marginLeft: 17
+    },
     //text giỏ hàng
     textgiohang: {
         fontSize: 21,
@@ -31,7 +45,7 @@ const styles = StyleSheet.create({
         // marginLeft: width_screen * 0.06,
         // marginTop: width_screen * 0.08,
         flexDirection: 'column',
-        // backgroundColor:'green',
+        //backgroundColor:'green',
     },
     //view sp
     view_sp: {
@@ -56,13 +70,20 @@ const styles = StyleSheet.create({
     },
     img_corner: {
         position: 'absolute',
+        top: -1,
+        right: -4,
+    },
+    img_corner2: {
+        position: 'absolute',
         top: 4,
         right: 7,
     },
     img_cornerIcon: {
         width: width_screen * 0.056,//20
         height: height_screen * 0.033,//23
+       // backgroundColor: 'pink',
     },
+    
     //phần vuốt item hiện nút xóa
     OptionBox: {
         justifyContent: 'center',
@@ -119,6 +140,7 @@ const styles = StyleSheet.create({
         marginLeft: 24,
     },
     img_cornerIcon2: {
+        width: width_screen * 0.038,//20
         position: 'absolute',
         top: 11,
         left: -3,
@@ -126,10 +148,12 @@ const styles = StyleSheet.create({
 
     //số tiền
     text_tt: {
+        width:width_screen* 0.456,
         color: '#BE7229',
         fontWeight: '600',
         fontSize: 21,
-        marginLeft: 20
+        marginLeft: 20,
+        //backgroundColor: 'yellow',
     },
     //button thanh toán
     button_tt: {
@@ -138,7 +162,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
         borderRadius: 10,
         justifyContent: 'center',
-        marginLeft: 90
     },
     buttonText: {
         color: '#FFFFFF',
@@ -147,10 +170,6 @@ const styles = StyleSheet.create({
         fontWeight: '600',
 
     },
-    headerbar : {
-        width :  width_screen,
-        height : height_screen*0.07,
-        justifyContent : 'center'
-    }
+
 })
 export default styles

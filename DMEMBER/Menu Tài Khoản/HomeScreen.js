@@ -120,25 +120,25 @@ const HomeScreen = () => {
                                 </View>
                                 <TouchableOpacity style={styles.ItemOption} onPress={toggleModal}>
                                     <View style={styles.borderOption}>
-                                        <Image source={require('../Assets/optionHome6.png')} />
+                                        <Image source={require('../Assets/optionHome5.png')} />
                                     </View>
                                     <Text style={styles.textOption}>Nạp Dcash</Text>
                                     <Modal isVisible={isModalVisible} onBackdropPress={toggleModal}>
                                         <View style={styles.ViewModal}>
                                             <View style={styles.header}></View>
                                             <View style={styles.header2}>
-                                                <View style={{ flex: 2, width: '100%', alignItems: "center" }}>
+                                                <View style={{ flex: 2, alignItems: "center" }}>
                                                     <Image style={{ position: "absolute", top: -50 }} source={require('../Assets/warningrecharge.png')} />
                                                 </View>
-                                                <View style={{ flex: 2, width: '100%', alignItems: "center" , justifyContent : "center" }}>
+                                                <View style={{ flex: 2, alignItems: "center" , justifyContent : "center",marginTop:20  }}>
                                                     <Text style={{ color: '#FBAE35', fontSize: 18, fontWeight: "600" }}>Thông báo</Text>
                                                 </View>
-                                                <View style={{ flex: 2, width: '100%', alignItems: "center", justifyContent : "center"  }}>
-                                                    <Text style={{ color: 'black', fontSize: 18, fontWeight: "600" }}>Vui lòng nạp tối thiểu 50,000</Text>
+                                                <View style={{ flex: 2, alignItems: "center", justifyContent : "center"  }}>
+                                                    <Text style={{ color: 'black', fontSize: 16, fontWeight: "500", marginBottom:13 }}>Vui lòng nạp tối thiểu 50,000</Text>
                                                 </View>
-                                                <View style={{ flex: 4, width: '100%', alignItems: "center", justifyContent: "center" }}>
+                                                <View style={{ flex: 4, alignItems: "center", justifyContent: "center" }}>
                                                     <TouchableOpacity style={styles.borderAgree} onPress={toggleModal} >
-                                                        <Text style={{ color: 'white', fontSize: 16, fontWeight: "500" }}>Đồng ý</Text>
+                                                        <Text style={{ color: 'white', fontSize: 14, fontWeight: "600" }}>Đồng ý</Text>
                                                     </TouchableOpacity>
                                                 </View>
                                             </View>
@@ -147,20 +147,14 @@ const HomeScreen = () => {
                                 </TouchableOpacity>
                                 <View style={styles.ItemOption}>
                                     <View style={styles.borderOption}>
-                                        <Image source={require('../Assets/optionHome5.png')} />
-                                    </View>
-                                    <Text style={styles.textOption}>Nạp Dcash</Text>
-                                </View>
-                                <View style={styles.ItemOption}>
-                                    <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome6.png')} />
                                     </View>
                                     <Text style={styles.textOption}>Rút Dcash</Text>
                                 </View>
                             </View>
-                        </View>
+                        </View>                        
                     </View>
-                </View>
+                </View>         
             </ScrollView>
         </View>
     );
@@ -356,26 +350,27 @@ const styles = StyleSheet.create({
        
     },
     ViewModal: {
-        width: '100%',
-        height: '30%',
+        height: HeightScreen * 0.340,//262
         flexDirection: "column",
     },
     header: {
         flex: 3,
         backgroundColor: '#FBAE35',
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
+       
     },
     header2: {
         flex: 7,
         backgroundColor: 'white',
         alignItems: "center",
-        borderBottomLeftRadius: 25,
-        borderBottomRightRadius: 25
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30,
+        
     },
     borderAgree: {
-        width: '35%',
-        height: '70%',
+        width: WidthScreen * 0.305,//116
+        height: HeightScreen * 0.059,//46
         backgroundColor: 'black',
         borderRadius: 30,
         justifyContent: "center",

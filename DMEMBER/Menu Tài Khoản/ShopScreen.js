@@ -19,7 +19,6 @@ const ShopScreen = () => {
                 </View>
             </View>
         );
-
         const renderOption = ({ item }) => {
             return (
                 <View style={styles.itemOption}>
@@ -174,7 +173,7 @@ const ShopScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.headerBar}>
-                <TouchableOpacity style={styles.borderSearch} onPress={() => {navigation.navigate('Search')}}>
+                <TouchableOpacity style={styles.borderSearch} onPress={() => { navigation.navigate('Search') }}>
                     <Image style={styles.customsearchicon} source={require('../Assets/search.png')} />
                     <Text>TÌm kiếm...</Text>
                 </TouchableOpacity>
@@ -220,27 +219,27 @@ const styles = StyleSheet.create({
         borderRadius: 7,
         width: WidthScreen * 0.70,
         height: screenHeight * 0.050,//43
-        alignItems: "center",
-        width: '70%',
-        backgroundColor: 'white',
         marginLeft: 17,
-        // backgroundColor: 'green',
+         backgroundColor: '#FFFFFF',
         alignItems: "center",
 
     },
     iconheader: {
+        width: WidthScreen * 0.070,//26
+        height: screenHeight * 0.032,//25
         position: "relative",
         left: -15,
+        //backgroundColor: 'red',
     },
     //icon search
     customsearchicon: {
         margin: 5,
     },
     customnumbernotification: {
-        backgroundColor: '#EE2525',
-        width: 10,
-        height: 10,
-        borderRadius: 10,
+        backgroundColor: 'red',
+        width: WidthScreen * 0.025,//10
+        height: screenHeight * 0.012,//10
+        borderRadius: 50,
         position: "absolute",
         top: 14,
 
@@ -372,7 +371,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         flexDirection: "column",
         width: WidthScreen * 0.385,//143
-        height: screenHeight * 0.295,//229
+        height: screenHeight * 0.298,//229
         borderRadius: 10,
         marginLeft: 17,
     },
@@ -450,15 +449,15 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         alignItems: "center",
         justifyContent: "center",
-        //backgroundColor: 'pink',
+       // backgroundColor: 'pink',
         marginLeft: 16,
         marginBottom: 17
     },
     //image item
     img_sp: {
-        width: 100,
-        height: 125,
-        // backgroundColor: 'pink',
+        width: WidthScreen * 0.265,//100
+        height: screenHeight * 0.162,//125
+         //backgroundColor: 'pink',
     },
     //name item
     name_sp: {

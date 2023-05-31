@@ -1,6 +1,7 @@
 import { Image, Text, View, ScrollView, Dimensions, TouchableOpacity } from 'react-native'
 import React from 'react'
 import styles from './style_chitiet_donhang'
+import ButtonBack from '../../Component/ButtonBack';
 const Chitiet_donhang = () => {
 
     const {

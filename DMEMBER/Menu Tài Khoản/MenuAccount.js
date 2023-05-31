@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, StyleSheet, View } from 'react-native'
+import { Image, StyleSheet, View,Dimensions } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HistoryScreen from './HistoryScreen'
@@ -26,6 +26,9 @@ const Tab = createBottomTabNavigator();
 
 
 const Stack = createStackNavigator();
+
+const { height: HeightScreen } = Dimensions.get('window');
+const { width: WidthScreen } = Dimensions.get('window');
 
 function MyStack() {
   return (
@@ -64,7 +67,8 @@ function MyStack() {
         <Stack.Screen name="CreateTopic" component={CreateTopicScreen} options={{
           headerShown: false
         }} />
-         <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{headerShown: false
+         <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
+          headerShown: false
         }} />
         <Stack.Screen name="Cart2" component={GiohangScreen} options={{
           headerShown: false
@@ -93,14 +97,7 @@ const MenuAccount = () => {
         tabBarActiveBackgroundColor: () => (
           <View style={styles.clickbottom}></View>
         ),
-        tabBarStyle: {
-          height: '8%',
-          backgroundColor: 'white',
-          borderTopLeftRadius: 25,
-          borderTopRightRadius: 25,
-          position: 'absolute',
-          bottom: 0,
-        },
+        tabBarStyle: styles.style_tabBar,
       }}
     >
       <Tab.Screen
@@ -233,15 +230,22 @@ const MenuAccount = () => {
 };
 
 const styles = StyleSheet.create({
+  style_tabBar:{
+    height: HeightScreen * 0.065,
+    backgroundColor: '#FFFFFF',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    position: 'absolute',
+  },
   ImageIcon: {
     position: "absolute",
-    width: 25,
-    height: 25,
+    width: WidthScreen * 0.06,//25
+    height: HeightScreen * 0.031,//25
   },
   clickbottom: {
-    width: 40,
-    height: 40,
-    backgroundColor: 'black',
+    width: WidthScreen * 0.089,//35
+    height:  HeightScreen * 0.045,//35
+    backgroundColor: '#000000',
     justifyContent: "center",
     borderRadius: 10,
     transform: [{ rotate: '45deg' }]

@@ -41,9 +41,9 @@ const styles = StyleSheet.create({
         backgroundColor: "#FBAE35",
     },
     borderView: {
-        backgroundColor: 'white',
-        width: '90%',
-        height: '90%',
+        backgroundColor: '#FFFFFF',
+        width: WidthScreen * 0.9,
+        height: HeightScreen * 0.124,
         borderRadius: 10,
         flexDirection: 'row',
         alignItems: 'center',

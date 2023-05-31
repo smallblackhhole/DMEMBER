@@ -33,9 +33,10 @@ export default DetailData = [{
     }
     ],
     Data3: [{
-        whylike: "Nước tẩy trang Dearanchy-Purifying Pure có công thức được lựa chọn kĩ càng với các thành phần làm sạch dịu nhẹ phù hợp cho da dầu và da mụn nhạy cảm. Sản phẩm nhẹ nhàng loại bỏ độc tố cho da nhờ vào các hoạt chất làm sạch được chọn lọc cho làn da nhạy cảm, đồng thời loại bỏ bã nhờn dư thừa, mang lại làn da sạch và thoáng mát.",
-        uudiem: "👉 Làm sạch đến 99% lớp trang điểm, 70% mascara và các hạt bụi siêu nhỏ có trong khói xe và môi trường ô nhiễm chỉ sau một lượt bông cotton*.👉 Cung cấp độ ẩm và giảm ma sát tối đa khi làm sạch.👉 Chống oxy hóa, giúp bảo vệ da trước môi trường ô nhiễm."
+        whylike: "Nước tẩy trang Dearanchy-Purifying Pure có công thức được lựa chọn kỹ càng với các thành phần làm sạch dịu nhẹ phù hợp cho da dầu và da mụn nhạy cảm.\nSản phẩm nhẹ nhàng loại bỏ độc tố cho da nhờ vào các hoạt chất làm sạch được chọn lọc cho làn da nhạy cảm, đồng thời loại bỏ bã nhờn dư thừa, mang lại làn da sạch và thoáng mát.",
+        uudiem: "👉 Làm sạch đến 99% lớp trang điểm, 70% mascara và các hạt bụi siêu nhỏ có trong khói xe và môi trường ô nhiễm chỉ sau một lượt bông cotton*.\n👉 Cung cấp độ ẩm và giảm ma sát tối đa khi làm sạch.\n👉 Chống oxy hóa, giúp bảo vệ da trước môi trường ô nhiễm."
     }],
+    
     Data4 : [{
         img : require('../Assets/Pro1.png')
     },

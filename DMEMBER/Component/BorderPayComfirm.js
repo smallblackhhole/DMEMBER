@@ -9,20 +9,20 @@ const BorderPayComfirm = ({ name, sđt, address }) => {
         <View style={style.container}>
             <View style={style.borderView}>
                 <View >
-                    <Image style={{ width: 50, height: 50, margin: 20 }} source={require('../Assets/paycomfirmHomelogo.png')} />
+                    <Image style={{ width: 34, height: 34, margin: 10 }} source={require('../Assets/paycomfirmHomelogo.png')} />
                 </View>
-                <View >
-                    <View style={{ flexDirection: 'row' }}>
+                <View style={{marginLeft: 10 }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start' }}>
                         <View >
-                            <Text style={{ fontSize: 16, color: 'black', fontWeight: '500' }}>{name}</Text>
+                            <Text style={{ fontSize: 13, color: 'black', fontWeight: '500' }}>{name}</Text>
                         </View>
                         <View style={style.Line}></View>
                         <View>
-                            <Text style={{ fontSize: 16, color: 'black', fontWeight: '500' }}>{sđt}</Text>
+                            <Text style={{ fontSize: 13, color: 'black', fontWeight: '500' }}>{sđt}</Text>
                         </View>
                     </View>
                     <View>
-                        <Text style={{ color: 'black' }}>{address}</Text>
+                        <Text style={{ fontSize: 12, color: 'black', fontWeight: '400' }}>{address}</Text>
                     </View>
                 </View>
             </View>
@@ -45,8 +45,9 @@ const style = StyleSheet.create({
         alignItems: 'center',
     },
     Line : {
-        borderWidth: 0.5, 
-        borderColor: 'black',
+        height:17,
+        borderWidth: 0.3, 
+        backgroundColor: '#000000',
         margin: 5 
     }
 });

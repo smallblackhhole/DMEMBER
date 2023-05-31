@@ -28,15 +28,15 @@ const Payment = ({ route }) => {
                         icon={require('../Assets/Back.png')}
                         title={"Thông tin đặt hàng"} />
                 </View>
-                <View style={{ flexDirection: 'row', height: HeightScreen * 0.04, width: WidthScreen }}>
+                <View style={{ flexDirection: 'row', height: HeightScreen * 0.04, width: WidthScreen, }}>
                     <View style={{ flex: 9, justifyContent: 'center' }}>
                         <Text style={styles.texttitle}>Địa chỉ nhận hàng</Text>
                     </View>
-                    <View style={{ flex: 1, justifyContent: 'center' }}>
+                    <View style={{ flex:0.7, justifyContent: 'center' }}>
                         <Image source={require('../Assets/Vector.png')} />
                     </View>
                 </View>
-                <View style={{ with: WidthScreen, justifyContent: 'center', height: HeightScreen * 0.1, alignItems: 'center' }}>
+                <View style={styles.view_tt}>
                     <BorderPayComfirm
                         name={"Thùy Linh"}
                         sđt={"0909078111"}
@@ -61,7 +61,6 @@ const Payment = ({ route }) => {
                                         <View style={styles.checkbox}></View>
                                     )
                                 }
-
                             </Pressable>
                         </View>
                         <View style={styles.flex2}>
@@ -104,7 +103,7 @@ const Payment = ({ route }) => {
                     <View style={{ flex: 9, justifyContent: 'center' }}>
                         <Text style={styles.texttitle}>Sản phẩm chọn mua</Text>
                     </View>
-                    <View style={{ flex: 1, justifyContent: 'center' }}>
+                    <View style={{ flex:0.7, justifyContent: 'center' }}>
                         <Image source={require('../Assets/Vector.png')} />
                     </View>
                 </View>
@@ -124,7 +123,7 @@ const Payment = ({ route }) => {
                 </View>
                 <View style={styles.note}>
                     <View style={styles.bordernote}>
-                        <TextInput />
+                        <TextInput style={{color: 'black'}} />
                     </View>
                 </View>
                 <View style={styles.titleView}>
@@ -133,17 +132,14 @@ const Payment = ({ route }) => {
                     </View>
                 </View>
                 <View style={styles.ViewPay}>
-                    <Image style={{ width: '90%', height: '90%' }} source={require('../Assets/backgroundPay.png')} />
-                    <View style={{
-                        top: 30, zIndex: 999, position: "absolute", flexDirection: "row", justifyContent: "center",
-                        alignItems: "center"
-                    }}>
-                        <View style={{ flex: 5, alignItems: "center" }}>
+                    <Image style={{ width: WidthScreen * 0.9, height:HeightScreen * 0.135 }} source={require('../Assets/backgroundPay.png')} />
+                    <View style={styles.view_thanhtoan}>
+                        <View style={{alignItems: "flex-start"}}>
                             <Text style={styles.textpay1}>Tổng cộng:</Text>
                             <Text style={styles.textpay2}>Chiết khấu:</Text>
                             <Text style={styles.textpay2}>Hoa hồng:</Text>
                         </View>
-                        <View style={{ flex: 5, alignItems: "center" }}>
+                        <View style={{alignItems: "flex-end", width: WidthScreen * 0.52}}>
                             <Text style={styles.colpay1}>{formattedTotal},000</Text>
                             <Text style={styles.colpay2}>790,000</Text>
                             <Text style={styles.colpay3}>79,000</Text>
@@ -154,8 +150,8 @@ const Payment = ({ route }) => {
                     <TouchableOpacity style={styles.borderbtn} onPress={()=>{navigation.navigate('History', {donepay , formattedTotal})}}>
                         <Text style={{
                             color: 'white',
-                            fontSize: 18,
-                            fontWeight: "500"
+                            fontSize: 15,
+                            fontWeight: "600"
                         }}>Đặt hàng</Text>
                     </TouchableOpacity>
                 </View>
@@ -175,10 +171,19 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.07,
         justifyContent: 'center'
     },
+    view_tt:{
+        with: WidthScreen,
+         justifyContent: 'center',
+          height: HeightScreen * 0.1, 
+          alignItems: 'center',  
+          marginTop:16,
+          marginBottom: 19
+         // backgroundColor: 'red',
+    },
     texttitle: {
-        fontSize: 16,
-        color: 'black',
-        fontWeight: 'bold',
+        fontSize: 18,
+        color: '#000000',
+        fontWeight: '500',
         marginLeft: 20
     },
     titleView: {
@@ -192,20 +197,24 @@ const styles = StyleSheet.create({
         width: WidthScreen,
         height: HeightScreen * 0.2,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginTop:7,
+        // backgroundColor: 'red',
     },
     Bordpay: {
-        width: '90%',
-        height: '40%',
+        width: WidthScreen * 0.895,
+        height: HeightScreen * 0.081,
         backgroundColor: 'white',
         flexDirection: "row",
         borderRadius: 10,
-        margin: 5
+        margin: 5,
+        //backgroundColor: 'red',
     },
     flex1: {
         flex: 2,
         justifyContent: "center",
         alignItems: "center",
+        
     },
     flex2: {
         flex: 8,
@@ -220,17 +229,17 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     checkbox: {
-        width: 20,
-        height: 20,
-        borderRadius: 20,
+        width: WidthScreen * 0.053,//20
+        height: HeightScreen * 0.026,//20
+        borderRadius: 50,
         alignItems: "center",
         justifyContent: "center",
-        borderWidth: 1,
+        borderWidth: 0.5,
         borderColor: 'black',
     },
     activecheckbox: {
-        width: 15,
-        height: 15,
+        width: WidthScreen * 0.039,//15
+        height: HeightScreen * 0.019,//15
         borderRadius: 20,
         borderWidth: 1,
         borderColor: 'black',
@@ -255,45 +264,52 @@ const styles = StyleSheet.create({
         width: WidthScreen,
         height: HeightScreen * 0.1,
         alignItems: "center",
+        
     },
     bordernote: {
-        width: '90%',
-        height: '90%',
+        width: WidthScreen * 0.9,
+        height: HeightScreen * 0.09,
         backgroundColor: 'white',
         borderRadius: 10,
         borderWidth: 1,
-        borderStyle: 'dashed',
-        borderColor: 'black'
+        borderStyle: 'dashed',   
     },
     ViewPay: {
         width: WidthScreen,
         height: HeightScreen * 0.15,
         alignItems: "center",
     },
+    //view thanh toán
+    view_thanhtoan:{
+        marginTop:19,
+        position: "absolute", 
+        flexDirection: "row", 
+       // backgroundColor: 'red',
+    },
     textpay1: {
         color: 'black',
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: "500"
     },
     textpay2: {
         color: 'black',
-        fontSize: 16,
+        fontSize: 15,
         fontWeight: "400"
     },
     colpay1: {
         color: '#BE7229',
-        fontSize: 18,
-        fontWeight: "500"
+        fontSize: 17,
+        fontWeight: "600"
     },
     colpay2: {
         color: '#1151F5',
-        fontSize: 16,
-        fontWeight: "400"
+        fontSize: 15,
+        fontWeight: "500"
     },
     colpay3: {
         color: '#19A538',
-        fontSize: 16,
-        fontWeight: "400"
+        fontSize: 15,
+        fontWeight: "500"
     },
     btncomfirm: {
         width: WidthScreen,
