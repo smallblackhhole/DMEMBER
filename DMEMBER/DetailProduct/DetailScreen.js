@@ -4,7 +4,7 @@ import ButtonBack from "../Component/ButtonBack";
 import detailproData from "../dataShopScreen/detailproData";
 import { useNavigation } from "@react-navigation/native";
 import Carticon from "../Component/Carticon";
-import Carousel, { Pagination } from 'react-native-snap-carousel';
+import CarousellphoneS from 'react-native-reanimated-carousel';
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
@@ -182,7 +182,10 @@ const DetailScreen = ({ route }) => {
                         alignItems: 'center',
                     }}
                 >
-                    <Image style={{ width: 150, height: 180 }} source={item.img} />
+                    <Image
+                        style={{ width: 150, height: 180 }}
+                        source={item.img}
+                    />
                 </View>
             );
         };
@@ -195,25 +198,28 @@ const DetailScreen = ({ route }) => {
                         <View style={styles.holderView}>
                             <Image style={{ width: '100%', height: ' 100%', justifyContent: 'center', alignItems: "center" }} source={require('../Assets/viewDetail.png')} />
                             <View style={{ position: "absolute", zIndex: 999, alignItems: "center", justifyContent: "center" }}>
-                                <Carousel
+                                <CarousellphoneS
                                     data={item.Data4}
                                     renderItem={renderCarouselItem}
-                                    sliderWidth={WidthScreen}
-                                    itemWidth={250}
+                                    width={250}
+                                    height={250}
                                     loop={true}
-                                    autoplay={true}
-                                    autoplayDelay={2000}
-                                    autoplayInterval={3000}
+                                    autoPlayInterval={3000}
+                                    autoPlay={true}
                                     onSnapToItem={(index) => setCurrentPage(index)}
                                 />
-                                <Pagination
-                                    dotsLength={item.Data4.length}
-                                    activeDotIndex={currentPage}
-                                    containerStyle={styles.paginationContainer}
-                                    dotStyle={styles.dotStyle}
-                                    inactiveDotStyle={styles.indotStyle}
-                                />
                             </View>
+                                <View style={styles.indicatorContainer}>
+                                    {item.Data4.map((_, index) => (
+                                        <View
+                                            key={index} 
+                                            style={[
+                                                styles.indicator,
+                                                { backgroundColor: index === currentPage ? 'white' : 'gray' },
+                                            ]}
+                                        />
+                                    ))}
+                                </View>
                             <Image style={{ position: "absolute", width: '90%', height: '60%', bottom: 10 }} source={require('../Assets/backDetail.png')} />
                         </View>
                     </View>
@@ -278,8 +284,8 @@ const DetailScreen = ({ route }) => {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.ViewBtn2}>
-                        <TouchableOpacity style={styles.btnAdd} onPress={() => {navigation.navigate('Cart2',{itemchaged,numberCart})}}>         
-                                <Text style={{ color: 'white', fontWeight: "600", fontSize: 15 }}>Thêm vào giỏ</Text>
+                        <TouchableOpacity style={styles.btnAdd} onPress={() => { navigation.navigate('Cart2', { itemchaged, numberCart }) }}>
+                            <Text style={{ color: 'white', fontWeight: "600", fontSize: 16 }}>Thêm vào giỏ</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -688,19 +694,28 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.070,
         borderRadius: 10
     },
-    paginationContainer: {
-        height: 1,
-        width: 60,
+    indicatorContainer: {
+        flexDirection: 'row',
     },
-    dotStyle: {
-        width: 20,
-        marginHorizontal: 10,
+    indicator: {
+        width: 14,
         height: 5,
-        backgroundColor: 'white',
+        borderRadius : 5,
+        marginHorizontal: 3,
     },
-    indotStyle: {
-        backgroundColor: 'black'
-    }
+    // paginationContainer: {
+    //     height: 1,
+    //     width: 60,
+    // },
+    // dotStyle: {
+    //     width: 20,
+    //     marginHorizontal: 10,
+    //     height: 5,
+    //     backgroundColor: 'white',
+    // },
+    // indotStyle: {
+    //     backgroundColor: 'black'
+    // }
 })
 
 export default DetailScreen;

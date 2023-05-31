@@ -1,5 +1,6 @@
 import React from "react";
-import { View, StyleSheet, Dimensions, Text } from "react-native";
+import { View, StyleSheet, Dimensions, Text , TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import ButtonBack from "../Component/ButtonBack";
 import BorderViewWallet from "../Component/BorderView";
 import BorderViewHolder from "../Component/ViewHolderBorder";
@@ -7,6 +8,7 @@ const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 const WalletDcash = () => {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.headerBar}>
@@ -28,21 +30,25 @@ const WalletDcash = () => {
                     icon={require('../Assets/Dcash1.png')}
                     name={'Nạp tiền vào ví'}
                     icon2={require('../Assets/Vector.png')}
+                    
                 />
                 <BorderViewHolder
                     icon={require('../Assets/Dcash2.png')}
                     name={'Rút tiền'}
                     icon2={require('../Assets/Vector.png')}
+                    navi={'WithdrawDcash'}
                 />
                 <BorderViewHolder
                     icon={require('../Assets/Dcash3.png')}
                     name={'Chuyển tiền'}
                     icon2={require('../Assets/Vector.png')}
+                    navi={'DcashTransfer1'}
                 />
                 <BorderViewHolder
                     icon={require('../Assets/Dcash4.png')}
                     name={'Lịch sử giao dịch'}
                     icon2={require('../Assets/Vector.png')}
+                    navi={'Lichsu_ruttien'}
                 />
             </View>
         </View>

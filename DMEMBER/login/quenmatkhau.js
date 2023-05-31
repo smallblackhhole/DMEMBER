@@ -1,11 +1,16 @@
-import { StyleSheet, Text, View, Image, TextInput,TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Button, Alert } from 'react-native'
+import { Modal } from 'react-native/Modal';
 import React from 'react'
+import { useNavigation } from "@react-navigation/native";
 
-const quenmatkhau = () => {
-        const handlePress = () => {
-  // Xử lý logic khi nút được nhấn
-  console.log("Nút Đăng kí đã được nhấn!");
-};
+const Quenmatkhau = () => {
+    const navigation = useNavigation();
+
+ 
+    const handlePress = () => {
+        // Xử lý logic khi nút được nhấn
+        console.log("Nút Đăng kí đã được nhấn!");
+    };
     return (
         <View style={styles.container}>
             <View style={styles.view_qkm}>
@@ -23,15 +28,18 @@ const quenmatkhau = () => {
                     <Image source={require('../image/Mail.png')} style={styles.img_icon} />
                     <TextInput
                         color='#000000'
-                        placeholder='Email'                 
+                        placeholder='Email'
                         placeholderTextColor='rgba(0, 0, 0, 0.5)'
                         style={{ flex: 1 }}
                     />
-                    <Image source={require('../image/Arrow2.png')} style={styles.img_icon2} />
+                    <TouchableOpacity  onPress={() => { navigation.navigate('PasswordConfirmationModal') }}>
+                        <Image source={require('../image/Arrow2.png')} style={styles.img_icon2} />
+                    </TouchableOpacity>
                 </View>
                 {/* btton  */}
                 {/* button đăng kí */}
-                <TouchableOpacity style={styles.button_back} onPress={handlePress}>
+                <TouchableOpacity style={styles.button_back}
+                    onPress={() => { navigation.navigate('Login') }}>
                     <Text style={styles.buttonText}>Trở về trang đăng nhập</Text>
                 </TouchableOpacity>
             </View>
@@ -39,7 +47,7 @@ const quenmatkhau = () => {
     )
 }
 
-export default quenmatkhau
+export default Quenmatkhau
 
 const styles = StyleSheet.create({
     container: {
@@ -88,18 +96,23 @@ const styles = StyleSheet.create({
         color: '#000000',
     },
     //button 
-    button_back:{
+    button_back: {
         width: '60%',
-        height:56,
-        backgroundColor:'#000000',
-        marginTop:'15%',
-        borderRadius:50,
-        justifyContent:'center',    
+        height: 56,
+        backgroundColor: '#000000',
+        marginTop: '15%',
+        borderRadius: 50,
+        justifyContent: 'center',
     },
-    buttonText:{
-        color:'#FFFFFF',
-        fontSize:15,
-        textAlign:'center',
-        fontWeight:'600',
+    buttonText: {
+        color: '#FFFFFF',
+        fontSize: 15,
+        textAlign: 'center',
+        fontWeight: '600',
     },
+    title: {
+        fontSize: 180,
+        fontWeight: 'bold',
+        color: 'black',
+      },
 })

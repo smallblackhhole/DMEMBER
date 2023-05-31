@@ -10,14 +10,14 @@ const BorderTeam = ({ img, name, congno, damua }) => {
     const RightSwipe = () => {
         return (
             <View style={styles.OptionBox}>
-                <View style={styles.sua}>
+                <TouchableOpacity style={styles.sua}>
                     <Image source={require('../Assets/sua.png')} />
                     <Text style={styles.text3}>Sửa</Text>
-                </View>
-                <View style={styles.xoa}>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.xoa}>
                     <Image source={require('../Assets/xoa.png')} />
                     <Text style={styles.text3}>Xóa</Text>
-                </View>
+                </TouchableOpacity>
             </View>
         );
     };

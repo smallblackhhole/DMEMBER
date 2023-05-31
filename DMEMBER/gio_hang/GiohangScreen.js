@@ -27,15 +27,15 @@ const GiohangScreen = ({ route }) => {
     };
     return (
         <View style={styles.container}>
-              <View style={styles.headerbar}>
-                    <ButtonBack
-                        icon={require('../Assets/Back.png')}
-                        title={"Giỏ hàng"} />
-                </View>
+            <View style={styles.headerbar}>
+                <ButtonBack
+                    icon={require('../Assets/Back.png')}
+                    title={"Giỏ hàng"} />
+            </View>
             {/* view tổng nội dung */}
             <View style={styles.view_gh}>
                 {/* view header */}
-              
+
                 {/* san pham gio hang */}
 
                 {/* item */}
@@ -88,8 +88,6 @@ const GiohangScreen = ({ route }) => {
                         </View>
                     </View>
                 </Swipeable>
-
-                {/* thanh toán */}
             </View>
             <View style={styles.tongtien_gh}>
                 {/* //image bag */}
@@ -98,17 +96,22 @@ const GiohangScreen = ({ route }) => {
                     <View style={styles.img_corner2}>
                         <Image source={require('../image/br_red.png')} style={styles.img_cornerIcon2} ></Image>
                     </View>
+                    <View style={{ flexDirection: 'row', margin: 20 }}>
+                        <View>
+                            <Image source={require('../Assets/BagCart.png')} />
+                            <View style={styles.img_corner}>
+                                <Text style={{ color: 'white', fontSize: 12 }}>{numberCart}</Text>
+                            </View>
+                        </View>
+                        <Text style={styles.text_tt}>{formattedTotal},000</Text>
+                    </View>
+                    <TouchableOpacity style={styles.button_tt} onPress={() => { navigation.navigate('PayComfirm', { itemcart, numberCart }) }}>
+                        <Text style={styles.buttonText}>Tiếp tục</Text>
+                    </TouchableOpacity>
                 </View>
-                {/* text thanh toán */}
-                <Text style={styles.text_tt}>{formattedTotal},000</Text>
-                {/* button tiep tuc */}
-                <TouchableOpacity style={styles.button_tt} onPress={() => { navigation.navigate('PayComfirm', { itemcart, soluong }) }}>
-                    <Text style={styles.buttonText}>Tiếp tục</Text>
-                </TouchableOpacity>
             </View>
         </View>
     )
 }
-
-export default GiohangScreen
+export default GiohangScreen;
 

@@ -112,12 +112,12 @@ const HomeScreen = () => {
                                 </View>
                             </View>
                             <View style={styles.Line2}>
-                                <View style={styles.ItemOption}>
+                                <TouchableOpacity style={styles.ItemOption} onPress={() => navigation.navigate('Bord')}>
                                     <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome4.png')} />
                                     </View>
                                     <Text style={styles.textOption}>QR</Text>
-                                </View>
+                                </TouchableOpacity>
                                 <TouchableOpacity style={styles.ItemOption} onPress={toggleModal}>
                                     <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome5.png')} />
@@ -145,12 +145,12 @@ const HomeScreen = () => {
                                         </View>
                                     </Modal>
                                 </TouchableOpacity>
-                                <View style={styles.ItemOption}>
+                                <TouchableOpacity style={styles.ItemOption} onPress={() => {navigation.navigate('WithdrawDcash')}}>
                                     <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome6.png')} />
                                     </View>
                                     <Text style={styles.textOption}>Rút Dcash</Text>
-                                </View>
+                                </TouchableOpacity>
                             </View>
                         </View>                        
                     </View>
