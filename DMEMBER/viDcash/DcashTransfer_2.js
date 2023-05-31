@@ -1,36 +1,46 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, Dimensions, TouchableOpacity } from "react-native";
-
-import Memberslist from '../Component/Memberslist';
-import Avatar from '../Component/Avata';
-import Search from '../Component/Search';
+import ButtonBack from '../Component/ButtonBack';
+import { useNavigation } from '@react-navigation/native';
 import Avatar2 from '../Component/Avata2';
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
-const DcashTransfer_2 = () => {
+const DcashTransfer_2 = ({ route }) => {
+    const navigation = useNavigation();
+    const memberList = route.params;
+    const [selectedMembers, setSelectedMembers] = useState(memberList.selectedMembers);
+    const [cash, setcash] = useState('');
+
+    const handleCash = (option) => {
+        if (option === 'cash1') {
+            setcash('500.000');
+        } else if (option === 'cash2') {
+            setcash('50.000');
+        } else if (option === 'cash3') {
+            setcash('5.000');
+        }
+    };
+    const handleRemoveMember = (name) => {
+        const updatedMembers = selectedMembers.filter(member => member.member !== name);
+        setSelectedMembers(updatedMembers);
+    };
+
     return (
         <View style={style.container}>
-            <View style={{ flexDirection: 'row', margin: 20, justifyContent: 'center', alignContent: 'center' }}>
-                <View style={{ flex: 3 }}>
-                    <Image source={require('../image/back.png')} />
-                </View>
-                <View style={{ flex: 7 }}>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold', }}>Chuyển Dcash</Text>
-                </View>
+            <View style={style.headerBar}>
+                <ButtonBack
+                    icon={require('../Assets/Back.png')}
+                    title={"Chuyển Dcash"}
+                />
             </View>
             <View style={style.text}>
                 <Text style={{ fontSize: 16, color: 'black', marginLeft: 20 }}>Người nhận</Text>
             </View >
             <View style={{ flexDirection: 'row', width: WidthScreen, height: HeightScreen * 0.1, alignItems: 'center', margin: 10 }}>
-                <Avatar2
-                    img={require('../image/kimngan.png')}
-                    name={"Lê Ánh Uyên"}
-                />
-                <Avatar2
-                    img={require('../image/leanhuyen.png')}
-                    name={"Lê Ánh Uyên"}
-                />
+                {selectedMembers.map((member, index) => (
+                    <Avatar2 key={index} img={member.img} name={member.member} onRemoveMember={handleRemoveMember} />
+                ))}
             </View>
 
             <View style={style.text}>
@@ -38,28 +48,40 @@ const DcashTransfer_2 = () => {
             </View>
             <View style={{ width: WidthScreen, height: HeightScreen * 0.2, flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                 <View style={style.homebuy}>
-                    <Text style={{ fontSize: 20, fontWeight: '400', color: 'black' }}>50,000</Text>
+                    <TextInput
+                        style={{ fontSize: 24 }}
+                        onChangeText={text => {
+                            const cleanedText = text.replace(/[^0-9]/g, '');
+                            const groups = cleanedText.match(/\d{1,3}/g);
+                            const formattedText = groups ? groups.join('.') : '';
+                            setcash(formattedText);
+                        }}
+                        value={cash}
+                        keyboardType="numeric"
+                    />
                 </View>
                 <View style={{ flexDirection: 'row', }}>
-                    <View style={style.homee}>
+                    <TouchableOpacity style={style.homeee} onPress={() => handleCash('cash1')}>
                         <Text style={{ fontSize: 20, fontWeight: '400', color: 'black', }}>500.000</Text>
-                    </View>
-                    <View style={style.homeee}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={style.homeee} onPress={() => handleCash('cash2')}>
                         <Text style={{ fontSize: 20, fontWeight: '400', color: 'black' }}>50.000</Text>
-                    </View>
-                    <View style={style.homeeee}>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={style.homeeee} onPress={() => handleCash('cash3')}>
                         <Text style={{ fontSize: 20, fontWeight: '400', color: 'black' }}>5.000</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
             <View style={style.text}>
                 <Text style={{ fontSize: 16, color: 'black', marginLeft: 20 }}>Lời nhắn</Text>
             </View>
-            <View style={{ alignItems: "center", height: HeightScreen * 0.2, margin: 10 }}>
-                <Image source={require('../image/note.png')} />
+            <View style={style.note}>
+                <View style={style.bordernote}>
+                    <TextInput />
+                </View>
             </View>
             <View style={{ alignItems: 'center' }}>
-                <TouchableOpacity style={style.loginn}>
+                <TouchableOpacity style={style.loginn} onPress={() =>{navigation.navigate('InforTransfer')}}>
                     <Text style={{ color: 'white' }}>Chuyển</Text>
                 </TouchableOpacity>
             </View>
@@ -78,6 +100,7 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         width: WidthScreen,
         height: HeightScreen * 0.03,
+        marginTop: 10
     },
     thanhvien: {
         width: WidthScreen,
@@ -132,5 +155,23 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-
+    headerBar: {
+        width: WidthScreen,
+        height: HeightScreen * 0.07,
+        flexDirection: "row",
+    },
+    note: {
+        width: WidthScreen,
+        height: HeightScreen * 0.1,
+        alignItems: "center",
+    },
+    bordernote: {
+        width: '90%',
+        height: '90%',
+        backgroundColor: 'white',
+        borderRadius: 10,
+        borderWidth: 1,
+        borderStyle: 'dashed',
+        borderColor: 'black'
+    },
 });

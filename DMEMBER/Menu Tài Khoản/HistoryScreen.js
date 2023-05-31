@@ -11,7 +11,7 @@ const HistoryScreen = ({route}) => {
     const order = route.params
     const navigation = useNavigation();
     const [activeOption, setActiveOption] = useState('done');
-
+console.log(order);
     const handleOptionPress = (
         option) => {
         setActiveOption(option);
@@ -101,7 +101,7 @@ const HistoryScreen = ({route}) => {
                     {activeOption === 'done' && (
                         <React.Fragment>
                             <View style={styles.DetailView}>
-                                <TouchableOpacity style={styles.BordeDetailView}  onPress={() => { navigation.navigate('chitiet_donghang') }}>
+                                <TouchableOpacity style={styles.BordeDetailView} >
                                     <View style={styles.flex1}>
                                         <View style={styles.logoShip}>
                                             <Image style={{ zIndex: 999 }} source={require('../Assets/logoShip.png')} />
@@ -190,7 +190,7 @@ const HistoryScreen = ({route}) => {
                     )}
                     {activeOption === 'waitpay' && (
                         <React.Fragment>
-                            <View style={styles.DetailView2}>
+                            <TouchableOpacity style={styles.DetailView2}  onPress={() => { navigation.navigate('chitiet_donghang') }}>
                                 <View style={styles.BordeDetailView}>
                                     <View style={styles.flex1}>
                                         <View style={styles.logoShip2}>
@@ -217,11 +217,11 @@ const HistoryScreen = ({route}) => {
                                         </View>
                                     </View>
                                     <View style={styles.flex3}>
-                                        <Text style={styles.text1}>{order.donepay.soluong.numberCart} sản phẩm</Text>
+                                        <Text style={styles.text1}>{order.donepay.numberCart} sản phẩm</Text>
                                         <Text style={styles.text3}>{order.formattedTotal},000</Text>
                                     </View>
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         </React.Fragment>
                     )}
                 </ScrollView>

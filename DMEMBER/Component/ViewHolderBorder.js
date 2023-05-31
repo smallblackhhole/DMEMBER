@@ -1,8 +1,11 @@
 import React from 'react-native';
-import { View, StyleSheet, Image, Text } from 'react-native';
-const BorderViewHolder = ({icon, name, icon2}) => {
+import { View, StyleSheet, Image, Text ,TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+const BorderViewHolder = ({icon, name, icon2 , navi}) => {
+    const navigation = useNavigation();
+    
     return (
-        <View style={styles.ListWalletBord}>
+        <TouchableOpacity style={styles.ListWalletBord} onPress={() => {navigation.navigate(navi)}}>
             <View style={styles.flexList1}>
                 <View style={styles.borderListWal}>
                     <Image style={styles.ImgList} source={icon} />
@@ -14,7 +17,7 @@ const BorderViewHolder = ({icon, name, icon2}) => {
             <View style={styles.flexList3}>
                 <Image source={icon2} />
             </View>
-        </View>
+        </TouchableOpacity>
     );
 }
 

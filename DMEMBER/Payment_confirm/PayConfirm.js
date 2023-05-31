@@ -15,11 +15,12 @@ const Payment = ({ route }) => {
         option) => {
         setactivecheckbox(option);
     };
-    const total = parseFloat(donepay.itemcart.itemchaged.item.price) * parseFloat(donepay.soluong.numberCart);
+    const total = parseFloat(donepay.itemcart.itemchaged.item.price) * parseFloat(donepay.numberCart);
     const formattedTotal = parseFloat(total).toLocaleString(undefined, {
         minimumFractionDigits: 0,
         maximumFractionDigits: 3
       });
+      console.log(donepay);
     return (
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
@@ -112,7 +113,7 @@ const Payment = ({ route }) => {
                     <BorderPayComfirm2
                         img={donepay.itemcart.itemchaged.item.imgproduct}
                         name={donepay.itemcart.itemchaged.item.nameproduct}
-                        num={donepay.soluong.numberCart}
+                        num={donepay.numberCart}
                         price={donepay.itemcart.itemchaged.item.price}
                         dis={donepay.itemcart.itemchaged.item.dis}
                     />

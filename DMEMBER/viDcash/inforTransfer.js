@@ -1,22 +1,19 @@
 import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, TouchableOpacity, Dimensions } from "react-native";
-import CheckBox from 'react-native-check-box'
+import ButtonBack from "../Component/ButtonBack";
 import React, { useState } from 'react';
 import Thongtin1 from "../Component/Thongtin_1";
 
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
-const inforTransfer = () => {
+const InforTransfer = () => {
 
     return (
         <View style={style.container}>
-            <View style={{ flexDirection: 'row', margin: 20, justifyContent: 'center', alignContent: 'center' }}>
-                <View style={{ flex: 2 }}>
-                    <Image source={require('../image/back.png')} />
-                </View>
-                <View style={{ flex: 8 }}>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold', }}>Thông tin chuyển khoản </Text>
-                </View>
+            <View style={style.headerbar}>
+                <ButtonBack
+                    icon={require('../Assets/Back.png')}
+                    title={"Thông tin chuyển khoản"} />
             </View>
 
             <View style={{ width: WidthScreen, height: HeightScreen * 0.7 }}>
@@ -79,12 +76,17 @@ const inforTransfer = () => {
     );
 };
 
-export default inforTransfer;
+export default InforTransfer;
 const style = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#FBAE35",
         flexDirection: 'column'
+    },
+    headerbar: {
+        width: WidthScreen,
+        height: HeightScreen * 0.07,
+        flexDirection: "row",
     },
     text: {
         justifyContent: 'center',

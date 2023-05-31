@@ -88,21 +88,18 @@ const GiohangScreen = ({ route }) => {
                         </View>
                     </View>
                 </Swipeable>
-
-                {/* thanh toán */}
             </View>
             <View style={styles.tongtien_gh}>
-                {/* //image bag */}
-                <View style={styles.img_all}>
-                    {/* <Image source={require('../../image/Bag.png')} style={styles.img_bag} /> */}
-                    <View style={styles.img_corner}>
-                        {/* <Image source={require('../../image/br_red.png')} style={styles.img_cornerIcon2} ></Image> */}
+                <View style={{flexDirection : 'row' , margin : 20}}>
+                    <View>
+                        <Image source={require('../Assets/BagCart.png')} />
+                        <View style={styles.img_corner}>
+                            <Text style={{ color: 'white', fontSize: 12 }}>{numberCart}</Text>
+                        </View>
                     </View>
+                    <Text style={styles.text_tt}>{formattedTotal},000</Text>
                 </View>
-                {/* text thanh toán */}
-                <Text style={styles.text_tt}>{formattedTotal},000</Text>
-                {/* button tiep tuc */}
-                <TouchableOpacity style={styles.button_tt} onPress={() => { navigation.navigate('PayComfirm', { itemcart, soluong }) }}>
+                <TouchableOpacity style={styles.button_tt} onPress={() => { navigation.navigate('PayComfirm', { itemcart, numberCart }) }}>
                     <Text style={styles.buttonText}>Tiếp tục</Text>
                 </TouchableOpacity>
             </View>

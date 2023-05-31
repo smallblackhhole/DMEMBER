@@ -55,9 +55,15 @@ const styles = StyleSheet.create({
 
     },
     img_corner: {
-        position: 'absolute',
-        top: 4,
-        right: 7,
+        position : 'absolute',
+        justifyContent : 'center',
+        alignItems :'center',
+        bottom :0,
+        right : 0,
+        width : 15,
+        height : 15,
+        borderRadius : 20,
+        backgroundColor : '#EE2525'
     },
     img_cornerIcon: {
         width: width_screen * 0.056,//20
@@ -110,6 +116,7 @@ const styles = StyleSheet.create({
         height: height_screen * 0.097,//76
         backgroundColor: '#FFFFFF',
         flexDirection: 'row',
+        justifyContent : 'space-between',
         alignItems: 'center',
     },
     //so lượng trong bag img
@@ -138,7 +145,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
         borderRadius: 10,
         justifyContent: 'center',
-        marginLeft: 90
+        margin : 20
     },
     buttonText: {
         color: '#FFFFFF',

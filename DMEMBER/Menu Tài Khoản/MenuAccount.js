@@ -21,6 +21,12 @@ import DetailScreen from "../DetailProduct/DetailScreen";
 import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
 import Payment from "../Payment_confirm/PayConfirm";
 import SearchScreen from "../SearchScreen/SearchScreen";
+import DcashTransfer_1 from "../viDcash/DcashTransfer_1";
+import DcashTransfer_2 from "../viDcash/DcashTransfer_2";
+import WithdrawDcash from "../viDcash/withdrawDcash";
+import Chitiet_donhang from "../don_hang/chitiet_donhang";
+import InforTransfer from "../viDcash/inforTransfer";
+import Lichsu_ruttien from "../history/lichsu_ruttien";
 const Tab = createBottomTabNavigator();
 
 
@@ -70,6 +76,24 @@ function MyStack() {
           headerShown: false
         }} />
         <Stack.Screen name="Search" component={SearchScreen} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="DcashTransfer1" component={DcashTransfer_1} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="DcashTransfer2" component={DcashTransfer_2} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="WithdrawDcash" component={WithdrawDcash} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="InforTransfer" component={InforTransfer} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Lichsu_ruttien" component={Lichsu_ruttien} options={{
           headerShown: false
         }} />
       </Stack.Navigator>
