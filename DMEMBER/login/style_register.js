@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
         alignItems:'center',
         flexDirection:'row',
         color:'#000000'
+        
     },
     input_dk5:{
         width: '100%',
