@@ -147,5 +147,10 @@ const styles = StyleSheet.create({
         fontWeight: '600',
 
     },
+    headerbar : {
+        width :  width_screen,
+        height : height_screen*0.07,
+        justifyContent : 'center'
+    }
 })
 export default styles

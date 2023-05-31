@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text, View, StyleSheet, Dimensions, Image, ScrollView, TouchableOpacity } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
-
+import Modal from 'react-native-modal';
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 
 const HomeScreen = () => {
     const navigation = useNavigation();
+    const [isModalVisible, setModalVisible] = useState(false);
+    const toggleModal = () => {
+        setModalVisible(!isModalVisible);
+    };
     return (
         <View style={styles.container}>
             <View style={styles.balanceView}>
@@ -50,7 +54,7 @@ const HomeScreen = () => {
                                 <Text style={styles.textList1}>434,403</Text>
                             </View>
                             <View style={styles.flexList3}>
-                                <TouchableOpacity onPress={() => { navigation.navigate('Dcash')}}>
+                                <TouchableOpacity onPress={() => { navigation.navigate('Dcash') }}>
                                     <Image source={require('../Assets/Vector.png')} />
                                 </TouchableOpacity>
                             </View>
@@ -114,6 +118,33 @@ const HomeScreen = () => {
                                     </View>
                                     <Text style={styles.textOption}>QR</Text>
                                 </View>
+                                <TouchableOpacity style={styles.ItemOption} onPress={toggleModal}>
+                                    <View style={styles.borderOption}>
+                                        <Image source={require('../Assets/optionHome6.png')} />
+                                    </View>
+                                    <Text style={styles.textOption}>Nạp Dcash</Text>
+                                    <Modal isVisible={isModalVisible} onBackdropPress={toggleModal}>
+                                        <View style={styles.ViewModal}>
+                                            <View style={styles.header}></View>
+                                            <View style={styles.header2}>
+                                                <View style={{ flex: 2, width: '100%', alignItems: "center" }}>
+                                                    <Image style={{ position: "absolute", top: -50 }} source={require('../Assets/warningrecharge.png')} />
+                                                </View>
+                                                <View style={{ flex: 2, width: '100%', alignItems: "center" , justifyContent : "center" }}>
+                                                    <Text style={{ color: '#FBAE35', fontSize: 18, fontWeight: "600" }}>Thông báo</Text>
+                                                </View>
+                                                <View style={{ flex: 2, width: '100%', alignItems: "center", justifyContent : "center"  }}>
+                                                    <Text style={{ color: 'black', fontSize: 18, fontWeight: "600" }}>Vui lòng nạp tối thiểu 50,000</Text>
+                                                </View>
+                                                <View style={{ flex: 4, width: '100%', alignItems: "center", justifyContent: "center" }}>
+                                                    <TouchableOpacity style={styles.borderAgree} onPress={toggleModal} >
+                                                        <Text style={{ color: 'white', fontSize: 16, fontWeight: "500" }}>Đồng ý</Text>
+                                                    </TouchableOpacity>
+                                                </View>
+                                            </View>
+                                        </View>
+                                    </Modal>
+                                </TouchableOpacity>
                                 <View style={styles.ItemOption}>
                                     <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome5.png')} />
@@ -322,6 +353,33 @@ const styles = StyleSheet.create({
         textAlign: "center",
         marginTop: 5,
        // backgroundColor:'pink'
+       
+    },
+    ViewModal: {
+        width: '100%',
+        height: '30%',
+        flexDirection: "column",
+    },
+    header: {
+        flex: 3,
+        backgroundColor: '#FBAE35',
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25
+    },
+    header2: {
+        flex: 7,
+        backgroundColor: 'white',
+        alignItems: "center",
+        borderBottomLeftRadius: 25,
+        borderBottomRightRadius: 25
+    },
+    borderAgree: {
+        width: '35%',
+        height: '70%',
+        backgroundColor: 'black',
+        borderRadius: 30,
+        justifyContent: "center",
+        alignItems: "center"
     }
 });
 export default HomeScreen;

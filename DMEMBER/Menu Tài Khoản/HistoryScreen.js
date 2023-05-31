@@ -7,7 +7,8 @@ const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 
-const HistoryScreen = () => {
+const HistoryScreen = ({route}) => {
+    const order = route.params
     const navigation = useNavigation();
     const [activeOption, setActiveOption] = useState('done');
 
@@ -183,6 +184,42 @@ const HistoryScreen = () => {
                                 <View style={styles.DcashViewBorder}>
                                     <Image style={{ width: 100, height: 100 }} source={require('../Assets/DcashEmpty.png')} />
                                     <Text style={styles.textDcash}>Chúng tôi rất tiếc! Bạn chưa có đơn hàng nào cả</Text>
+                                </View>
+                            </View>
+                        </React.Fragment>
+                    )}
+                    {activeOption === 'waitpay' && (
+                        <React.Fragment>
+                            <View style={styles.DetailView2}>
+                                <View style={styles.BordeDetailView}>
+                                    <View style={styles.flex1}>
+                                        <View style={styles.logoShip2}>
+                                            <Image style={{ zIndex: 999 }} source={require('../Assets/logoShip.png')} />
+                                        </View>
+                                        <View style={{ flexDirection: 'column', justifyContent: 'center', marginLeft: 10 }}>
+                                            <Text style={styles.Text1}>Mã đơn hàng: 002220321D10V</Text>
+                                            <Text>25/03/2022 - 17:40</Text>
+                                        </View>
+                                    </View>
+                                    <View style={styles.flex2}>
+                                        <View style={{ flexDirection: 'row', height: '100%' }}>
+                                            <View style={styles.logoShip2}>
+                                                <Image style={styles.styImage} source={order.donepay.itemcart.itemchaged.item.imgproduct} />
+                                            </View>
+                                            <View style={styles.title}>
+                                                <Text style={{ fontSize: 16, fontWeight: '500', color: 'black' }}>{order.donepay.itemcart.itemchaged.item.nameproduct}</Text>
+                                                <View style={{ flexDirection: 'row', marginTop: 5, marginBottom: 10 }}>
+                                                    <Text style={styles.text1}>Giá bán : </Text>
+                                                    <Text style={styles.text2}>{order.donepay.itemcart.itemchaged.item.price}</Text>
+                                                </View>
+                                            </View>
+                                            <Image style={{ position: 'relative', top: 25, left: 20 }} source={require('../Assets/Vector.png')} />
+                                        </View>
+                                    </View>
+                                    <View style={styles.flex3}>
+                                        <Text style={styles.text1}>{order.donepay.soluong.numberCart} sản phẩm</Text>
+                                        <Text style={styles.text3}>{order.formattedTotal},000</Text>
+                                    </View>
                                 </View>
                             </View>
                         </React.Fragment>

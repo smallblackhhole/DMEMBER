@@ -15,10 +15,13 @@ import Security from "../AccountFunction/Security";
 import Team from "../AccountFunction/Team";
 import Map from "../AccountFunction/Map";
 import Report from "../AccountFunction/Report";
+import GiohangScreen from "../gio_hang/GiohangScreen";
 import DetailTeam from "../AccountFunction/DetailTeam";
 import DetailScreen from "../DetailProduct/DetailScreen";
 import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
 import Chitiet_donhang from "../Phuc_folder/don_hang/chitiet_donhang";
+import Payment from "../Payment_confirm/PayConfirm";
+import SearchScreen from "../SearchScreen/SearchScreen";
 const Tab = createBottomTabNavigator();
 
 
@@ -61,7 +64,15 @@ function MyStack() {
         <Stack.Screen name="CreateTopic" component={CreateTopicScreen} options={{
           headerShown: false
         }} />
-         <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
+         <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{headerShown: false
+        }} />
+        <Stack.Screen name="Cart2" component={GiohangScreen} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="PayComfirm" component={Payment} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Search" component={SearchScreen} options={{
           headerShown: false
         }} />
       </Stack.Navigator>

@@ -174,12 +174,10 @@ const ShopScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.headerBar}>
-                {/* search */}
-                <View style={styles.borderSearch}>
+                <TouchableOpacity style={styles.borderSearch} onPress={() => {navigation.navigate('Search')}}>
                     <Image style={styles.customsearchicon} source={require('../Assets/search.png')} />
-                    <TextInput placeholder="Tìm kiếm..." placeholderTextColor='color: rgba(0, 0, 0, 0.5);' />
-                </View>
-                {/* notification */}
+                    <Text>TÌm kiếm...</Text>
+                </TouchableOpacity>
                 <View>
                     <Image style={styles.iconheader} source={require('../Assets/Notification.png')} />
                     <View style={styles.customnumbernotification}></View>
@@ -222,6 +220,8 @@ const styles = StyleSheet.create({
         borderRadius: 7,
         width: WidthScreen * 0.70,
         height: screenHeight * 0.050,//43
+        alignItems: "center",
+        width: '70%',
         backgroundColor: 'white',
         marginLeft: 17,
         // backgroundColor: 'green',
