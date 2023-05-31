@@ -1,12 +1,26 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Button, Alert } from 'react-native'
-import { Modal } from 'react-native/Modal';
-import React from 'react'
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Dimensions, Alert } from 'react-native'
+import Modal from 'react-native-modal';
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+const { height: HeightScreen } = Dimensions.get('window');
+const { width: WidthScreen } = Dimensions.get('window');
 
-const Quenmatkhau = () => {
+
+
+const Quenmatkhau = ({  onConfirm }) => {
+    const [password, setPassword] = useState('');
+
+
     const navigation = useNavigation();
+    const [isModalVisible, setModalVisible] = useState(false);
+    const toggleModal = () => {
+        setModalVisible(!isModalVisible);
+    };
 
- 
+    const handleConfirm = () => {
+        onConfirm(password);
+        setPassword('123');
+    };
     const handlePress = () => {
         // Xử lý logic khi nút được nhấn
         console.log("Nút Đăng kí đã được nhấn!");
@@ -32,12 +46,41 @@ const Quenmatkhau = () => {
                         placeholderTextColor='rgba(0, 0, 0, 0.5)'
                         style={{ flex: 1 }}
                     />
-                    <TouchableOpacity  onPress={() => { navigation.navigate('PasswordConfirmationModal') }}>
-                        <Image source={require('../image/Arrow2.png')} style={styles.img_icon2} />
+                    <TouchableOpacity style={styles.ItemOption} onPress={toggleModal}>
+                        <View style={styles.borderOption}>
+                            <Image source={require('../image/Arrow2.png')} style={styles.img_icon2} />
+                        </View>
+                        <Modal isVisible={isModalVisible} onBackdropPress={toggleModal}>
+                            <View style={styles.modalContainer}>
+                                <View style={styles.modalContent}>
+                                    <View style={styles.modalContentt}>
+                                        <Text style={{ fontSize: 16, color: 'black' }}>Vui lòng xác nhận mật khẩu</Text>
+                                    </View>
+                                    <View>
+                                        <TextInput
+                                            secureTextEntry
+                                            value={password}
+                                            onChangeText={setPassword}
+                                            style={styles.input}
+                                        />
+                                    </View>
+
+                                    <View style={styles.buttonContainer}>
+                                        <TouchableOpacity onPress={toggleModal} style={styles.loginn}>
+                                            <Text style={{ color: 'black' }}>Hủy</Text>
+                                        </TouchableOpacity >
+                                        <TouchableOpacity onPress={handleConfirm} style={styles.login}>
+                                            <Text style={{ color: 'white' }}>
+                                                Xác nhận
+                                            </Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </View>
+                        </Modal>
                     </TouchableOpacity>
+
                 </View>
-                {/* btton  */}
-                {/* button đăng kí */}
                 <TouchableOpacity style={styles.button_back}
                     onPress={() => { navigation.navigate('Login') }}>
                     <Text style={styles.buttonText}>Trở về trang đăng nhập</Text>
@@ -114,5 +157,57 @@ const styles = StyleSheet.create({
         fontSize: 180,
         fontWeight: 'bold',
         color: 'black',
-      },
-})
+    },
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalContent: {
+        backgroundColor: 'white',
+        padding: 10,
+        borderRadius: 20,
+        elevation: 5,
+        width: WidthScreen * 0.8,
+        height: HeightScreen * 0.25,
+        alignItems: 'center'
+    },
+
+    modalContentt: {
+
+        padding: 10,
+
+    },
+    input: {
+        marginBottom: 10,
+        padding: 10,
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 30,
+        width: WidthScreen * 0.7,
+        height: HeightScreen * 0.06,
+        margin: 10
+    },
+    buttonContainer: {
+        width: WidthScreen * 0.6,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    loginn: {
+        width: WidthScreen * 0.2,
+        height: HeightScreen * 0.07,
+        backgroundColor: '#C4C4C4',
+        borderRadius: 40,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    login: {
+        width: WidthScreen * 0.3,
+        height: HeightScreen * 0.07,
+        backgroundColor: 'black',
+        borderRadius: 40,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
+});

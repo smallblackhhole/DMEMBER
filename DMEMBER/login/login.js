@@ -1,10 +1,25 @@
-import { StyleSheet, View, Text, SafeAreaView, Image, TouchableOpacity, TextInput, Dimensions, } from "react-native";
+import { StyleSheet, View, Text,  Image, TouchableOpacity, TextInput, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import React, { useState } from 'react';
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 const Login = () => {
 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const navigation = useNavigation();
+
+    const handleLogin = () => {
+        // Kiểm tra tài khoản và mật khẩu
+        if (username === ('') && password === ('')) {
+          // Đăng nhập thành công, điều hướng sang màn hình HomeScreen
+          navigation.navigate('MenuScreen');
+        } else {
+          // Hiển thị thông báo lỗi
+          alert('Tài khoản hoặc mật khẩu không chính xác.');
+        }
+      };
+    
     return (
         <View style={style.container}>
             <View style={{ width: WidthScreen, height: HeightScreen * 0.3, flexDirection: 'row', marginTop: 150, }}>
@@ -20,7 +35,9 @@ const Login = () => {
                                 </View>
                                 <View style={{ flexDirection: 'row', flex: 8 }}>
                                     <Image style={{ marginTop: 12 }} source={require('../image/gach.png')} />
-                                    <TextInput placeholder='0839020007' placeholderTextColor='#000' />
+                                    <TextInput placeholder='0839020007' placeholderTextColor='#000'
+                                     value={username}
+                                     onChangeText={text => setUsername(text)} />
                                 </View>
                             </View>
                         </View>
@@ -30,7 +47,10 @@ const Login = () => {
                                     <Image style={{ width: WidthScreen * 0.1, height: HeightScreen * 0.05, }} source={require('../image/Lock.png')} />
                                 </View>
                                 <View style={{ flexDirection: 'row', flex: 8 }}>
-                                    <TextInput placeholder='Mật khẩu' placeholderTextColor='#000' />
+                                    <TextInput placeholder='Mật khẩu' placeholderTextColor='#000' 
+                                    secureTextEntry
+                                    value={password}
+                                    onChangeText={text => setPassword(text)}/>
                                 </View>
                             </View>
                         </View>
@@ -43,7 +63,7 @@ const Login = () => {
             <View style={{ width: WidthScreen * 0.6 }}>
                 <View style={{ flexDirection: 'row', marginLeft: 20 }}>
                     <View >
-                        <TouchableOpacity style={style.loginn}>
+                        <TouchableOpacity style={style.loginn} onPress={handleLogin}>
                             <Text style={{ color: 'white' }}>Đăng nhập</Text>
                         </TouchableOpacity>
                     </View>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, Dimensions, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text,  Image,  Dimensions, TouchableOpacity } from "react-native";
 
 import Team from '../Component/Team';
 const { height: HeightScreen } = Dimensions.get('window');
