@@ -19,7 +19,6 @@ import GiohangScreen from "../gio_hang/GiohangScreen";
 import DetailTeam from "../AccountFunction/DetailTeam";
 import DetailScreen from "../DetailProduct/DetailScreen";
 import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
-// import Chitiet_donhang from "../Phuc_folder/don_hang/chitiet_donhang";
 import Payment from "../Payment_confirm/PayConfirm";
 import SearchScreen from "../SearchScreen/SearchScreen";
 import Login from "../login/Login";
