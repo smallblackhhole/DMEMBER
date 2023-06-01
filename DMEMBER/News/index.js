@@ -1,11 +1,16 @@
-import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, Touchable, TouchableOpacity } from "react-native";
-
+import { StyleSheet, View, Text, Dimensions, Image, TextInput, Touchable, TouchableOpacity } from "react-native";
+const { height: screenHeight } = Dimensions.get('window');
+import ButtonBack from "../Component/ButtonBack";
+const { width: WidthScreen } = Dimensions.get('window');
 const News = () => {
 
     return (
         <View style={style.container}>
-            <Image style={{ left: '5%', top: '2%' }} source={require('../image/back.png')} />
-            <Text style={{ fontSize: 20, fontWeight: 'bold', left: '45%', position: 'absolute', top: '2%' }}>Tin tức</Text>
+             <View style={style.headerbar}>
+                <ButtonBack
+                    icon={require('../Assets/Back.png')}
+                    title={"Tin Tức"} />
+            </View>
             <View>
                 <Text style={{ fontSize: 22, fontWeight: 'bold', left: '5%', position: 'absolute', top: '10%' }}>Tin mới nhất</Text>
                 <Text style={{ fontSize: 22, fontWeight: 'bold', left: '5%', position: 'absolute', top: '90%' }}>Tin khác</Text>
@@ -55,6 +60,10 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#FBAE35",
+    },
+    headerbar : {
+        height : screenHeight*0.07,
+        justifyContent : 'center',
     },
     backk: {
         left: '5%',

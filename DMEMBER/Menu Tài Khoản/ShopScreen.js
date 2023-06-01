@@ -193,10 +193,10 @@ const ShopScreen = () => {
                     <Image style={styles.customsearchicon} source={require('../Assets/search.png')} />
                     <Text>TÌm kiếm...</Text>
                 </TouchableOpacity>
-                <View>
+                <TouchableOpacity onPress={() => {navigation.navigate('News')}}>
                     <Image style={styles.iconheader} source={require('../Assets/Notification.png')} />
                     <View style={styles.customnumbernotification}></View>
-                </View>
+                </TouchableOpacity>
                 {/* cart */}
                 <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
                     <Image style={styles.iconheader} source={require('../Assets/Cart.png')} />

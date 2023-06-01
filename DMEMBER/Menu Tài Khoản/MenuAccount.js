@@ -19,7 +19,6 @@ import GiohangScreen from "../gio_hang/GiohangScreen";
 import DetailTeam from "../AccountFunction/DetailTeam";
 import DetailScreen from "../DetailProduct/DetailScreen";
 import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
-// import Chitiet_donhang from "../Phuc_folder/don_hang/chitiet_donhang";
 import Payment from "../Payment_confirm/PayConfirm";
 import SearchScreen from "../SearchScreen/SearchScreen";
 import Login from "../login/Login";
@@ -35,6 +34,8 @@ import InforTransfer from "../viDcash/inforTransfer";
 import Lichsu_ruttien from "../history/lichsu_ruttien";
 import CreateAccount from "../CreateAccount/CreateAccount";
 import Addaddress from "../address/addaddress";
+import News from "../News";
+import InfomationScreen from "../InfomationAccount/InfomationScreen";
 const Tab = createBottomTabNavigator();
 
 
@@ -47,23 +48,6 @@ function MyStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-     
-        {/* <Stack.Screen name="addaddress" component={addaddress} options={{
-          headerShown: false
-        }} />
-         */}
-        <Stack.Screen name="Screnn" component={Screnn} options={{
-          headerShown: false
-        }} />
-        <Stack.Screen name="Login" component={Login} options={{
-          headerShown: false
-        }} />
-        <Stack.Screen name="Quenmatkhau" component={Quenmatkhau} options={{
-          headerShown: false
-        }} />
-        <Stack.Screen name="Register" component={Register} options={{
-          headerShown: false
-        }} />
         <Stack.Screen name="MenuScreen" component={MenuAccount} options={{
           headerShown: false
         }} />
@@ -97,6 +81,9 @@ function MyStack() {
         <Stack.Screen name="CreateTopic" component={CreateTopicScreen} options={{
           headerShown: false
         }} />
+        <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
+          headerShown: false
+        }} />
         <Stack.Screen name="Cart2" component={GiohangScreen} options={{
           headerShown: false
         }} />
@@ -125,6 +112,24 @@ function MyStack() {
           headerShown: false
         }} />
         <Stack.Screen name="Addaddress" component={Addaddress} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Screnn" component={Screnn} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Login" component={Login} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Quenmatkhau" component={Quenmatkhau} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Register" component={Register} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="News" component={News} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="InfomationScreen" component={InfomationScreen} options={{
           headerShown: false
         }} />
       </Stack.Navigator>
@@ -249,7 +254,7 @@ const MenuAccount = () => {
         }}
       />
       <Tab.Screen
-        name="Account"
+        name="AccountScreen"
         component={AccountScreen}
         options={{
           tabBarIcon: () => (
@@ -299,5 +304,6 @@ const styles = StyleSheet.create({
     transform: [{ rotate: '45deg' }]
   }
 });
+
 export default MyStack;
 

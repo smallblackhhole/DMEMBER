@@ -79,7 +79,7 @@ const DetailScreen = ({ route }) => {
 
         const renderItemSame = ({ item }) => {
             return (
-                <View style={styles.borderTopProduct}>
+                <TouchableOpacity style={styles.borderTopProduct}>
                     <View>
                         <Image style={styles.image_product} source={item.imgpro} />
                     </View>
@@ -93,7 +93,7 @@ const DetailScreen = ({ route }) => {
                         <Text style={styles.disnum}>{item.dis}</Text>
                         <Image style={{ marginBottom: 2, marginLeft:10 }} source={require('../Assets/addbtn.png')} />
                     </View>
-                </View>
+                </TouchableOpacity>
             );
         }
 

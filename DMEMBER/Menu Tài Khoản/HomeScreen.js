@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.3,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 50,
+        marginTop: 10,
         //backgroundColor: 'red',
     },
     optionBord: {

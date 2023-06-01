@@ -8,9 +8,12 @@ const InfomationScreen = () => {
 
     return (
         <View style={styles.container}>
-            <View><ButtonBack /></View>
+            <View><ButtonBack 
+            icon={require('../Assets/Back.png')}
+            title={""}/></View>
             <View style={styles.viewLogoAccount}>
-                <LogoAccount />
+                <LogoAccount
+                img={require('../Assets/ImageAccount.png')} />
                 <View style={styles.changedImage}>
                     <Image source={require('../Assets/ei_camera.png')} />
                 </View>

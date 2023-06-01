@@ -1,12 +1,18 @@
 import React from "react";
-import { View, StyleSheet, Text, Image, ScrollView, FlatList, Dimensions } from "react-native";
+import { View, StyleSheet, Text, Image, ScrollView, TouchableOpacity, Dimensions } from "react-native";
 import BorderAccount from "../Component/BorderAccount";
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
+import AccountScreenBeforeLogin from "../AccountScreenBFLOG/BeforeLoginScreen";
+import { useNavigation } from "@react-navigation/native";
 
 
-const AccountScreen = () => {
-    return (
+const AccountScreen = ({ route }) => {
+    const navigation  = useNavigation();
+    const login = route.params?.data?.isLogin;
+    return !login ? (
+        <AccountScreenBeforeLogin />
+    ) : (
         <ScrollView showsVerticalScrollIndicator={false}>
             <View style={styles.container}>
                 <View>
@@ -17,7 +23,9 @@ const AccountScreen = () => {
                     <Image style={styles.ImageAccount} source={require('../Assets/ImageAccount.png')} />
                     <View style={styles.viewname}>
                         <Text style={styles.textName}>LÊ HUỲNH BÁ TOÀN</Text>
-                        <Image style={styles.editname} source={require('../Assets/EditName.png')} />
+                        <TouchableOpacity onPress={() => {navigation.navigate('InfomationScreen')}}>
+                            <Image style={styles.editname} source={require('../Assets/EditName.png')} />
+                        </TouchableOpacity>
                     </View>
                     <Text style={styles.potision}>Bank Office</Text>
                     <View style={styles.viewdayend}>
@@ -84,6 +92,7 @@ const AccountScreen = () => {
             </View>
         </ScrollView>
     );
+
 }
 
 const styles = StyleSheet.create({
@@ -91,7 +100,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#FBAE35',
         flexDirection: "column",
-        paddingBottom : 20
+        paddingBottom: 20
     },
     texttitle: {
         fontSize: 21,
@@ -129,7 +138,7 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.042,//110
         justifyContent: "center",
         textAlign: "center",
-       // backgroundColor: 'red',
+        // backgroundColor: 'red',
     },
     textName: {
         fontFamily: 'Montserrat',

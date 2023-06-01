@@ -1,6 +1,7 @@
 import { StyleSheet, View, Text,  Image, TouchableOpacity, TextInput, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from 'react';
+import ButtonBack from "../Component/ButtonBack";
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 const Login = () => {
@@ -11,9 +12,9 @@ const Login = () => {
 
     const handleLogin = () => {
         // Kiểm tra tài khoản và mật khẩu
-        if (username === ('') && password === ('')) {
+        if (username === ('1') && password === ('1')) {
           // Đăng nhập thành công, điều hướng sang màn hình HomeScreen
-          navigation.navigate('MenuScreen');
+          navigation.navigate('AccountScreen', {data  : {isLogin : true}});
         } else {
           // Hiển thị thông báo lỗi
           alert('Tài khoản hoặc mật khẩu không chính xác.');
@@ -22,6 +23,11 @@ const Login = () => {
     
     return (
         <View style={style.container}>
+            <View style={style.headerbar}>
+                <ButtonBack
+                    icon={require('../Assets/Back.png')}
+                    title={""} />
+            </View>
             <View style={{ width: WidthScreen, height: HeightScreen * 0.3, flexDirection: 'row', marginTop: 150, }}>
                 <View>
                     <View>
@@ -35,7 +41,7 @@ const Login = () => {
                                 </View>
                                 <View style={{ flexDirection: 'row', flex: 8 }}>
                                     <Image style={{ marginTop: 12 }} source={require('../image/gach.png')} />
-                                    <TextInput placeholder='0839020007' placeholderTextColor='#000'
+                                    <TextInput placeholder='Số điện thoại' placeholderTextColor='#000'
                                      value={username}
                                      onChangeText={text => setUsername(text)} />
                                 </View>
@@ -100,6 +106,10 @@ const style = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#FBAE35",
+    },
+    headerbar : {
+        height : HeightScreen*0.07,
+        justifyContent : 'center',
     },
     loginn: {
         width: WidthScreen * 0.4,
