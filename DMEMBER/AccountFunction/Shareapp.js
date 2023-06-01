@@ -58,14 +58,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     LogoShare: {
-        width: WidthScreen,
-        height: HeightScreen * 0.25,
+        height: HeightScreen * 0.33,
         alignItems: 'center',
-        justifyContent: 'center',
+        // justifyContent: 'center',
+        // backgroundColor:'red'
+        
     },
     ViewFull: {
-        width: WidthScreen,
-        height: '100%',
+       // backgroundColor:'green'
+       alignItems: 'center',
     },
     flex1: {
         flexDirection: 'column',
@@ -73,9 +74,9 @@ const styles = StyleSheet.create({
     },
     text: {
         color: 'black',
-        fontSize: 18,
+        fontSize: 17,
         maxWidth: '60%',
-        fontWeight: "600",
+        fontWeight: "500",
         textAlign: 'center',
         marginTop: 10
     },
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
     },
     Snum1: {
         color: 'black',
-        fontSize: 16,
+        fontSize: 15,
         fontWeight: "400",
         marginLeft: 15
     },
@@ -113,17 +114,19 @@ const styles = StyleSheet.create({
         width: WidthScreen,
         height: HeightScreen * 0.05,
         alignItems: 'center',
-        marginTop: 10
+        marginTop: 10,
+        //backgroundColor:'red'
     },
     TextLine: {
         width: '60%',
         height: '100%',
-        justifyContent: 'center'
+        justifyContent: 'center',
+       
     },
     textShare: {
         color: 'black',
-        fontWeight: "600",
-        fontSize: 18
+        fontWeight: "500",
+        fontSize: 17
     },
     LinkView: {
         flexDirection: 'row',
@@ -131,6 +134,7 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.08,
         justifyContent: 'center',
         alignItems: 'center',
+        
     },
     LinkViewBord: {
         width: '50%',
@@ -138,7 +142,9 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(17, 81, 245, 0.26)', 
         justifyContent : 'center',
         borderRadius: 20,
-        margin : 20
+        marginRight:10,
+        // margin : 10,
+       
     },
     LinkViewFLex: {
         width: '100%',
@@ -146,6 +152,7 @@ const styles = StyleSheet.create({
         height: '100%',
         alignItems : 'center',
         justifyContent :'center',
+        
     }
 
 });

@@ -102,7 +102,7 @@ const Addaddress = () => {
                             buttonStyle={styles.dropdown}
                             search={true}
                             searchInputTxtColor='black'
-                            buttonTextStyle = {{fontSize:16}}
+                            buttonTextStyle = {{fno}}
                             searchPlaceHolder='Tìm kiếm thành phố...'
                             searchPlaceHolderColor='black'
                             searchInputTxtStyle={{fontSize : 18}}

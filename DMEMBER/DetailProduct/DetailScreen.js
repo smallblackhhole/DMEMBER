@@ -475,7 +475,7 @@ const styles = StyleSheet.create({
     InfoTextView: {
         flexDirection: 'column',
         alignItems: "center",
-        height: HeightScreen * 0.73,
+        // backgroundColor: 'red',
     },
     InfoTextView2: {
         flexDirection: 'column',
@@ -496,7 +496,7 @@ const styles = StyleSheet.create({
     },
     ProSame: {
         width: WidthScreen,
-        height: HeightScreen * 0.090,//70
+        // height: HeightScreen * 0.090,//70
         padding: 20,
         // backgroundColor: 'red',
     },

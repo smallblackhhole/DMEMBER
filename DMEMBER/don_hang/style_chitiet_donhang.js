@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     view_madon: {
         height: height_screen * 0.154,//120
         backgroundColor: '#FFFFFF',
-        marginTop: 35,
+        marginTop: 10,
         borderRadius: 10,
         flexDirection: 'column',
         color: '#000000',
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     },
     //san phẩm đã mua
     view_sp: {
-        height: height_screen * 0.091,//72
+        height: height_screen * 0.098,//72
         backgroundColor: '#FFFFFF',
         marginTop: 10,
         borderRadius: 10,
@@ -223,19 +223,21 @@ const styles = StyleSheet.create({
     ten_sp: {
         color: '#000000',
         fontWeight: '500',
-        fontSize: 11,
+        fontSize: 12,
         width: width_screen * 0.675,//260
-        marginBottom: 7,
+        marginBottom: 3,
        // backgroundColor: 'red',
 
     },
     gia_chietkhau: {
         color: '#000000',
-        fontSize: 9,
+        fontWeight: '400',
+        fontSize: 11,
     },
     soluong_damua: {
         color: '#000000',
-        fontSize: 9,
+        fontSize: 11,
+        fontWeight: '400',
         marginLeft: 82
     },
 

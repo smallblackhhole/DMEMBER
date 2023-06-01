@@ -1,22 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { Text, View, StyleSheet, FlatList, ScrollView, TextInput, Image, SafeAreaView, Dimensions, TouchableOpacity } from 'react-native'
 import shopData from "../dataShopScreen/shopData";
+import CarousellphoneS from 'react-native-reanimated-carousel';
 const { height: screenHeight } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 
 const ShopScreen = () => {
     const navigation = useNavigation();
+    const [currentPage, setCurrentPage] = useState(0)
     const Flatlistrender = ({ item }) => {
         const renderBanner = ({ item }) => (
             <View style={styles.containerSlide}>
-                <SafeAreaView style={styles.Viewbanner}>
-                    <Image style={styles.custombanner} source={item.banner} />
-                </SafeAreaView>
-                <View style={{ alignItems: "center", marginTop: 10 }}>
-                    <Image source={require('../Assets/dotCircle.png')} />
-                </View>
+                <Image style={styles.custombanner} source={item.banner} />
             </View>
         );
         const renderOption = ({ item }) => {
@@ -100,11 +97,30 @@ const ShopScreen = () => {
         }
         return (
             <View>
-                <FlatList
-                    data={item.Data}
-                    renderItem={renderBanner}
-                    keyExtractor={(item, index) => index.toString()}
-                />
+                <View style={{ alignItems: "center" }}>
+                    <CarousellphoneS
+                        data={item.Data}
+                        renderItem={renderBanner}
+                        width={WidthScreen}
+                        height={screenHeight * 0.25}
+                        loop={true}
+                        autoPlayInterval={3000}
+                        autoPlay={true}
+                        onSnapToItem={(index) => setCurrentPage(index)}
+                    />
+                    <View style={styles.indicatorContainer}>
+                        {item.Data.map((_, index) => (
+                            <View
+                                key={index}
+                                style={[
+                                    styles.indicator,
+                                    index === currentPage ? styles.aciveindicator : null,
+                                    { backgroundColor: 'white' },
+                                ]}
+                            />
+                        ))}
+                    </View>
+                </View>
                 <View style={styles.SelectOption}>
                     <SafeAreaView style={styles.borderOption}>
                         <FlatList
@@ -220,7 +236,7 @@ const styles = StyleSheet.create({
         width: WidthScreen * 0.70,
         height: screenHeight * 0.050,//43
         marginLeft: 17,
-         backgroundColor: '#FFFFFF',
+        backgroundColor: '#FFFFFF',
         alignItems: "center",
 
     },
@@ -235,6 +251,22 @@ const styles = StyleSheet.create({
     customsearchicon: {
         margin: 5,
     },
+    indicatorContainer: {
+        flexDirection: 'row',
+        alignItems :  "center"
+    },
+    indicator: {
+        width: 8,
+        height: 8,
+        borderRadius: 10,
+        marginHorizontal: 3,
+    },
+    aciveindicator: {
+        width: 14,
+        height: 14,
+        borderRadius: 10,
+        marginHorizontal: 3,
+    },
     customnumbernotification: {
         backgroundColor: 'red',
         width: WidthScreen * 0.025,//10
@@ -247,25 +279,17 @@ const styles = StyleSheet.create({
     //view slide
     containerSlide: {
         width: WidthScreen,
-        height: screenHeight * 0.30,
+        height: screenHeight * 0.25,
         alignItems: "center",
         justifyContent: "center",
-        // backgroundColor: 'green',
     },
     containerSlide2: {
         width: WidthScreen,
         height: screenHeight * 0.25,
         alignItems: "center",
         justifyContent: "center",
-        // backgroundColor: 'green',
     },
-    //image slide
-    // Viewbanner: {
-    //     width: 360,//365
-    //     height: 185,//185
-    //     borderRadius: 20,
 
-    // },
     custombanner: {
         width: WidthScreen * 0.91,//350
         height: screenHeight * 0.239,
@@ -278,7 +302,7 @@ const styles = StyleSheet.create({
         height: screenHeight * 0.1,
         alignItems: 'center',
         justifyContent: "center",
-        marginTop: 5,
+        marginTop: 30,
         //backgroundColor: 'green',
     },
     // VIEW item danh sách ngang
@@ -449,7 +473,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         alignItems: "center",
         justifyContent: "center",
-       // backgroundColor: 'pink',
+        // backgroundColor: 'pink',
         marginLeft: 16,
         marginBottom: 17
     },
@@ -457,7 +481,7 @@ const styles = StyleSheet.create({
     img_sp: {
         width: WidthScreen * 0.265,//100
         height: screenHeight * 0.162,//125
-         //backgroundColor: 'pink',
+        //backgroundColor: 'pink',
     },
     //name item
     name_sp: {

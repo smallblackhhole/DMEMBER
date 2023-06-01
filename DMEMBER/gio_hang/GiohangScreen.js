@@ -34,10 +34,6 @@ const GiohangScreen = ({ route }) => {
             </View>
             {/* view tổng nội dung */}
             <View style={styles.view_gh}>
-                {/* view header */}
-
-                {/* san pham gio hang */}
-
                 {/* item */}
                 <Swipeable renderRightActions={RightSwipe}>
                     <View style={styles.view_sp}>
@@ -83,7 +79,6 @@ const GiohangScreen = ({ route }) => {
                                         <Text style={{ color: '#FFFFFF', fontWeight: '600', fontSize: 17 }}>+</Text>
                                     </TouchableOpacity>
                                 </View>
-
                             </View>
                         </View>
                     </View>

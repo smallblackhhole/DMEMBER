@@ -25,7 +25,7 @@ const Map = () => {
             <View style={styles.ViewtextTitle2}>
                 <Text style={styles.TextTitle2}>Danh sách khách hàng</Text>
             </View>
-            <View style={{ width: '100%', height: '100%' }}>
+            <View >
                 <ScrollView>
                     <View style={styles.ViewFull}>
                         <MapBorder
@@ -51,20 +51,23 @@ const styles = StyleSheet.create({
     },
     headerBar: {
         width: WidthScreen,
-        height: HeightScreen * 0.07,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    addCustomer: {
-        width: WidthScreen,
-        height: HeightScreen * 0.08,
-        marginTop: 10,
+        height: HeightScreen * 0.06,
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop:30,
+       // backgroundColor:'red'
+    },
+    addCustomer: {
+        width: WidthScreen ,
+        height: HeightScreen * 0.071,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 30,
+       // backgroundColor:'red'
     },
     addCustomerBord: {
-        width: '90%',
-        height: '90%',
+        width: WidthScreen * 0.9,
+        height: HeightScreen * 0.065,
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
@@ -72,8 +75,8 @@ const styles = StyleSheet.create({
     },
     text1: {
         color: 'white',
-        fontSize: 16,
-        fontWeight: "500"
+        fontSize: 15,
+        fontWeight: "600"
     },
     ViewtextTitle2: {
         marginTop: 10,
@@ -91,6 +94,7 @@ const styles = StyleSheet.create({
         width: WidthScreen,
         height: HeightScreen,
         alignItems : 'center',
+        
         
     }
 });
