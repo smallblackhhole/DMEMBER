@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, StyleSheet, View,Dimensions } from 'react-native'
+import { Image, StyleSheet, View, Dimensions } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HistoryScreen from './HistoryScreen'
@@ -19,7 +19,6 @@ import GiohangScreen from "../gio_hang/GiohangScreen";
 import DetailTeam from "../AccountFunction/DetailTeam";
 import DetailScreen from "../DetailProduct/DetailScreen";
 import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
-import Chitiet_donhang from "../Phuc_folder/don_hang/chitiet_donhang";
 import Payment from "../Payment_confirm/PayConfirm";
 import SearchScreen from "../SearchScreen/SearchScreen";
 import Login from "../login/Login";
@@ -29,6 +28,7 @@ import Register from "../login/Register";
 import DcashTransfer_1 from "../viDcash/DcashTransfer_1";
 import DcashTransfer_2 from "../viDcash/DcashTransfer_2";
 import WithdrawDcash from "../viDcash/withdrawDcash";
+import addaddress from "../address/addaddress";
 import Chitiet_donhang from "../don_hang/chitiet_donhang";
 import InforTransfer from "../viDcash/inforTransfer";
 import Lichsu_ruttien from "../history/lichsu_ruttien";
@@ -44,16 +44,21 @@ function MyStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen name="Screnn" component={Screnn} options={{
+     
+        {/* <Stack.Screen name="addaddress" component={addaddress} options={{
           headerShown: false
         }} />
-      <Stack.Screen name="Login" component={Login} options={{
+         */}
+        <Stack.Screen name="Screnn" component={Screnn} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Login" component={Login} options={{
           headerShown: false
         }} />
         <Stack.Screen name="Quenmatkhau" component={Quenmatkhau} options={{
           headerShown: false
         }} />
-         <Stack.Screen name="Register" component={Register} options={{
+        <Stack.Screen name="Register" component={Register} options={{
           headerShown: false
         }} />
         <Stack.Screen name="MenuScreen" component={MenuAccount} options={{
@@ -89,7 +94,7 @@ function MyStack() {
         <Stack.Screen name="CreateTopic" component={CreateTopicScreen} options={{
           headerShown: false
         }} />
-         <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
+        <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
           headerShown: false
         }} />
         <Stack.Screen name="Cart2" component={GiohangScreen} options={{
@@ -99,9 +104,6 @@ function MyStack() {
           headerShown: false
         }} />
         <Stack.Screen name="Search" component={SearchScreen} options={{
-          headerShown: false
-        }} />
-        <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
           headerShown: false
         }} />
         <Stack.Screen name="DcashTransfer1" component={DcashTransfer_1} options={{
@@ -119,6 +121,7 @@ function MyStack() {
         <Stack.Screen name="Lichsu_ruttien" component={Lichsu_ruttien} options={{
           headerShown: false
         }} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -270,7 +273,7 @@ const MenuAccount = () => {
 };
 
 const styles = StyleSheet.create({
-  style_tabBar:{
+  style_tabBar: {
     height: HeightScreen * 0.065,
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 20,
@@ -284,7 +287,7 @@ const styles = StyleSheet.create({
   },
   clickbottom: {
     width: WidthScreen * 0.089,//35
-    height:  HeightScreen * 0.045,//35
+    height: HeightScreen * 0.045,//35
     backgroundColor: '#000000',
     justifyContent: "center",
     borderRadius: 10,

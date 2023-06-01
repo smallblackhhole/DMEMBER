@@ -9,7 +9,7 @@ const ButtonBack = ({ icon, title }) => {
     const navigation = useNavigation();
     return (
         <View style={styles.headerBar}>
-                <TouchableOpacity onPress={() => { navigation.goBack() }}>
+                <TouchableOpacity onPress={() => { navigation.goBack()}}>
                     <Image source={icon} />
                 </TouchableOpacity>
                 <Text style={styles.title}>{title}</Text>
