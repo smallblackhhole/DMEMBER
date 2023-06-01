@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#FBAE35',
         flexDirection: "column",
-        paddingBottom:20,
+        paddingBottom : 20
     },
     texttitle: {
         fontSize: 21,

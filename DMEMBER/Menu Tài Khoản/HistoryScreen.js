@@ -11,7 +11,6 @@ const HistoryScreen = ({ route }) => {
     const order = route.params
     const navigation = useNavigation();
     const [activeOption, setActiveOption] = useState('done');
-console.log(order);
     const handleOptionPress = (
         option) => {
         setActiveOption(option);
@@ -269,7 +268,7 @@ const styles = StyleSheet.create({
     OptionLine1: {
         flexDirection: "row",
         flex: 1,
-        margin: 10,
+        margin: 15,
         alignItems: "center",
         justifyContent: "center"
     },
@@ -284,7 +283,7 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 16,
         fontWeight: "500",
-        marginHorizontal: 7,
+        marginHorizontal: 20,
 
     },
     TextTitle2: {

@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
         margin: 10,
         width: WidthScreen * 0.9,
         height: HeightScreen * 0.05,
-
     },
     textname: {
         color: 'black',

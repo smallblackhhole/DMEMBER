@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity, Switch, TextInput } from 'react-native'
 import ButtonBack from '../Component/ButtonBack';
 import MapBorder from '../Component/MapBorder';
+import { useNavigation } from '@react-navigation/native';
 import TeamBorder from '../Component/BorderTeam';
 
 
@@ -10,6 +11,7 @@ const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 const Team = () => {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.headerBar}>
@@ -25,9 +27,9 @@ const Team = () => {
                         <TextInput placeholder="TÌm kiếm thành viên" />
                     </View>
                 </View>
-                <View style={styles.flexsearch2}>
+                <TouchableOpacity style={styles.flexsearch2} onPress={() => {navigation.navigate('CreateAccount')}}>
                     <Image source={require('../Assets/addmem.png')} />
-                </View>
+                </TouchableOpacity>
             </View>
             <View style={styles.ViewtextTitle2}>
                 <Text style={styles.TextTitle2}>Danh sách thành viên</Text>

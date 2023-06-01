@@ -41,11 +41,8 @@ const styles = StyleSheet.create({
     view_gh: {
         flex: 1,
         width: width_screen * 0.90,
-        // height: height_screen * 0.88,
-        // marginLeft: width_screen * 0.06,
-        // marginTop: width_screen * 0.08,
-        flexDirection: 'column',
-        //backgroundColor:'green',
+        flexDirection: 'row',
+
     },
     //view sp
     view_sp: {
@@ -57,11 +54,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         color: '#000000',
     },
-    //item hình ảnh
-    img_all: {
-        position: 'relative',
-        justifyContent: 'flex-start',
-    },
     img_item: {
         width: width_screen * 0.210,//80
         height: height_screen * 0.102,//79
@@ -69,9 +61,15 @@ const styles = StyleSheet.create({
 
     },
     img_corner: {
-        position: 'absolute',
-        top: -1,
-        right: -4,
+        position : 'absolute',
+        justifyContent : 'center',
+        alignItems :'center',
+        bottom :0,
+        right : 0,
+        width : 15,
+        height : 15,
+        borderRadius : 20,
+        backgroundColor : '#EE2525'
     },
     img_corner2: {
         position: 'absolute',
@@ -172,7 +170,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
         borderRadius: 10,
         justifyContent: 'center',
-        margin : 20
+        marginRight : 20
     },
     buttonText: {
         color: '#FFFFFF',

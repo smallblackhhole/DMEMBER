@@ -32,6 +32,8 @@ import addaddress from "../address/addaddress";
 import Chitiet_donhang from "../don_hang/chitiet_donhang";
 import InforTransfer from "../viDcash/inforTransfer";
 import Lichsu_ruttien from "../history/lichsu_ruttien";
+import CreateAccount from "../CreateAccount/CreateAccount";
+import Addaddress from "../address/addaddress";
 const Tab = createBottomTabNavigator();
 
 
@@ -121,7 +123,12 @@ function MyStack() {
         <Stack.Screen name="Lichsu_ruttien" component={Lichsu_ruttien} options={{
           headerShown: false
         }} />
-
+        <Stack.Screen name="CreateAccount" component={CreateAccount} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Addaddress" component={Addaddress} options={{
+          headerShown: false
+        }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
