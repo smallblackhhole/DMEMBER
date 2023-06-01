@@ -34,10 +34,6 @@ const GiohangScreen = ({ route }) => {
             </View>
             {/* view tổng nội dung */}
             <View style={styles.view_gh}>
-                {/* view header */}
-
-                {/* san pham gio hang */}
-
                 {/* item */}
                 <Swipeable renderRightActions={RightSwipe}>
                     <View style={styles.view_sp}>
