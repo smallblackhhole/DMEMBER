@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { Text, View, StyleSheet, FlatList, TextInput, Image, Dimensions, TouchableOpacity } from 'react-native';
 import shopData from '../dataShopScreen/shopData';
+import { useNavigation } from '@react-navigation/native';
 
 const { height: HeightScreen, width: WidthScreen } = Dimensions.get('window');
 
 const SearchScreen = () => {
+    const navigation = useNavigation();
     const [search, setSearch] = useState('');
     const searchInputRef = useRef(null);
 
@@ -24,7 +26,7 @@ const SearchScreen = () => {
                     <View>
                         <Image style={styles.img_sp} source={item.imgproduct} />
                         <Image
-                            style={{  width: 27, height: 30, position: "absolute", left: 95, top: -1  }}
+                            style={{ width: 27, height: 30, position: "absolute", left: 95, top: -1 }}
                             source={item.tag}
                         />
                     </View>
@@ -50,10 +52,13 @@ const SearchScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.hearder}>
+                <TouchableOpacity style={{ marginRight : 10 }} onPress={() => {navigation.goBack()}}>
+                    <Image source={require('../Assets/Back.png')} />
+                </TouchableOpacity>
                 <View style={styles.viewSearchbar}>
                     <Image style={{ marginLeft: 10 }} source={require('../Assets/search.png')} />
                     <TextInput
-                    style={{color:'#000000', marginLeft: 10}}
+                        style={{ color: '#000000', marginLeft: 10 }}
                         ref={searchInputRef}
                         placeholder='Tìm kiếm sản phẩm...'
                         placeholderTextColor='color: rgba(0, 0, 0, 0.5);'
@@ -103,7 +108,7 @@ const SearchScreen = () => {
                     />
                 ) : (
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 20,color:'#000000',marginBottom:70 }}>Chưa có sản phẩm nào cần tìm...</Text>
+                        <Text style={{ fontSize: 20, color: '#000000', marginBottom: 70 }}>Chưa có sản phẩm nào cần tìm...</Text>
                     </View>
                 )}
             </View>
@@ -119,12 +124,11 @@ const styles = StyleSheet.create({
     hearder: {
         flexDirection: 'row',
         height: HeightScreen * 0.1,
-       // backgroundColor: 'red',
-       marginLeft:20,
-       alignItems: 'center',
+        marginLeft: 20,
+        alignItems: 'center',
     },
     viewSearchbar: {
-        width:309,
+        width: 300,
         height: HeightScreen * 0.072,//56
         borderRadius: 10,
         alignItems: 'center',
@@ -132,11 +136,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     btndeleteText: {
-        height:17,
+        height: 17,
         justifyContent: 'center',
         alignItems: 'center',
         //backgroundColor: 'red',
-        marginLeft:17,
+        marginLeft: 17,
     },
     contentContainer: {
         width: WidthScreen,
@@ -189,7 +193,7 @@ const styles = StyleSheet.create({
         width: WidthScreen * 0.5,
         height: HeightScreen * 0.33,
         alignItems: 'center',
-       
+
     },
     //view sản phẩm
     borderPro: {
@@ -199,7 +203,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         alignItems: "center",
         justifyContent: "center",
-       // backgroundColor: 'pink',
+        // backgroundColor: 'pink',
     },
     //image item
     img_sp: {

@@ -1,8 +1,10 @@
 import React, { Image, Text } from 'react-native';
-import {View , StyleSheet} from 'react-native';
+import {View , StyleSheet , TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import ButtonBack from '../Component/ButtonBack';
 
 const CartScreen = () => {
+    const navigation = useNavigation();
     return(
         <View style={styles.container}>
             <ButtonBack 
@@ -12,9 +14,9 @@ const CartScreen = () => {
                 <View style={styles.Viewbor}>
                 <Image style={styles.img} source={require('../Assets/CartImg.png')}/>
                 <Text style={styles.text}>Giỏ hàng của bạn đang trống!</Text>
-                <View style={styles.btnaddCart}>
+                <TouchableOpacity style={styles.btnaddCart} onPress={() => {navigation.navigate('Shop')}}>
                     <Text style={styles.text2}>Thêm vào giỏ</Text>
-                </View>
+                </TouchableOpacity>
                 </View>
             </View>
         </View>

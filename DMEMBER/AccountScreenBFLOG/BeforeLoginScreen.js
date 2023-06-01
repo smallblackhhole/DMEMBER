@@ -1,12 +1,14 @@
 import React from "react";
-import { View, StyleSheet, Dimensions, Text } from 'react-native'
+import { View, StyleSheet, Dimensions, Text , TouchableOpacity } from 'react-native'
 import ButtonBack from "../Component/ButtonBack";
 import LogoAccount from "../Component/LogoAccount";
 import BorderAccount from "../Component/BorderAccount";
+import { useNavigation } from "@react-navigation/native";
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 const AccountScreenBeforeLogin = () => {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <ButtonBack
@@ -20,9 +22,9 @@ const AccountScreenBeforeLogin = () => {
             <View style={styles.ViewFull}>
                 <View style={styles.View1}>
                     <Text style={styles.nameNull}>Account 1</Text>
-                    <View style={styles.loginbtn}>
+                    <TouchableOpacity style={styles.loginbtn} onPress={() => {navigation.navigate('Login')}}>
                         <Text style={styles.textloginbtn}>Đăng nhập ngay</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.ViewtextTitle2}>
                     <Text style={styles.TextTitle2}>Chức năng khác</Text>
@@ -30,22 +32,28 @@ const AccountScreenBeforeLogin = () => {
                 <View style={styles.MoreOption}>
                     <BorderAccount
                         icon={require('../Assets/share.png')}
-                        name={"Chia sẻ app"} />
+                        name={"Chia sẻ app"} 
+                        navi={"Login"}/>
                     <BorderAccount
                         icon={require('../Assets/security.png')}
-                        name={"Thiết lập bảo mật"} />
+                        name={"Thiết lập bảo mật"} 
+                        navi={"Login"}/>
                     <BorderAccount
                         icon={require('../Assets/map.png')}
-                        name={"Quản lí địa chỉ"} />
+                        name={"Quản lí địa chỉ"}
+                        navi={"Login"} />
                     <BorderAccount
                         icon={require('../Assets/education.png')}
-                        name={"Đào tạo"} />
+                        name={"Đào tạo"}
+                        navi={"Login"} />
                     <BorderAccount
                         icon={require('../Assets/team.png')}
-                        name={"Danh sách thành viên"} />
+                        name={"Danh sách thành viên"}
+                        navi={"Login"} />
                     <BorderAccount
                         icon={require('../Assets/report.png')}
-                        name={"Báo cáo"} />
+                        name={"Báo cáo"} 
+                        navi={"Login"}/>
                 </View>
             </View>
         </View>

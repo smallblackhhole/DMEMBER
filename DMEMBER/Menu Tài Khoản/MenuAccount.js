@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, StyleSheet, View,Dimensions } from 'react-native'
+import { Image, StyleSheet, View, Dimensions } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HistoryScreen from './HistoryScreen'
@@ -33,6 +33,8 @@ import InforTransfer from "../viDcash/inforTransfer";
 import Lichsu_ruttien from "../history/lichsu_ruttien";
 import CreateAccount from "../CreateAccount/CreateAccount";
 import Addaddress from "../address/addaddress";
+import News from "../News";
+import InfomationScreen from "../InfomationAccount/InfomationScreen";
 const Tab = createBottomTabNavigator();
 
 
@@ -45,18 +47,6 @@ function MyStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen name="Screnn" component={Screnn} options={{
-          headerShown: false
-        }} />
-      <Stack.Screen name="Login" component={Login} options={{
-          headerShown: false
-        }} />
-        <Stack.Screen name="Quenmatkhau" component={Quenmatkhau} options={{
-          headerShown: false
-        }} />
-         <Stack.Screen name="Register" component={Register} options={{
-          headerShown: false
-        }} />
         <Stack.Screen name="MenuScreen" component={MenuAccount} options={{
           headerShown: false
         }} />
@@ -90,7 +80,7 @@ function MyStack() {
         <Stack.Screen name="CreateTopic" component={CreateTopicScreen} options={{
           headerShown: false
         }} />
-         <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
+        <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
           headerShown: false
         }} />
         <Stack.Screen name="Cart2" component={GiohangScreen} options={{
@@ -121,6 +111,24 @@ function MyStack() {
           headerShown: false
         }} />
         <Stack.Screen name="Addaddress" component={Addaddress} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Screnn" component={Screnn} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Login" component={Login} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Quenmatkhau" component={Quenmatkhau} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Register" component={Register} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="News" component={News} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="InfomationScreen" component={InfomationScreen} options={{
           headerShown: false
         }} />
       </Stack.Navigator>
@@ -245,7 +253,7 @@ const MenuAccount = () => {
         }}
       />
       <Tab.Screen
-        name="Account"
+        name="AccountScreen"
         component={AccountScreen}
         options={{
           tabBarIcon: () => (
@@ -274,7 +282,7 @@ const MenuAccount = () => {
 };
 
 const styles = StyleSheet.create({
-  style_tabBar:{
+  style_tabBar: {
     height: HeightScreen * 0.065,
     backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 20,
@@ -288,12 +296,13 @@ const styles = StyleSheet.create({
   },
   clickbottom: {
     width: WidthScreen * 0.089,//35
-    height:  HeightScreen * 0.045,//35
+    height: HeightScreen * 0.045,//35
     backgroundColor: '#000000',
     justifyContent: "center",
     borderRadius: 10,
     transform: [{ rotate: '45deg' }]
   }
 });
+
 export default MyStack;
 
