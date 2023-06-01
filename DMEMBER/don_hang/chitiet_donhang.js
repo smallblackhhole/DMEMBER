@@ -12,9 +12,11 @@ const Chitiet_donhang = () => {
             <View style={styles.container}>
                 <View style={styles.view_chitiet_thontin}>
                     <View style={{
-                        width: WidthScreen,
-                        height: HeightScreen * 0.07,
-                        justifyContent: 'center'
+                    //    width: WidthScreen,
+                       height: HeightScreen * 0.07,
+                       justifyContent: 'center',
+                       alignItems: 'center',
+                      // backgroundColor:'red'
                     }}>
                         <ButtonBack
                             icon={require('../Assets/Back.png')}
@@ -83,17 +85,18 @@ const Chitiet_donhang = () => {
                     </View>
                     <Text style={styles.text_tt_all}>Sản phẩm đã mua</Text>
                     <View style={styles.view_sp}>
+                    <Image style={styles.img_item} source={require('../image/img_sp.png')} />
                         <View style={{ flexDirection: 'column', marginLeft: 10 }}>
                             <Text style={styles.ten_sp}>Dearanchy-Purifying Pure - Cleasing Water -
                                 Nước tẩy trang làm sạch, khỏe da</Text>
                             <View style={{ flexDirection: 'row' }}>
                                 <View style={{ flexDirection: 'column' }}>
                                     <Text style={styles.gia_chietkhau}>Giá bán:{' '}
-                                        <Text style={{ fontWeight: '400', color: '#BE7229' }}>420,500</Text>
+                                        <Text style={{ fontWeight: '600', color: '#BE7229',   fontSize: 9, }}>420,500</Text>
                                     </Text>
                                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                                         <Text style={styles.gia_chietkhau}>Chiết khấu:{' '}
-                                            <Text style={{ fontWeight: '400', color: '#1151F5' }}>420,500</Text>
+                                            <Text style={{ fontWeight: '600', color: '#1151F5',  fontSize: 9, }}>420,500</Text>
                                         </Text>
                                         <Text style={styles.soluong_damua}>Số lượng:{' '}
                                             <Text style={styles.gia_chietkhau}>1</Text>
@@ -103,27 +106,7 @@ const Chitiet_donhang = () => {
                             </View>
                         </View>
                     </View>
-                    <View style={styles.view_sp}>
-                        <View style={{ flexDirection: 'column', marginLeft: 10 }}>
-                            <Text style={styles.ten_sp}>Dearanchy-Purifying Pure - Cleasing Water -
-                                Nước tẩy trang làm sạch, khỏe da</Text>
-                            <View style={{ flexDirection: 'row' }}>
-                                <View style={{ flexDirection: 'column' }}>
-                                    <Text style={styles.gia_chietkhau}>Giá bán:{' '}
-                                        <Text style={{ fontWeight: '400', color: '#BE7229' }}>420,500</Text>
-                                    </Text>
-                                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                        <Text style={styles.gia_chietkhau}>Chiết khấu:{' '}
-                                            <Text style={{ fontWeight: '400', color: '#1151F5' }}>420,500</Text>
-                                        </Text>
-                                        <Text style={styles.soluong_damua}>Số lượng:{' '}
-                                            <Text style={styles.gia_chietkhau}>1</Text>
-                                        </Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
+                    <View style={{height: HeightScreen * 0.02,}}></View>
 
                 </View>
             </View>

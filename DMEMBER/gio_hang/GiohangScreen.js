@@ -79,7 +79,6 @@ const GiohangScreen = ({ route }) => {
                                         <Text style={{ color: '#FFFFFF', fontWeight: '600', fontSize: 17 }}>+</Text>
                                     </TouchableOpacity>
                                 </View>
-
                             </View>
                         </View>
                     </View>

@@ -40,12 +40,14 @@ const Security = () => {
                         <View style={styles.borderPass}>
                             <TextInput
                                 placeholder="Mật khẩu cũ"
+                                placeholderTextColor="rgba(0, 0, 0, 0.5)"
                                 style={styles.textinput}
                             />
                         </View>
                         <View style={styles.borderPass}>
                             <TextInput
                                 placeholder="Mật khẩu mới"
+                                 placeholderTextColor="rgba(0, 0, 0, 0.5)"
                                 style={styles.textinput}
                             />
                         </View>
@@ -71,34 +73,42 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.06,
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop:30,
+       // backgroundColor:'red'
     },
     FingerprintView: {
         width: WidthScreen,
         height: HeightScreen * 0.09,
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 40
+        marginTop: 30,
+       // backgroundColor:'red'
     },
     FingerprintBord: {
         flexDirection: "row",
-        width: '90%',
-        height: '90%',
+        width: WidthScreen * 0.9,
+        height: HeightScreen * 0.084,
         borderRadius: 10,
-        backgroundColor: 'white'
+        backgroundColor: '#FFFFFF',
+
     },
     flex1: {
-        flex: 7,
+          flex: 1,
+        // marginLeft:20,
         justifyContent: "center",
-        alignItems: "center",
+        padding:20,
+        //backgroundColor: 'red'
     },
     flex2: {
-        flex: 3,
-        justifyContent: "center",
-        alignItems: "center",
+        flex: 1,
+        // marginLeft:143,
+         justifyContent: "center",
+         padding:20,
+         //backgroundColor: 'pink'
     },
     text1: {
         color: 'black',
-        fontSize: 18,
+        fontSize: 17,
         fontWeight: "500"
     },
     changedPassView : {
@@ -109,11 +119,12 @@ const styles = StyleSheet.create({
         alignItems : "center",
     },
     changedPassBord :{
-        width : '90%',
-        height : '90%',
+        width : WidthScreen * 0.9,
+        height : HeightScreen * 0.315,
         backgroundColor : 'white',
         borderRadius : 10,
-        flexDirection : "column"
+        flexDirection : "column",
+       // backgroundColor: 'red'
     },
     passflex1 : {
         flex : 2,
@@ -136,12 +147,13 @@ const styles = StyleSheet.create({
         marginLeft : 20
     },
     borderPass : {
-        width : '90%',
+        width : WidthScreen * 0.81,
+        height : HeightScreen * 0.059,
         borderWidth : 1,
         marginTop : 10,
         borderColor : 'black',
-        height : '35%',
-        borderRadius : 20,
+        borderRadius : 50,
+         // backgroundColor :'red',
     },
     textinput : {
         color : 'black',
@@ -151,13 +163,13 @@ const styles = StyleSheet.create({
         marginLeft : 10
     },
     btnchaged : {
-        marginRight : 20,
-        width : '30%',
-        height : '70%',
+        marginRight : 30,
+        width : WidthScreen * 0.25  ,
+        height : HeightScreen * 0.053,
         borderRadius : 10,
         backgroundColor :'#000000',
         justifyContent : "center",
-        alignItems : "center"
+        alignItems : "center",
     },
     text3 : {
         color : 'white',
