@@ -23,6 +23,7 @@ const BorderAccount = ({ icon, name, navi }) => {
 }
 const styles = StyleSheet.create({
     container: {
+        flex : 1,
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         margin: 10,
         width: WidthScreen * 0.9,
-        height: HeightScreen * 0.065,
+        height: HeightScreen * 0.05,
     },
     textname: {
         color: 'black',

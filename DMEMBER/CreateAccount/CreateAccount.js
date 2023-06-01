@@ -1,5 +1,5 @@
 import React, { Text } from 'react-native';
-import { View, StyleSheet, Dimensions, Image, ScrollView } from 'react-native';
+import { View, StyleSheet, Dimensions, Image, ScrollView ,} from 'react-native';
 import ButtonBack from '../Component/ButtonBack';
 import Line from '../Component/Line';
 
@@ -10,7 +10,9 @@ const CreateAccount = () => {
     return (
         <View style={styles.container}>
             <View style={styles.headerBar}>
-                <ButtonBack />
+                <ButtonBack 
+                icon={require('../Assets/Back.png')}
+                title={"Tạo thành viên"}/>
                 <View style={{ justifyContent: 'center', alignItems: 'center', width: '70%' }}>
                     <Text style={styles.title}>Tạo thành viên</Text>
                 </View>

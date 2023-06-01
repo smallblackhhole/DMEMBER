@@ -55,7 +55,7 @@ const Memberslist = ({ selectedMembers, handleMemberSelection }) => {
   useEffect(() => {
     const updatedData = data.map((item) => ({
       ...item,
-      isChecked: selectedMembers.some((selecteodMember) => selectedMember.member === item.member),
+      isChecked: selectedMembers.some((selectedMembers) => selectedMembers.member === item.member),
     }));
     setData(updatedData);
   }, [selectedMembers]);
@@ -89,7 +89,7 @@ const Memberslist = ({ selectedMembers, handleMemberSelection }) => {
       <View style={styles.text}>
         <Text style={{ fontSize: 16, color: 'black', marginLeft: 20 }}>Danh sách thành viên</Text>
       </View>
-      <View style={{flex : 1}}>
+      <View style={{ flex: 1 }}>
         <FlatList
           data={filteredData}
           renderItem={renderItem}
@@ -100,7 +100,6 @@ const Memberslist = ({ selectedMembers, handleMemberSelection }) => {
     </View>
   );
 };
-
 export default Memberslist;
 
 const styles = StyleSheet.create({
