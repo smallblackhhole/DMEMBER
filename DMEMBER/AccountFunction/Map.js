@@ -25,7 +25,7 @@ const Map = () => {
             <View style={styles.ViewtextTitle2}>
                 <Text style={styles.TextTitle2}>Danh sách khách hàng</Text>
             </View>
-            <View style={{ width: '100%', height: '100%' }}>
+            <View >
                 <ScrollView>
                     <View style={styles.ViewFull}>
                         <MapBorder

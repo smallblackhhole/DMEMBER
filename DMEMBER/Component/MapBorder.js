@@ -4,6 +4,7 @@ import { Swipeable } from 'react-native-gesture-handler';
 
 
 const { width: WidthScreen } = Dimensions.get('window');
+const { height: HeightScreen } = Dimensions.get('window');
 
 const MapBorder = ({ name, address }) => {
   const RightSwipe = () => {
@@ -38,26 +39,27 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: WidthScreen,
-    height: 100,
-    marginTop: 15
+    height: HeightScreen * 0.134,
+    marginTop: 15,
+    // backgroundColor: 'red',
   },
   borderView: {
-    width: '100%',
+    width: WidthScreen * 0.9,
+    height: HeightScreen * 0.134,
     justifyContent: "center",
     flexDirection: "column",
-    height: '100%',
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     borderRadius: 10
   },
   text1: {
-    color: 'black',
-    fontSize: 18,
+    color: '#000000',
+    fontSize: 17,
     marginLeft: 20,
     fontWeight: "500"
   },
   text2: {
     color: 'black',
-    fontSize: 16,
+    fontSize: 15,
     marginLeft: 20,
     opacity: 0.5,
     fontWeight: "500"
@@ -65,13 +67,14 @@ const styles = StyleSheet.create({
   OptionBox: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: 100,
-    height: '100%',
-    flexDirection :  "row"
+    width: WidthScreen * 0.25,
+    height: HeightScreen * 0.134,
+    flexDirection :  "row",
+   // backgroundColor: 'red',
   },
   sua : {
     flexDirection : "column",
-    margin : 5
+    margin : 15
   },
   xoa : {
     flexDirection : "column" , 
