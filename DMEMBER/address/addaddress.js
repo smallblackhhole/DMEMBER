@@ -102,6 +102,7 @@ const Addaddress = () => {
                             buttonStyle={styles.dropdown}
                             search={true}
                             searchInputTxtColor='black'
+                            buttonTextStyle = {{fontSize:16}}
                             searchPlaceHolder='Tìm kiếm thành phố...'
                             searchPlaceHolderColor='black'
                             searchInputTxtStyle={{fontSize : 18}}
@@ -129,6 +130,7 @@ const Addaddress = () => {
                             rowTextForSelection={(item) => item}
                             buttonStyle={styles.dropdown}
                             searchInputTxtColor='black'
+                            search={true}
                             searchPlaceHolder='Tìm kiếm quận huyện...'
                             searchPlaceHolderColor='black'
                             searchInputTxtStyle={{fontSize : 18}}
@@ -156,6 +158,7 @@ const Addaddress = () => {
                             rowTextForSelection={(item) => item}
                             buttonStyle={styles.dropdown}
                             searchInputTxtColor='black'
+                            search={true}
                             searchPlaceHolder='Tìm kiếm phường xã...'
                             searchPlaceHolderColor='black'
                             searchInputTxtStyle={{fontSize : 18}}
