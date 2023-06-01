@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, Dimensions, TouchableOpacity, Image } from 'react-native';
 import CheckBox from 'react-native-check-box';
 import axios from 'axios';
-import SelectDropdown from 'react-native-select-dropdown'
+import SelectDropdown from 'react-native-select-dropdown';
 import ButtonBack from '../Component/ButtonBack';
 import Thongtin1 from '../Component/Thongtin_1';
 
@@ -101,6 +101,7 @@ const Addaddress = () => {
                             rowTextForSelection={(item) => item}
                             buttonStyle={styles.dropdown}
                             search={true}
+                            buttonTextStyle={{fontSize : 16}}
                             searchInputTxtColor='black'
                             searchPlaceHolder='Tìm kiếm thành phố...'
                             searchPlaceHolderColor='black'
@@ -128,6 +129,8 @@ const Addaddress = () => {
                             defaultButtonText='Chọn Quận/Huyện'
                             rowTextForSelection={(item) => item}
                             buttonStyle={styles.dropdown}
+                            buttonTextStyle={{fontSize : 16}}
+                            search={true}
                             searchInputTxtColor='black'
                             searchPlaceHolder='Tìm kiếm quận huyện...'
                             searchPlaceHolderColor='black'
@@ -155,7 +158,9 @@ const Addaddress = () => {
                             defaultButtonText='Chọn Phường/Xã'
                             rowTextForSelection={(item) => item}
                             buttonStyle={styles.dropdown}
+                            search={true}
                             searchInputTxtColor='black'
+                            buttonTextStyle={{fontSize : 16}}
                             searchPlaceHolder='Tìm kiếm phường xã...'
                             searchPlaceHolderColor='black'
                             searchInputTxtStyle={{fontSize : 18}}
