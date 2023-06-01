@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, Dimensions, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text,  Image,    } from "react-native";
 
 import Document from '../Component/Document';
 import Search from '../Component/Search';
-const { height: HeightScreen } = Dimensions.get('window');
-const { width: WidthScreen } = Dimensions.get('window');
-
 const documentManage_1 = () => {
     return (
         <View style={style.container}>

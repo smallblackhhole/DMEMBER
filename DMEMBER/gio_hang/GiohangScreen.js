@@ -90,24 +90,18 @@ const GiohangScreen = ({ route }) => {
             </View>
             <View style={styles.tongtien_gh}>
                 {/* //image bag */}
-                <View style={styles.img_all}>
-                    <Image source={require('../image/Bag.png')} style={styles.img_bag} />
-                    <View style={styles.img_corner2}>
-                        <Image source={require('../image/br_red.png')} style={styles.img_cornerIcon2} ></Image>
-                    </View>
-                    <View style={{ flexDirection: 'row', margin: 20 }}>
-                        <View>
-                            <Image source={require('../Assets/BagCart.png')} />
-                            <View style={styles.img_corner}>
-                                <Text style={{ color: 'white', fontSize: 12 }}>{numberCart}</Text>
-                            </View>
+                <View style={{ flexDirection: 'row', margin: 20 }}>
+                    <View>
+                        <Image source={require('../Assets/BagCart.png')} />
+                        <View style={styles.img_corner}>
+                            <Text style={{ color: 'white', fontSize: 12 }}>{numberCart}</Text>
                         </View>
-                        <Text style={styles.text_tt}>{formattedTotal},000</Text>
                     </View>
-                    <TouchableOpacity style={styles.button_tt} onPress={() => { navigation.navigate('PayComfirm', { itemcart, numberCart }) }}>
-                        <Text style={styles.buttonText}>Tiếp tục</Text>
-                    </TouchableOpacity>
+                    <Text style={styles.text_tt}>{formattedTotal},000</Text>
                 </View>
+                <TouchableOpacity style={styles.button_tt} onPress={() => { navigation.navigate('PayComfirm', { itemcart, numberCart }) }}>
+                    <Text style={styles.buttonText}>Tiếp tục</Text>
+                </TouchableOpacity>
             </View>
         </View>
     )

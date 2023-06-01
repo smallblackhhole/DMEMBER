@@ -22,12 +22,18 @@ import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
 // import Chitiet_donhang from "../Phuc_folder/don_hang/chitiet_donhang";
 import Payment from "../Payment_confirm/PayConfirm";
 import SearchScreen from "../SearchScreen/SearchScreen";
+import Login from "../login/login";
+import Quenmatkhau from "../login/quenmatkhau";
+import Screnn from "../Screen/Screen";
+import Register from "../login/register";
 import DcashTransfer_1 from "../viDcash/DcashTransfer_1";
 import DcashTransfer_2 from "../viDcash/DcashTransfer_2";
 import WithdrawDcash from "../viDcash/withdrawDcash";
 import Chitiet_donhang from "../don_hang/chitiet_donhang";
 import InforTransfer from "../viDcash/inforTransfer";
 import Lichsu_ruttien from "../history/lichsu_ruttien";
+import CreateAccount from "../CreateAccount/CreateAccount";
+import Addaddress from "../address/addaddress";
 const Tab = createBottomTabNavigator();
 
 
@@ -40,6 +46,18 @@ function MyStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen name="Screnn" component={Screnn} options={{
+          headerShown: false
+        }} />
+      <Stack.Screen name="Login" component={Login} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Quenmatkhau" component={Quenmatkhau} options={{
+          headerShown: false
+        }} />
+         <Stack.Screen name="Register" component={Register} options={{
+          headerShown: false
+        }} />
         <Stack.Screen name="MenuScreen" component={MenuAccount} options={{
           headerShown: false
         }} />
@@ -82,9 +100,6 @@ function MyStack() {
         <Stack.Screen name="Search" component={SearchScreen} options={{
           headerShown: false
         }} />
-        <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
-          headerShown: false
-        }} />
         <Stack.Screen name="DcashTransfer1" component={DcashTransfer_1} options={{
           headerShown: false
         }} />
@@ -98,6 +113,12 @@ function MyStack() {
           headerShown: false
         }} />
         <Stack.Screen name="Lichsu_ruttien" component={Lichsu_ruttien} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="CreateAccount" component={CreateAccount} options={{
+          headerShown: false
+        }} />
+        <Stack.Screen name="Addaddress" component={Addaddress} options={{
           headerShown: false
         }} />
       </Stack.Navigator>

@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, Dimensions, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text,  Image,  Dimensions, } from "react-native";
 
-import Memberslist from '../Component/Memberslist';
-import Avatar from '../Component/Avata';
-import Search from '../Component/Search';
+
 import Thongtin_dcm_2 from '../Component/Thongtin_dcm_2';
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');

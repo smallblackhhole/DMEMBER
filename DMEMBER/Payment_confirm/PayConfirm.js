@@ -20,7 +20,7 @@ const Payment = ({ route }) => {
         minimumFractionDigits: 0,
         maximumFractionDigits: 3
       });
-      console.log(donepay);
+
     return (
         <View style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>

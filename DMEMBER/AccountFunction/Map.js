@@ -3,11 +3,13 @@ import { useState } from "react";
 import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity, Switch, TextInput } from 'react-native'
 import ButtonBack from '../Component/ButtonBack';
 import MapBorder from '../Component/MapBorder';
+import { useNavigation } from '@react-navigation/native';
 
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 const Map = () => {
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.headerBar}>
@@ -16,7 +18,7 @@ const Map = () => {
                     title={"Quản lý địa chỉ"} />
             </View>
             <View style={styles.addCustomer}>
-                <TouchableOpacity style={styles.addCustomerBord}>
+                <TouchableOpacity style={styles.addCustomerBord} onPress={() => {navigation.navigate('Addaddress')}}>
                     <Text style={styles.text1}>Thêm khách hàng mới</Text>
                 </TouchableOpacity>
             </View>
