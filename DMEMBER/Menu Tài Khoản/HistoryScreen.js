@@ -160,7 +160,7 @@ console.log(order);
                                     <View style={styles.line}></View>
                                     <View style={styles.flex2}>
                                         <View style={{ flexDirection: 'row' }}>
-                                            <View style={styles.logoShip2}>
+                                            <View style={styles.logoShip3}>
                                                 <Image style={styles.styImage} source={require('../Assets/Pro1.png')} />
                                             </View>
                                             <View style={styles.title}>
@@ -195,7 +195,7 @@ console.log(order);
                     {activeOption === 'waitpay' && (
                         <React.Fragment>
                             <TouchableOpacity style={styles.DetailView2}  onPress={() => { navigation.navigate('chitiet_donghang') }}>
-                                <View style={styles.BordeDetailView}>
+                                <View style={styles.BordeDetailView2}>
                                     <View style={styles.flex1}>
                                         <View style={styles.logoShip2}>
                                             <Image style={{ zIndex: 999 }} source={require('../Assets/logoShip.png')} />
@@ -208,11 +208,11 @@ console.log(order);
                                     <View style={styles.line}></View>
                                     <View style={styles.flex2}>
                                         <View style={{ flexDirection: 'row' }}>
-                                            <View style={styles.logoShip2}>
+                                            <View style={styles.logoShip3}>
                                                 <Image style={styles.styImage} source={order.donepay.itemcart.itemchaged.item.imgproduct} />
                                             </View>
                                             <View style={styles.title}>
-                                                <Text style={{ fontSize: 16, fontWeight: '500', color: 'black' }}>{order.donepay.itemcart.itemchaged.item.nameproduct}</Text>
+                                                <Text style={{ fontSize: 15, fontWeight: '500', color: 'black' }}>{order.donepay.itemcart.itemchaged.item.nameproduct}</Text>
                                                 <View style={{ flexDirection: 'row', marginTop: 5, marginBottom: 10 }}>
                                                     <Text style={styles.text1}>Giá bán : </Text>
                                                     <Text style={styles.text2}>{order.donepay.itemcart.itemchaged.item.price}</Text>
@@ -354,8 +354,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(17, 81, 245, 0.1)',
         justifyContent: "center",
         alignItems: "center",
-        marginTop: 10,
-        marginLeft: 15
+        marginTop: 15,
+        marginLeft: 20
     },
     Text1: {
         color: 'black',
@@ -375,6 +375,7 @@ const styles = StyleSheet.create({
     flex2: {
         flex: 5,
         flexDirection: "column",
+       // backgroundColor:'red',
     },
     flex3: {
         flex: 2,

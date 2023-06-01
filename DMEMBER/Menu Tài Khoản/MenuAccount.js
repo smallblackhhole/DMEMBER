@@ -19,7 +19,7 @@ import GiohangScreen from "../gio_hang/GiohangScreen";
 import DetailTeam from "../AccountFunction/DetailTeam";
 import DetailScreen from "../DetailProduct/DetailScreen";
 import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
-import Chitiet_donhang from "../Phuc_folder/don_hang/chitiet_donhang";
+// import Chitiet_donhang from "../Phuc_folder/don_hang/chitiet_donhang";
 import Payment from "../Payment_confirm/PayConfirm";
 import SearchScreen from "../SearchScreen/SearchScreen";
 import DcashTransfer_1 from "../viDcash/DcashTransfer_1";
@@ -71,9 +71,6 @@ function MyStack() {
           headerShown: false
         }} />
         <Stack.Screen name="CreateTopic" component={CreateTopicScreen} options={{
-          headerShown: false
-        }} />
-         <Stack.Screen name="chitiet_donghang" component={Chitiet_donhang} options={{
           headerShown: false
         }} />
         <Stack.Screen name="Cart2" component={GiohangScreen} options={{
