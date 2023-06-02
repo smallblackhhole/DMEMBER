@@ -5,7 +5,6 @@ import ButtonBack from "../Component/ButtonBack";
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 const Login = () => {
-
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigation = useNavigation();
@@ -14,12 +13,14 @@ const Login = () => {
         // Kiểm tra tài khoản và mật khẩu
         if (username === ('1') && password === ('1')) {
           // Đăng nhập thành công, điều hướng sang màn hình HomeScreen
-          navigation.navigate('AccountScreen', {data  : {isLogin : true}});
-        } else {
-          // Hiển thị thông báo lỗi
-          alert('Tài khoản hoặc mật khẩu không chính xác.');
+          navigation.navigate('AccountScreen', {data  : {isLogin : true , username : '1'}});
+        } else if ((username === ('2') && password === ('2'))) {
+            navigation.navigate('AccountScreen', {data  : {isLogin : true, username : '2'}});
+        }else {
+            // Hiển thị thông báo lỗi
+            alert('Tài khoản hoặc mật khẩu không chính xác.');
         }
-      };
+    };
     
     return (
         <View style={style.container}>
@@ -120,12 +121,4 @@ const style = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-
-
-
-
-
-
-
-
-}); 2
+}); 
