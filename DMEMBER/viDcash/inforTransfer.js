@@ -1,5 +1,7 @@
-import { StyleSheet, View, Text, SafeAreaView, Dimensions, value, renderItem, TouchableOpacity, TextInput, Image, Clipboard, ToastAndroid } from "react-native";
+import { StyleSheet, View, Text, SafeAreaView, Dimensions,   TouchableOpacity, TextInput, Image,  ToastAndroid } from "react-native";
 import React, { useState } from 'react';
+import Clipboard from '@react-native-clipboard/clipboard';
+
 import ButtonBack from "../Component/ButtonBack";
 import Thongtin1 from "../Component/Thongtin_1";
 
