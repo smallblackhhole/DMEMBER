@@ -44,7 +44,7 @@ const ShopScreen = () => {
                     <View style={styles.priceanddiscount}>
                         <Text style={styles.textpridis}>Chiết khấu : </Text>
                         <Text style={styles.disnum}>{item.dis}</Text>
-                        <Image style={{ width: 30, height: 30, marginLeft: 8 }} source={require('../Assets/addbtn.png')} />
+                        <Image style={{ width: 30, height: 30 }} source={require('../Assets/addbtn.png')} />
                     </View>
                 </View>
             );
@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
     //item ngang
     itemOption: {
         marginHorizontal: 10,
-        //backgroundColor: 'green',
+      //  backgroundColor: 'green',
     },
     //TEXT item ngang
     nameoption: {
@@ -352,12 +352,14 @@ const styles = StyleSheet.create({
         margin: 10,
 
     },
+    //text sản phẩm bán chạy
     textProductHot: {
         marginTop: 40,
-        //backgroundColor:'pink',
+       // backgroundColor:'pink',
         justifyContent: 'center',
         marginBottom: 18
     },
+    //text mỹ phẩm milkydress
     textProductHot1: {
         marginTop: 18,
         //backgroundColor:'pink',
@@ -382,13 +384,13 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         color: 'black'
     },
-    //VIEW sản phẩm ngang 
+    //VIEW sản phẩm ngang (sản phẩm bán chạy)
     ProductTop: {
         width: WidthScreen,
         height: screenHeight * 0.30,
         justifyContent: "space-between",
         alignItems: "center",
-        //backgroundColor: 'blue',
+       // backgroundColor: 'blue',
 
     },
     borderTopProduct: {
@@ -399,8 +401,11 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginLeft: 17,
     },
+    //text item NAME sản phẩm bán chạy
     textTopProduct: {
-        color: 'black',
+       // backgroundColor: 'red',
+        height: screenHeight * 0.053,
+        color: '#000000',
         fontSize: 13,
         fontWeight: "500",
         textAlign: "center",
@@ -408,7 +413,10 @@ const styles = StyleSheet.create({
         paddingBottom: 7,
 
     },
+    //text item NAME danh mục
     textTopProduct2: {
+        //backgroundColor: 'red',
+        height: screenHeight * 0.045,
         color: 'black',
         fontSize: 10,
         fontWeight: "400",
@@ -431,6 +439,8 @@ const styles = StyleSheet.create({
         fontWeight: "600"
     },
     disnum: {
+        width: WidthScreen * 0.12,
+       // backgroundColor: 'red',
         color: '#1151F5',
         fontSize: 12,
         fontWeight: "600"

@@ -20,11 +20,10 @@ import DetailTeam from "../AccountFunction/DetailTeam";
 import DetailScreen from "../DetailProduct/DetailScreen";
 import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
 import Payment from "../Payment_confirm/PayConfirm";
-import SearchScreen from "../SearchScreen/SearchScreen";
-import Login from "../login/Login";
+import Login from "../login/login";
 import Quenmatkhau from "../login/quenmatkhau";
 import Screnn from "../Screen/Screen";
-import Register from "../login/Register";
+import Register from "../login/register";
 import DcashTransfer_1 from "../viDcash/DcashTransfer_1";
 import DcashTransfer_2 from "../viDcash/DcashTransfer_2";
 import WithdrawDcash from "../viDcash/withdrawDcash";
@@ -35,6 +34,7 @@ import CreateAccount from "../CreateAccount/CreateAccount";
 import Addaddress from "../address/addaddress";
 import News from "../News";
 import InfomationScreen from "../InfomationAccount/InfomationScreen";
+import SearchScreen from "../SearchScreen/SearchScreen";
 const Tab = createBottomTabNavigator();
 
 
