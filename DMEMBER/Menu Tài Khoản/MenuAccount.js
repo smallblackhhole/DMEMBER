@@ -21,7 +21,7 @@ import DetailScreen from "../DetailProduct/DetailScreen";
 import CreateTopicScreen from "../CreateTopic/CreateTopicScreen";
 import Payment from "../Payment_confirm/PayConfirm";
 import SearchScreen from "../SearchScreen/SearchScreen";
-import Login from "../login/login";
+import Login from "../login/Login";
 import Quenmatkhau from "../login/quenmatkhau";
 import Screnn from "../Screen/Screen";
 import Register from "../login/register";
