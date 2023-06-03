@@ -5,10 +5,12 @@ import axios from 'axios';
 import SelectDropdown from 'react-native-select-dropdown'
 import ButtonBack from '../Component/ButtonBack';
 import Thongtin1 from '../Component/Thongtin_1';
+import { useNavigation } from '@react-navigation/native';
 
 const { height: HeightScreen, width: WidthScreen } = Dimensions.get('window');
 
 const Addaddress = () => {
+    const navigation = useNavigation();
     const [data, setData] = useState([]);
     const [isChecked, setIsChecked] = useState(false);
     const [selectedCity, setSelectedCity] = useState('');
@@ -16,7 +18,9 @@ const Addaddress = () => {
     const [selectedWard, setSelectedWard] = useState('');
     const [districtOptions, setDistrictOptions] = useState([]);
     const [wardOptions, setWardOptions] = useState([]);
-    const [activeSelect , setactiveSelect] = useState(false);
+    const [name, setname] = useState('');
+    const [phone, setphone] = useState('');
+    const [address, setaddress] = useState('');
 
     useEffect(() => {
         const getAPI = async () => {
@@ -62,7 +66,6 @@ const Addaddress = () => {
     const handleWardChange = (value) => {
         setSelectedWard(value);
     };
-
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ flexDirection: 'column' }}>
@@ -73,17 +76,27 @@ const Addaddress = () => {
                 <View>
                     <Text style={styles.text}>Tên người nhận</Text>
                 </View>
-                <Thongtin1 text={'Nhập tên'} />
+                <Thongtin1
+                    text={'Nhập tên'}
+                    info={name}
+                    setinfo={setname}
+                />
 
                 <View>
                     <Text style={styles.text}>Số điện thoại</Text>
                 </View>
-                <Thongtin1 text={'Nhập số điện thoại'} />
+                <Thongtin1
+                    text={'Nhập số điện thoại'}
+                    info={phone}
+                    setinfo={setphone} />
 
                 <View>
                     <Text style={styles.text}>Địa chỉ nhận hàng</Text>
                 </View>
-                <Thongtin1 text={'Nhập địa chỉ nhận hàng'} />
+                <Thongtin1
+                    text={'Nhập địa chỉ nhận hàng'}
+                    info={address}
+                    setinfo={setaddress} />
 
                 <View>
                     <Text style={styles.text}>Tỉnh/ Thành phố</Text>
@@ -101,12 +114,12 @@ const Addaddress = () => {
                             rowTextForSelection={(item) => item}
                             buttonStyle={styles.dropdown}
                             search={true}
+                            buttonTextStyle={{ fontSize: 16, right: 15, position: 'absolute' }}
                             searchInputTxtColor='black'
-                            buttonTextStyle = {{fno}}
                             searchPlaceHolder='Tìm kiếm thành phố...'
                             searchPlaceHolderColor='black'
-                            searchInputTxtStyle={{fontSize : 18}}
-                            searchInputStyle={{borderWidth : 1 ,borderColor : 'black'}}
+                            searchInputTxtStyle={{ fontSize: 18 }}
+                            searchInputStyle={{ borderWidth: 1, borderColor: 'black' }}
                         />
                         <View style={styles.imgdrop}>
                             <Image source={require('../Assets/Vector.png')} />
@@ -118,7 +131,7 @@ const Addaddress = () => {
                     <Text style={styles.text}>Quận/ Huyện</Text>
                 </View>
                 <View style={{ alignItems: 'center' }}>
-                    <TouchableOpacity onPress={() => {}}>
+                    <TouchableOpacity onPress={() => { }}>
                         <SelectDropdown
                             data={districtOptions}
                             defaultValue={selectedDistrict}
@@ -129,12 +142,13 @@ const Addaddress = () => {
                             defaultButtonText='Chọn Quận/Huyện'
                             rowTextForSelection={(item) => item}
                             buttonStyle={styles.dropdown}
-                            searchInputTxtColor='black'
+                            buttonTextStyle={{ fontSize: 16, right: 15, position: 'absolute' }}
                             search={true}
+                            searchInputTxtColor='black'
                             searchPlaceHolder='Tìm kiếm quận huyện...'
                             searchPlaceHolderColor='black'
-                            searchInputTxtStyle={{fontSize : 18}}
-                            searchInputStyle={{borderWidth : 1 ,borderColor : 'black'}}
+                            searchInputTxtStyle={{ fontSize: 18 }}
+                            searchInputStyle={{ borderWidth: 1, borderColor: 'black' }}
                         />
                         <View style={styles.imgdrop}>
                             <Image source={require('../Assets/Vector.png')} />
@@ -146,7 +160,7 @@ const Addaddress = () => {
                     <Text style={styles.text}>Phường/ Xã</Text>
                 </View>
                 <View style={{ alignItems: 'center' }}>
-                    <TouchableOpacity style={{}} onPress={() => {}}>
+                    <TouchableOpacity style={{}} onPress={() => { }}>
                         <SelectDropdown
                             data={wardOptions}
                             defaultValue={selectedWard}
@@ -158,11 +172,11 @@ const Addaddress = () => {
                             rowTextForSelection={(item) => item}
                             buttonStyle={styles.dropdown}
                             searchInputTxtColor='black'
-                            search={true}
+                            buttonTextStyle={{ fontSize: 16, right: 15, position: 'absolute' }}
                             searchPlaceHolder='Tìm kiếm phường xã...'
                             searchPlaceHolderColor='black'
-                            searchInputTxtStyle={{fontSize : 18}}
-                            searchInputStyle={{borderWidth : 1 ,borderColor : 'black'}}
+                            searchInputTxtStyle={{ fontSize: 18 }}
+                            searchInputStyle={{ borderWidth: 1, borderColor: 'black' }}
                         />
                         <View style={styles.imgdrop}>
                             <Image source={require('../Assets/Vector.png')} />
@@ -175,7 +189,7 @@ const Addaddress = () => {
                 </View>
 
                 <View style={styles.addButtonContainer}>
-                    <TouchableOpacity style={styles.addButton}>
+                    <TouchableOpacity style={styles.addButton} onPress={() => { navigation.navigate('Map', {name , phone , address, selectedCity, selectedDistrict, selectedWard }) }}>
                         <Text style={styles.addButtonText}>Thêm</Text>
                     </TouchableOpacity>
                 </View>

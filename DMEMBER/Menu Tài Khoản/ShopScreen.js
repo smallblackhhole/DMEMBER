@@ -177,10 +177,10 @@ const ShopScreen = () => {
                         showsVerticalScrollIndicator={false}
                         numColumns={2}
                     />
-                    <View style={styles.ItemSeeAll}>
+                    <TouchableOpacity style={styles.ItemSeeAll}>
                         <Image source={require('../Assets/SeeAll.png')} />
                         <Text style={{ color: 'white', fontSize: 12, fontWeight: "400" }}>Xem tất cả</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         );

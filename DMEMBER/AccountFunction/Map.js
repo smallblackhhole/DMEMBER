@@ -8,41 +8,67 @@ import { useNavigation } from '@react-navigation/native';
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
-const Map = () => {
+const Map = ({ route }) => {
+    const data = route.params;
+
     const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <View style={styles.headerBar}>
-                <ButtonBack
-                    icon={require('../Assets/Back.png')}
-                    title={"Quản lý địa chỉ"} />
+                <ButtonBack icon={require('../Assets/Back.png')} title={"Quản lý địa chỉ"} />
             </View>
             <View style={styles.addCustomer}>
-                <TouchableOpacity style={styles.addCustomerBord} onPress={() => {navigation.navigate('Addaddress')}}>
+                <TouchableOpacity style={styles.addCustomerBord} onPress={() => { navigation.navigate('Addaddress') }}>
                     <Text style={styles.text1}>Thêm khách hàng mới</Text>
                 </TouchableOpacity>
             </View>
             <View style={styles.ViewtextTitle2}>
                 <Text style={styles.TextTitle2}>Danh sách khách hàng</Text>
             </View>
-            <View >
+            <View>
                 <ScrollView>
                     <View style={styles.ViewFull}>
-                        <MapBorder
-                        name={"Chị Hồng - 01234567889"}
-                        address={"Địa chỉ: 256 Bạch Đằng, Phường 24, Bình Thạnh, TPHCM"}/>
-                        <MapBorder
-                        name={"Chị Mai - 124398690"}
-                        address={"Địa chỉ: 256 Bạch Đằng, Phường 24, Bình Thạnh, TPHCM"}/>
-                        <MapBorder
-                        name={"Chị Huệ - 01234567889"}
-                        address={"Địa chỉ: 256 Bạch Đằng, Phường 24, Bình Thạnh, TPHCM"}/>
+                        {!data ? (
+                            <>
+                                <MapBorder
+                                    name={"Chị Hồng"}
+                                    phone={"01234567889"}
+                                    city={"TPHCM"}
+                                    ward={"Phường 24"}
+                                    district={"Bình Thạnh"}
+                                    address={"256 Bạch Đằng"} />
+                                <MapBorder
+                                    name={"Chị Mai"}
+                                    phone={"124398690"}
+                                    city={"TPHCM"}
+                                    ward={"Phường 24"}
+                                    district={"Bình Thạnh"}
+                                    address={"256 Bạch Đằng"} />
+                                <MapBorder
+                                    name={"Chị Huệ"}
+                                    phone={"01234567889"}
+                                    city={"TPHCM"}
+                                    ward={"Phường 24"}
+                                    district={"Bình Thạnh"}
+                                    address={"256 Bạch Đằng"} />
+                            </>
+                        ) : (
+                            <MapBorder
+                                name={data.name}
+                                phone={data.phone}
+                                address={data.address}
+                                city={data.selectedCity}
+                                district={data.selectedDistrict}
+                                ward={data.selectedWard}
+                            />
+                        )}
                     </View>
                 </ScrollView>
             </View>
         </View>
     );
-}
+};
+
 
 const styles = StyleSheet.create({
     container: {
@@ -54,16 +80,16 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.06,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop:30,
-       // backgroundColor:'red'
+        marginTop: 30,
+        // backgroundColor:'red'
     },
     addCustomer: {
-        width: WidthScreen ,
+        width: WidthScreen,
         height: HeightScreen * 0.071,
         justifyContent: "center",
         alignItems: "center",
         marginTop: 30,
-       // backgroundColor:'red'
+        // backgroundColor:'red'
     },
     addCustomerBord: {
         width: WidthScreen * 0.9,
@@ -93,9 +119,9 @@ const styles = StyleSheet.create({
     ViewFull: {
         width: WidthScreen,
         height: HeightScreen,
-        alignItems : 'center',
-        
-        
+        alignItems: 'center',
+
+
     }
 });
 
