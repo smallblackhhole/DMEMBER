@@ -24,7 +24,7 @@ import SearchScreen from "../SearchScreen/SearchScreen";
 import Login from "../login/login";
 import Quenmatkhau from "../login/quenmatkhau";
 import Screnn from "../Screen/Screen";
-import Register from "../login/register";
+import Register from "../login/Register";
 import DcashTransfer_1 from "../viDcash/DcashTransfer_1";
 import DcashTransfer_2 from "../viDcash/DcashTransfer_2";
 import WithdrawDcash from "../viDcash/withdrawDcash";
