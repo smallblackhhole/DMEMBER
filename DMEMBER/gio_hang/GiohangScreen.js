@@ -7,6 +7,7 @@ import ButtonBack from '../Component/ButtonBack';
 const GiohangScreen = ({ route }) => {
     const navigation = useNavigation();
     const itemcart = route.params;
+    console.log(itemcart);
     const soluong = route.params;
     const [numberCart, setnumberCart] = useState(soluong.numberCart);
     const [activenumberCart] = useState(false);
@@ -19,8 +20,11 @@ const GiohangScreen = ({ route }) => {
         return (
             <View style={styles.right_delete}>
                 <View style={styles.OptionBox}>
-                    <Image style={styles.xoa}
+                <TouchableOpacity>
+                <Image style={styles.xoa}
                         source={require('../Assets/binCart.png')} />
+                </TouchableOpacity>
+                  
                 </View>
             </View>
         );
@@ -83,13 +87,15 @@ const GiohangScreen = ({ route }) => {
                         </View>
                     </View>
                 </Swipeable>
+                {/*  */}
+
             </View>
             <View style={styles.tongtien_gh}>
                 {/* //image bag */}
                 <View style={{ flexDirection: 'row', margin: 20 }}>
                     <View>
                         <Image source={require('../Assets/BagCart.png')} />
-                        <View style={styles.img_corner}>
+                        <View style={styles.img_corner2}>
                             <Text style={{ color: 'white', fontSize: 12 }}>{numberCart}</Text>
                         </View>
                     </View>

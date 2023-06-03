@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     width: WidthScreen * 0.25,
     height: HeightScreen * 0.134,
     flexDirection :  "row",
-   // backgroundColor: 'red',
+    backgroundColor: 'red',
   },
   sua : {
     flexDirection : "column",

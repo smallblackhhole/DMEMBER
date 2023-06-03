@@ -19,13 +19,6 @@ const styles = StyleSheet.create({
        // backgroundColor: "red",
         
     },
-    //view kéo xóa sản phẩm 
-    right_delete: {
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        marginRight: 30, 
-        marginLeft: 17
-    },
     //text giỏ hàng
     textgiohang: {
         fontSize: 21,
@@ -41,7 +34,8 @@ const styles = StyleSheet.create({
     view_gh: {
         flex: 1,
         width: width_screen * 0.90,
-        flexDirection: 'row',
+        flexDirection: 'column',
+        // backgroundColor: 'red',
 
     },
     //view sp
@@ -61,17 +55,6 @@ const styles = StyleSheet.create({
 
     },
     img_corner: {
-        position : 'absolute',
-        justifyContent : 'center',
-        alignItems :'center',
-        bottom :0,
-        right : 0,
-        width : 15,
-        height : 15,
-        borderRadius : 20,
-        backgroundColor : '#EE2525'
-    },
-    img_corner2: {
         position: 'absolute',
         top: 4,
         right: 7,
@@ -85,12 +68,33 @@ const styles = StyleSheet.create({
         borderRadius : 20,
         backgroundColor : '#EE2525'
     },
+    img_corner2: {
+        position : 'absolute',
+        justifyContent : 'center',
+        alignItems :'center',
+        bottom :0,
+        right : -3,
+        width : 15,
+        height : 15,
+        borderRadius : 20,
+        backgroundColor : '#EE2525'
+    },
+    
     img_cornerIcon: {
         width: width_screen * 0.056,//20
         height: height_screen * 0.033,//23
        // backgroundColor: 'pink',
     },
-    
+    //view kéo xóa sản phẩm 
+    right_delete: {
+        marginTop:10,
+         justifyContent: 'center',
+        alignItems: 'center',
+        width: width_screen * 0.25,
+        height: height_screen * 0.134,
+        flexDirection: "row",
+       // backgroundColor: 'green',
+    },
     //phần vuốt item hiện nút xóa
     OptionBox: {
         justifyContent: 'center',
@@ -98,7 +102,7 @@ const styles = StyleSheet.create({
         width: width_screen * 0.106,//20
         height: height_screen * 0.053,//40
         backgroundColor: '#D7232D',
-        borderRadius: 50
+        borderRadius: 50,
     },
     xoa: {
         width: width_screen * 0.050,//20

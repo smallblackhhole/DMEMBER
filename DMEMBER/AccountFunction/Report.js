@@ -35,9 +35,9 @@ const Report = () => {
             <View style={styles.ViewFull}>
                 <View style={styles.BordView}>
                     <View style={styles.flex1}>
-                            <View style={styles.headerReport}>
-                                <Text style={styles.titleReport}>Lọc kết quả</Text>
-                                <View style={styles.DropdownBord}>
+                        <View style={styles.headerReport}>
+                            <Text style={styles.titleReport}>Lọc kết quả</Text>
+                            <View style={styles.DropdownBord}>
                                 <SelectDropdown
                                     data={Time}
                                     defaultButtonText={Time[0]}
@@ -46,10 +46,10 @@ const Report = () => {
                                 />
                                 <Image style={styles.imgdrop} source={require('../Assets/Vector.png')} />
                             </View>
-                            </View>
+                        </View>
                     </View>
                     <View style={styles.flex2}>
-                            <Image style={{marginTop : 20}} source={require('../Assets/Chart.png')}/>
+                        <Image style={{ marginTop: 20 }} source={require('../Assets/Chart.png')} />
                     </View>
                 </View>
             </View>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     },
     ViewFull: {
         width: WidthScreen,
-        height: HeightScreen * 0.35,
+        height: HeightScreen * 0.37,
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',

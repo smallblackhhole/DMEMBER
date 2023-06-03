@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, View, Text, SafeAreaView, Dimensions, TouchableOpacity, Image } from 'react-native';
 import CheckBox from 'react-native-check-box';
 import axios from 'axios';
-import SelectDropdown from 'react-native-select-dropdown';
+import SelectDropdown from 'react-native-select-dropdown'
 import ButtonBack from '../Component/ButtonBack';
 import Thongtin1 from '../Component/Thongtin_1';
 import { useNavigation } from '@react-navigation/native';
@@ -171,7 +171,6 @@ const Addaddress = () => {
                             defaultButtonText='Chọn Phường/Xã'
                             rowTextForSelection={(item) => item}
                             buttonStyle={styles.dropdown}
-                            search={true}
                             searchInputTxtColor='black'
                             buttonTextStyle={{ fontSize: 16, right: 15, position: 'absolute' }}
                             searchPlaceHolder='Tìm kiếm phường xã...'

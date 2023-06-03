@@ -5,7 +5,7 @@ import InfomationScreen from './InfomationAccount/InfomationScreen';
 import DetailScreen from './DetailProduct/DetailScreen';
 import CreateAccount from './CreateAccount/CreateAccount';
 import AccountScreenBeforeLogin from './AccountScreenBFLOG/BeforeLoginScreen';
-import Search from './Phuc_folder/search/search';
+// import Search from './Phuc_folder/search/search';
 import Login from './login/Login';
 import Register from './login/Register';
 import Screnn from './Screen/Screen';

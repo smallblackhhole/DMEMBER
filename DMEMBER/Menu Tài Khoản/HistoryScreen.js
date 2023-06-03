@@ -268,9 +268,10 @@ const styles = StyleSheet.create({
     OptionLine1: {
         flexDirection: "row",
         flex: 1,
-        margin: 15,
+        margin: 10,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        backgroundColor: '#FFFFFF',
     },
     OptionLine2: {
         flex: 1,
@@ -280,16 +281,16 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     textOption: {
-        color: 'black',
-        fontSize: 16,
-        fontWeight: "500",
-        marginHorizontal: 20,
+        color: 'red',
+        fontSize: 15,
+        fontWeight: "400",
+        marginHorizontal: 15,
 
     },
     TextTitle2: {
-        color: 'black',
-        fontSize: 18,
-        fontWeight: "600",
+        color: '#000000',
+        fontSize: 17,
+        fontWeight: "500",
         marginLeft: 20
     },
     ViewtextTitle2: {
@@ -410,7 +411,7 @@ const styles = StyleSheet.create({
     },
     borderOptionClick: {
         height: HeightScreen * 0.045,//40
-        backgroundColor: '#041F44',
+        backgroundColor: '#000000',
         borderRadius: 25,
         justifyContent: "center",
         alignItems: "center",
