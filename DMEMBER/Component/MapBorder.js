@@ -6,7 +6,7 @@ import { Swipeable } from 'react-native-gesture-handler';
 const { width: WidthScreen } = Dimensions.get('window');
 const { height: HeightScreen } = Dimensions.get('window');
 
-const MapBorder = ({ name, address }) => {
+const MapBorder = ({ name, address , phone , city , ward , district }) => {
   const RightSwipe = () => {
     return (
       <View style={styles.OptionBox}>
@@ -26,8 +26,8 @@ const MapBorder = ({ name, address }) => {
     <View style={styles.cnotainer}>
       <Swipeable renderRightActions={RightSwipe}>
         <View style={styles.borderView}>
-          <Text style={styles.text1}>{name}</Text>
-          <Text style={styles.text2}>{address}</Text>
+          <Text style={styles.text1}>{name} - {phone}</Text>
+          <Text style={styles.text2}>Địa chỉ : {address} , {ward} , {district} , {city} </Text>
         </View>
       </Swipeable>
     </View>

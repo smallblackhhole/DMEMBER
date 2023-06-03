@@ -43,7 +43,7 @@ const HomeScreen = () => {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.ViewFull}>
                     <View style={styles.ListWalletView}>
-                        <View style={styles.ListWalletBord}>
+                        <TouchableOpacity style={styles.ListWalletBord} onPress={() => { navigation.navigate('Dcash') }}>
                             <View style={styles.flexList1}>
                                 <View style={styles.borderListWal}>
                                     <Image style={styles.ImgList} source={require('../Assets/Wallet1.png')} />
@@ -54,12 +54,12 @@ const HomeScreen = () => {
                                 <Text style={styles.textList1}>434,403</Text>
                             </View>
                             <View style={styles.flexList3}>
-                                <TouchableOpacity onPress={() => { navigation.navigate('Dcash') }}>
+                                <View >
                                     <Image source={require('../Assets/Vector.png')} />
-                                </TouchableOpacity>
+                                </View>
                             </View>
-                        </View>
-                        <View style={styles.ListWalletBord}>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.ListWalletBord}>
                             <View style={styles.flexList1}>
                                 <View style={styles.borderListWal}>
                                     <Image style={styles.ImgList} source={require('../Assets/Wallet2.png')} />
@@ -72,8 +72,8 @@ const HomeScreen = () => {
                             <View style={styles.flexList3}>
                                 <Image source={require('../Assets/Vector.png')} />
                             </View>
-                        </View>
-                        <View style={styles.ListWalletBord}>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.ListWalletBord}>
                             <View style={styles.flexList1}>
                                 <View style={styles.borderListWal}>
                                     <Image style={styles.ImgList} source={require('../Assets/Wallet3.png')} />
@@ -86,7 +86,7 @@ const HomeScreen = () => {
                             <View style={styles.flexList3}>
                                 <Image source={require('../Assets/Vector.png')} />
                             </View>
-                        </View>
+                        </TouchableOpacity>
                         <Text style={styles.Seeall}>Xem tất cả</Text>
                     </View>
                     <View style={styles.optionView}>
