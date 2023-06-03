@@ -36,7 +36,6 @@ import CreateAccount from "../CreateAccount/CreateAccount";
 import Addaddress from "../address/addaddress";
 import News from "../News";
 import InfomationScreen from "../InfomationAccount/InfomationScreen";
-import SearchScreen from "../SearchScreen/SearchScreen";
 const Tab = createBottomTabNavigator();
 
 

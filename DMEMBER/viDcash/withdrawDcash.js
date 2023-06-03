@@ -23,7 +23,7 @@ const WithdrawDcash = () => {
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
                     title={"Rút Dcash"} />
-                <Image style={{ right: 20, position: 'absolute', bottom: 10 }} source={require('../Assets/Re.png')} />
+                <Image style={{ right: 20, position: 'absolute', bottom: 10, width: 25, height:20 }} resizeMode="contain" source={require('../Assets/Re.png')} />
             </View>
             <View>
                 <Text style={style.text}>Bạn cần rút bao nhiêu?</Text>

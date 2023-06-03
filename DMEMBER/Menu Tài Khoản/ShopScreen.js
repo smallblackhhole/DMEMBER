@@ -44,7 +44,7 @@ const ShopScreen = () => {
                     <View style={styles.priceanddiscount}>
                         <Text style={styles.textpridis}>Chiết khấu : </Text>
                         <Text style={styles.disnum}>{item.dis}</Text>
-                        <Image style={{ width: 30, height: 30 }} source={require('../Assets/addbtn.png')} />
+                        <Image style={{ width: 27, height: 27 }} resizeMode="contain" source={require('../Assets/addbtn.png')} />
                     </View>
                 </View>
             );
@@ -69,7 +69,7 @@ const ShopScreen = () => {
         const renderProduct = ({ item }) => {
             return (
                 <TouchableOpacity onPress={() => { navigation.navigate('Detail', { item }) }}>
-                    <View style={styles.ViewBorderPro}>
+                    {/* <View style={styles.ViewBorderPro}> */}
                         <View style={styles.borderPro}>
                             <View>
                                 <Image style={styles.img_sp} source={item.imgproduct} />
@@ -77,21 +77,21 @@ const ShopScreen = () => {
                                     source={item.tag} />
                             </View>
                             <Text style={styles.name_sp}>{item.nameproduct}</Text>
-                            <View style={{ flexDirection: "row" }}>
-                                <View style={{ flexDirection: "column" }}>
-                                    <View style={styles.priceanddiscount}>
-                                        <Text style={styles.textpridis}>Giá bán : </Text>
+                            <View style={{flexDirection: "row", justifyContent: 'space-between', alignItems: "center"}}>
+                                <View style={{ flexDirection: "column", }}>
+                                    <View style={styles.priceanddiscount2}>
+                                        <Text style={styles.textpridis}>Giá bán: </Text>
                                         <Text style={styles.pricenum}>{item.price}</Text>
                                     </View>
-                                    <View style={styles.priceanddiscount}>
-                                        <Text style={styles.textpridis}>Chiết khấu : </Text>
+                                    <View style={styles.priceanddiscount2}>
+                                        <Text style={styles.textpridis}>Chiết khấu: </Text>
                                         <Text style={styles.disnum}>{item.dis}</Text>
+                                        <Image style={{ width: 27, height: 27, marginLeft:18 }} resizeMode="contain" source={require('../Assets/addbtn.png')} />
                                     </View>
                                 </View>
-                                <Image style={{ marginLeft: 24, marginTop: 9, width: 30, height: 30 }} source={require('../Assets/addbtn.png')} />
                             </View>
                         </View>
-                    </View>
+                    {/* </View> */}
                 </TouchableOpacity>
             );
         }
@@ -426,7 +426,15 @@ const styles = StyleSheet.create({
     },
     priceanddiscount: {
         flexDirection: "row",
-        marginLeft: 15
+        marginLeft: 13,
+        // alignItems: 'center',
+        //backgroundColor: 'red',
+    },
+    priceanddiscount2: {
+        flexDirection: "row",
+        marginLeft: 13,
+        // alignItems: 'center',
+        //backgroundColor: 'green',
     },
     textpridis: {
         color: 'black',
@@ -435,14 +443,14 @@ const styles = StyleSheet.create({
     },
     pricenum: {
         color: '#BE7229',
-        fontSize: 12,
+        fontSize: 10,
         fontWeight: "600"
     },
     disnum: {
         width: WidthScreen * 0.12,
        // backgroundColor: 'red',
         color: '#1151F5',
-        fontSize: 12,
+        fontSize: 10,
         fontWeight: "600"
     },
     ProductOption: {
@@ -483,6 +491,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         alignItems: "center",
         justifyContent: "center",
+        padding: 4,
         // backgroundColor: 'pink',
         marginLeft: 16,
         marginBottom: 17
@@ -501,7 +510,7 @@ const styles = StyleSheet.create({
         fontSize: 10,
         fontWeight: "500",
         textAlign: "center",
-        margin: 5,
+        marginTop: 5,
         paddingBottom: 7,
         // backgroundColor: 'pink',
     },

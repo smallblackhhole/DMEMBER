@@ -32,13 +32,13 @@ const Login = () => {
             <View style={{ width: WidthScreen, height: HeightScreen * 0.3, flexDirection: 'row', marginTop: 150, }}>
                 <View>
                     <View>
-                        <Image style={{ width: WidthScreen * 0.55, height: HeightScreen * 0.04, margin: 20 }} source={require('../image/xinchao.png')} />
+                        <Image style={{ width: WidthScreen * 0.455, height: HeightScreen *0.076, marginLeft: 25,marginBottom:10 }} resizeMode="contain" source={require('../image/xinchao.png')} />
                     </View>
                     <View style={{ left: 20, }}>
                         <View style={{ backgroundColor: 'white', width: WidthScreen * 0.7, height: HeightScreen * 0.08, borderRadius: 10, }}>
                             <View style={{ flexDirection: 'row', alignItems: 'center', padding: 15 }}>
                                 <View style={{ flex: 2 }}>
-                                    <Image style={{ width: WidthScreen * 0.1, height: HeightScreen * 0.05, }} source={require('../image/phone.png')} />
+                                    <Image style={{ width: WidthScreen * 0.5, height: HeightScreen * 0.025, }} resizeMode="contain" source={require('../image/phone.png')} />
                                 </View>
                                 <View style={{ flexDirection: 'row', flex: 8 }}>
                                     <Image style={{ marginTop: 12 }} source={require('../image/gach.png')} />
@@ -63,8 +63,8 @@ const Login = () => {
                         </View>
                     </View>
                 </View>
-                <View>
-                    <Image style={{ width: WidthScreen * 0.3, height: HeightScreen * 0.3, zIndex: 999, }} source={require('../image/Frame.png')} />
+                <View >
+                    <Image style={{ width: WidthScreen * 0.3, height: HeightScreen * 0.3, zIndex: 999,}} resizeMode="contain" source={require('../image/Frame.png')} />
                 </View>
             </View>
             <View style={{ width: WidthScreen * 0.6 }}>
