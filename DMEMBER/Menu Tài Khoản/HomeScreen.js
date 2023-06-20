@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet, Dimensions, Image, ScrollView, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, Dimensions, Image, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
 import Modal from 'react-native-modal';
 const { height: HeightScreen } = Dimensions.get('window');
@@ -8,12 +8,18 @@ const { width: WidthScreen } = Dimensions.get('window');
 
 const HomeScreen = () => {
     const navigation = useNavigation();
-    const [isModalVisible, setModalVisible] = useState(false);
-    const toggleModal = () => {
-        setModalVisible(!isModalVisible);
+    const [isModalVisible1, setModalVisible1] = useState(false);
+    const [isModalVisible2, setModalVisible2] = useState(false);
+
+    const toggleModal1 = () => {
+        setModalVisible1(!isModalVisible1);
+    };
+
+    const toggleModal2 = () => {
+        setModalVisible2(!isModalVisible2);
     };
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.balanceView}>
                 <View style={styles.balanceBord}>
                     <View style={styles.flex1Balance}>
@@ -112,32 +118,38 @@ const HomeScreen = () => {
                                 </View>
                             </View>
                             <View style={styles.Line2}>
-                                <TouchableOpacity style={styles.ItemOption} onPress={() => navigation.navigate('Bord')}>
+                                <TouchableOpacity style={styles.ItemOption} onPress={toggleModal2}>
                                     <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome4.png')} />
                                     </View>
                                     <Text style={styles.textOption}>QR</Text>
+                                    <Modal isVisible={isModalVisible2} onBackdropPress={toggleModal2}>
+                                        <View style={styles.ViewQR}>
+                                            <Image style ={{width : 300 , height : 300 , borderRadius : 20}} source={require('../Assets/QRCODE.png')} />
+                                        </View>
+                                    </Modal>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.ItemOption} onPress={toggleModal}>
+
+                                <TouchableOpacity style={styles.ItemOption} onPress={toggleModal1}>
                                     <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome5.png')} />
                                     </View>
                                     <Text style={styles.textOption}>Nạp Dcash</Text>
-                                    <Modal isVisible={isModalVisible} onBackdropPress={toggleModal}>
+                                    <Modal isVisible={isModalVisible1} onBackdropPress={toggleModal1}>
                                         <View style={styles.ViewModal}>
                                             <View style={styles.header}></View>
                                             <View style={styles.header2}>
                                                 <View style={{ flex: 2, alignItems: "center" }}>
                                                     <Image style={{ position: "absolute", top: -50 }} source={require('../Assets/warningrecharge.png')} />
                                                 </View>
-                                                <View style={{ flex: 2, alignItems: "center" , justifyContent : "center",marginTop:20  }}>
+                                                <View style={{ flex: 2, alignItems: "center", justifyContent: "center", marginTop: 20 }}>
                                                     <Text style={{ color: '#FBAE35', fontSize: 18, fontWeight: "600" }}>Thông báo</Text>
                                                 </View>
-                                                <View style={{ flex: 2, alignItems: "center", justifyContent : "center"  }}>
-                                                    <Text style={{ color: 'black', fontSize: 16, fontWeight: "500", marginBottom:13 }}>Vui lòng nạp tối thiểu 50,000</Text>
+                                                <View style={{ flex: 2, alignItems: "center", justifyContent: "center" }}>
+                                                    <Text style={{ color: 'black', fontSize: 16, fontWeight: "500", marginBottom: 13 }}>Vui lòng nạp tối thiểu 50,000</Text>
                                                 </View>
                                                 <View style={{ flex: 4, alignItems: "center", justifyContent: "center" }}>
-                                                    <TouchableOpacity style={styles.borderAgree} onPress={toggleModal} >
+                                                    <TouchableOpacity style={styles.borderAgree} onPress={toggleModal1} >
                                                         <Text style={{ color: 'white', fontSize: 14, fontWeight: "600" }}>Đồng ý</Text>
                                                     </TouchableOpacity>
                                                 </View>
@@ -145,18 +157,18 @@ const HomeScreen = () => {
                                         </View>
                                     </Modal>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={styles.ItemOption} onPress={() => {navigation.navigate('WithdrawDcash')}}>
+                                <TouchableOpacity style={styles.ItemOption} onPress={() => { navigation.navigate('WithdrawDcash') }}>
                                     <View style={styles.borderOption}>
                                         <Image source={require('../Assets/optionHome6.png')} />
                                     </View>
                                     <Text style={styles.textOption}>Rút Dcash</Text>
                                 </TouchableOpacity>
                             </View>
-                        </View>                        
+                        </View>
                     </View>
-                </View>         
+                </View>
             </ScrollView>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -174,7 +186,7 @@ const styles = StyleSheet.create({
     },
     balanceBord: {
         width: WidthScreen * 0.9,
-        height:HeightScreen * 0.141,//108
+        height: HeightScreen * 0.141,//108
         backgroundColor: '#FFFFFF',
         borderRadius: 15,
         flexDirection: "row"
@@ -190,8 +202,8 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     Imgbalance: {
-        width:   WidthScreen * 0.299,
-        height:  HeightScreen * 0.126,
+        width: WidthScreen * 0.299,
+        height: HeightScreen * 0.126,
         resizeMode: "stretch",
     },
     textbalance1: {
@@ -243,7 +255,7 @@ const styles = StyleSheet.create({
     },
     ListWalletBord: {
         width: WidthScreen * 0.9,
-        height:HeightScreen * 0.075,
+        height: HeightScreen * 0.075,
         backgroundColor: '#FFFFFF',
         flexDirection: "row",
         borderRadius: 10,
@@ -331,14 +343,14 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 5,
-         backgroundColor: 'rgba(196, 196, 196, 0.3)',
+        backgroundColor: 'rgba(196, 196, 196, 0.3)',
     },
     ItemOption: {
         flexDirection: "column",
         flex: 1,
         alignItems: "center"
     },
-    textOption: {   
+    textOption: {
         width: WidthScreen * 0.229,//86
         height: HeightScreen * 0.050,//60
         color: 'black',
@@ -346,8 +358,8 @@ const styles = StyleSheet.create({
         fontSize: 15,
         textAlign: "center",
         marginTop: 5,
-       // backgroundColor:'pink'
-       
+        // backgroundColor:'pink'
+
     },
     ViewModal: {
         height: HeightScreen * 0.340,//262
@@ -358,7 +370,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FBAE35',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
-       
+
     },
     header2: {
         flex: 7,
@@ -366,7 +378,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderBottomLeftRadius: 30,
         borderBottomRightRadius: 30,
-        
+
     },
     borderAgree: {
         width: WidthScreen * 0.305,//116
@@ -375,6 +387,12 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         justifyContent: "center",
         alignItems: "center"
-    }
+    },
+    ViewQR: {
+        width: '100%',
+        height: HeightScreen * 0.35,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
 });
 export default HomeScreen;

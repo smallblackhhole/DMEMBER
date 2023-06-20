@@ -27,7 +27,7 @@ const DcashTransfer_2 = ({ route }) => {
     };
 
     return (
-        <View style={style.container}>
+        <SafeAreaView style={style.container}>
             <View style={style.headerBar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
@@ -85,7 +85,7 @@ const DcashTransfer_2 = ({ route }) => {
                     <Text style={{ color: 'white' }}>Chuyển</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 

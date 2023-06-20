@@ -1,6 +1,6 @@
 import React from 'react-native';
 import { useState } from "react";
-import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity, Switch, TextInput } from 'react-native'
+import { Text, View, StyleSheet, Dimensions, ScrollView, SafeAreaView, TouchableOpacity, Switch, TextInput } from 'react-native'
 import ButtonBack from '../Component/ButtonBack';
 import MapBorder from '../Component/MapBorder';
 import { useNavigation } from '@react-navigation/native';
@@ -13,7 +13,7 @@ const Map = ({ route }) => {
 
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
                 <ButtonBack icon={require('../Assets/Back.png')} title={"Quản lý địa chỉ"} />
             </View>
@@ -65,7 +65,7 @@ const Map = ({ route }) => {
                     </View>
                 </ScrollView>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 

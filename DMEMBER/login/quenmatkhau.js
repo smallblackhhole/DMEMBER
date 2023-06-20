@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Dimensions, Alert } from 'react-native'
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Dimensions, SafeAreaView } from 'react-native'
 import Modal from 'react-native-modal';
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
@@ -26,7 +26,7 @@ const Quenmatkhau = ({  onConfirm }) => {
         console.log("Nút Đăng kí đã được nhấn!");
     };
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.view_qkm}>
                 {/* text */}
                 <Text style={styles.text_llmk}>Lấy lại mật khẩu</Text>
@@ -86,7 +86,7 @@ const Quenmatkhau = ({  onConfirm }) => {
                     <Text style={styles.buttonText}>Trở về trang đăng nhập</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

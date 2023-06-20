@@ -1,5 +1,5 @@
 import React from 'react-native';
-import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity,SafeAreaView } from 'react-native'
 import ButtonBack from '../Component/ButtonBack';
 
 const { height: HeightScreen } = Dimensions.get('window');
@@ -7,7 +7,7 @@ const { width: WidthScreen } = Dimensions.get('window');
 
 const Shareapp = () => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerbar}>
                 <ButtonBack
                     icon={require('../Assets/X.png')}
@@ -41,7 +41,7 @@ const Shareapp = () => {
                     </View>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 

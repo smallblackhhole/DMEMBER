@@ -1,11 +1,11 @@
 import React from "react";
-import { Text, View, StyleSheet, Dimensions, Image, TextInput, ScrollView } from 'react-native'
+import { Text, View, StyleSheet, Dimensions, Image, TextInput, ScrollView , SafeAreaView} from 'react-native'
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 const TranfersScreen = () => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
                 <View style={styles.flexhead1}>
                     <Text style={styles.title}>Đổi điểm</Text>
@@ -67,7 +67,7 @@ const TranfersScreen = () => {
                     </View>
                 </View>
             </ScrollView>
-        </View>
+        </SafeAreaView>
     );
 }
 

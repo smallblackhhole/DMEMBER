@@ -1,9 +1,9 @@
-import { Image, Text, View, TextInput, TouchableOpacity } from 'react-native'
+import { Image, Text, View, TextInput, TouchableOpacity , SafeAreaView } from 'react-native'
 import React from 'react'
 import styles from './style_ttkhachang'
 const Thongtin_khachang = () => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             {/* view tổng thông tin khách hàng */}
             <View style={styles.view_ttkh}>
                 {/* text thông tin khác hàng */}
@@ -99,7 +99,7 @@ const Thongtin_khachang = () => {
                     </View>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

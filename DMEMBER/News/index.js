@@ -1,57 +1,59 @@
-import { StyleSheet, View, Text, Dimensions, Image, TextInput, Touchable, TouchableOpacity } from "react-native";
-const { height: screenHeight } = Dimensions.get('window');
+import { StyleSheet, View, Text, Dimensions, Image, FlatList, SafeAreaView } from "react-native";
 import ButtonBack from "../Component/ButtonBack";
 const { width: WidthScreen } = Dimensions.get('window');
+const { height: HeightScreen } = Dimensions.get('window');
+import NewData from "./NewData";
 const News = () => {
-
+    const renderItem = ({ item }) => {
+        // console.log(item);
+        return (
+            <View style={{alignItems : "center" }}>
+                <View style={style.AnotherNewBord}>
+                    <View style={style.flexAnotherNew1}>
+                        <Text style={style.textNew1}>{item.titleNew}</Text>
+                        <Text style={style.textNew2}>{item.dateNew}</Text>
+                    </View>
+                    <View style={style.flexAnotherNew2}>
+                        <Image style={{ width: '100%', height: '100%' }} resizeMode="stretch" source={item.imgNew} />
+                    </View>
+                </View>
+            </View>
+        );
+    }
     return (
-        <View style={style.container}>
-             <View style={style.headerbar}>
+        <SafeAreaView style={style.container}>
+            <View style={style.headerbar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
                     title={"Tin Tức"} />
             </View>
-            <View>
-                <Text style={{ fontSize: 22, fontWeight: 'bold', left: '5%', position: 'absolute', top: '10%' }}>Tin mới nhất</Text>
-                <Text style={{ fontSize: 22, fontWeight: 'bold', left: '5%', position: 'absolute', top: '90%' }}>Tin khác</Text>
-
-                <View style={{ paddingTop: '5%', padding: '5%', }}>
-                    <View style={style.homee}>
-                        <Image source={require('../image/unsplash_1.png')} />
-                        <View style={{ position: 'absolute', }}>
-                            <Text style={{ left: '10%', top: '380%', fontSize: 20, fontWeight: '500', color: 'black' }}>
-                                {'DSTORE - Startup 32 chi nhánh Hồ\nChí Minh'}</Text>
-                            <Text style={{ left: '10%', top: '530%', position: 'absolute' }}>22:46 12/03/2022</Text>
+            <View style={style.ViewFull}>
+                <View style={style.titleView}>
+                    <Text style={style.titleText}>Tin mới nhất</Text>
+                </View>
+                <View style={style.NewView}>
+                    <View style={style.NewBord}>
+                        <View style={style.flexNew1}>
+                            <Image style={{ width: '100%', height: '100%' }} resizeMode="stretch" source={require('../Assets/New.png')} />
+                        </View>
+                        <View style={style.flexNew2}>
+                            <Text style={{ color: 'black', fontSize: 20, fontWeight: '500' }}>DSTORE - Startup 32 chi nhánh Hồ Chí Minh</Text>
+                            <Text>22:46 12/03/2022</Text>
                         </View>
                     </View>
-                    <View style={style.homebuy}>
-                        <Image style={{ left: '72%' }} source={require('../image/unsplash_2.png')} />
-                        <View style={{ position: 'absolute', }}>
-                            <Text style={{ left: '15%',fontSize:15, top: '20%',fontWeight:'500',color:'black' }}>
-                                {'DSTORE Hồ Chí Minh tổng kế\nvà vinh danh tháng 2/2022'}</Text>
-                            <Text style={{ left: '15%', top: '180%', position: 'absolute' }}>22:46 12/03/2022</Text>
-                        </View>
-                    </View>
-                    <View style={style.homebuyy}>
-                        <Image style={{left: '72%' }} source={require('../image/unsplash_3.png')} />
-                        <View style={{ position: 'absolute', }}>
-                            <Text style={{ left: '15%',fontSize:15, top: '20%',fontWeight:'500',color:'black' }}>
-                                {'Nâng cấp chất lượng nhân sự\nphục vụ vận hành “bộ máy”\nkinh doanh của doanh nghiệp'}</Text>
-                            <Text style={{ left: '15%', top: '130%', position: 'absolute' }}>22:46 12/03/2022</Text>
-                        </View>
-                    </View>
-                    <View style={style.homebuyyy}>
-                    <Image style={{left: '72%' }} source={require('../image/unsplash_4.png')} />
-                        <View style={{ position: 'absolute', }}>
-                        <Text style={{ left: '15%',fontSize:15, top: '20%',fontWeight:'500',color:'black' }}>
-                                {'Hồ Huỳnh Duy - Chủ tịch\nHĐQT Công ty Dstore - Đột phá\nkinh doanh trực tuyến'}</Text>
-                            <Text style={{ left: '15%', top: '130%', position: 'absolute' }}>22:46 12/03/2022</Text>
-                        </View>
-                    </View>
-
+                </View>
+                <View style={style.titleView}>
+                    <Text style={style.titleText}>Tin khác</Text>
+                </View>
+                <View style={{flex : 1}}>
+                    <FlatList
+                        data={NewData}
+                        renderItem={renderItem}
+                        keyExtractor={(item, index) => index.toString()}
+                    />
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 
@@ -61,94 +63,70 @@ const style = StyleSheet.create({
         flex: 1,
         backgroundColor: "#FBAE35",
     },
-    headerbar : {
-        height : screenHeight*0.07,
-        justifyContent : 'center',
+    headerbar: {
+        height: HeightScreen * 0.07,
+        justifyContent: 'center',
     },
-    backk: {
-        left: '5%',
+    ViewFull: {
+        flex: 1,
     },
-    retangle: {
-        backgroundColor: 'white',
-        borderRadius: 5,
-        top: '30%',
+    titleText: {
+        color: 'black',
+        fontWeight: '500',
+        fontSize: 24,
+        marginLeft: 15
     },
-    loginn: {
-        top: '7%',
-        width: '50 %',
-        height: '7%',
-        left: '45%',
-        color: 'white',
-        position: 'absolute',
-        backgroundColor: 'black',
-        borderRadius: 20,
+    titleView: {
+        width: WidthScreen,
+        height: HeightScreen * 0.05,
         justifyContent: "center",
-        alignItems: 'center',
-        zIndex: 999,
+        alignItems: "flex-start",
     },
-    loginnn: {
-        top: '7%',
-        width: '50%',
-        height: '7%',
-        left: '5%',
-        color: 'white',
-        position: 'absolute',
-        backgroundColor: 'white',
+    NewView: {
+        width: WidthScreen,
+        height: HeightScreen * 0.3,
+        alignItems: "center",
+    },
+    NewBord: {
+        width: '90%',
+        height: '100%',
         borderRadius: 20,
-        justifyContent: "center",
-        alignItems: 'center',
+        backgroundColor: 'white'
     },
-    homee: {
-        backgroundColor: 'white',
-        borderRadius: 15,
-        width: '98.9%',
-        top: '40%',
-        height: '150%',
-        position: 'absolute',
-        left: '6%'
+    flexNew1: {
+        flex: 7,
     },
-    homebuy: {
-        position: 'absolute',
-        backgroundColor: 'white',
-        top: '220%',
-        width: '98.9%',
-        height: '50%',
+    flexNew2: {
+        flex: 3,
+        padding: 10
+    },
+    AnotherNewView: {
+        flex : 1,
+        alignItems: "center",
+    },
+    AnotherNewBord: {
+        width: '90%',
+        height: HeightScreen*0.12,
         borderRadius: 10,
-        left: '6%'
-
-
-    },
-    homebuyy: {
-        position: 'absolute',
+        flexDirection: "row",
         backgroundColor: 'white',
-        top: '280%',
-        width: '98.9%',
-        height: '50%',
-        borderRadius: 10,
-        left: '6%'
-
-
+        marginTop: 10
     },
-    homebuyyy: {
-        backgroundColor: 'white',
-        top: '330%',
-        width: '98.9%',
-        height: '50%',
-        borderRadius: 10,
-        left: '0.5%'
-
+    flexAnotherNew1: {
+        flex: 7,
     },
-
-
-    reangle62: {
-        width: '12%',
-        height: '60%',
-        left: '5%',
-        top: '15%'
-
-
+    flexAnotherNew2: {
+        flex: 3,
     },
-
-
-
+    textNew1: {
+        color: 'black',
+        fontSize: 16,
+        fontWeight: '500',
+        margin : 10
+    },
+    textNew2: {
+        position: "absolute",
+        bottom: 0,
+        margin : 10
+    }
 });

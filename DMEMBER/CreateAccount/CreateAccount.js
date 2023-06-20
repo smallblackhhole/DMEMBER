@@ -1,31 +1,28 @@
 import React, { Text } from 'react-native';
-import { View, StyleSheet, Dimensions, Image, ScrollView ,} from 'react-native';
+import { View, StyleSheet, Dimensions, Image, ScrollView, SafeAreaView, TouchableOpacity } from 'react-native';
 import ButtonBack from '../Component/ButtonBack';
 import Line from '../Component/Line';
+import LogoAccount from '../Component/LogoAccount';
 
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
 const CreateAccount = () => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
-                <ButtonBack 
-                icon={require('../Assets/Back.png')}
-                title={"Tạo thành viên"}/>
-                <View style={{ justifyContent: 'center', alignItems: 'center', width: '70%' }}>
-                    <Text style={styles.title}>Tạo thành viên</Text>
-                </View>
-                <Text style={{ top: 30, fontSize: 13, fontWeight: "400", color: 'black' }}>Lưu</Text>
+                <ButtonBack
+                    icon={require('../Assets/Back.png')}
+                    title={"Tạo thành viên"} />
+                <TouchableOpacity style={{position: 'absolute', bottom: 0, right: 20 }}>
+                    <Text style={{ fontSize: 15, fontWeight: "500", color: 'black'}}>Lưu</Text>
+                </TouchableOpacity>
             </View>
             <View style={styles.viewLogoAccount}>
-                <View style={styles.viewContainer}>
-                    <View style={styles.viewradius}></View>
-                    <View style={styles.imagelogo}></View>
-                </View>
-                <View style={styles.changedImage}>
-                    <Image source={require('../Assets/ei_camera.png')} />
-                </View>
+                <LogoAccount
+                    img={require('../Assets/ImageAccount.png')}
+                    isLoggedIn={true}
+                />
                 <Text style={styles.textName}>NGUYỄN VĂN C</Text>
             </View>
             <View>
@@ -71,13 +68,13 @@ const CreateAccount = () => {
                     <Line />
                 </ScrollView>
                 <View style={styles.viewcompany}>
-                    <View style={styles.DeleteAccount}>
+                    <TouchableOpacity style={styles.DeleteAccount}>
                         <Image style={{ width: 20, height: 20 }} source={require('../Assets/bin.png')} />
                         <Text style={styles.TextDelete}>Yêu cầu xóa tài khoản</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -89,6 +86,9 @@ const styles = StyleSheet.create({
     },
     viewLogoAccount: {
         alignItems: "center",
+        justifyContent: 'center',
+        // backgroundColor : 'red',
+        marginTop: 25
     },
     changedImage: {
         position: "absolute",
@@ -105,6 +105,7 @@ const styles = StyleSheet.create({
         color: 'black',
         fontWeight: "bold",
         fontSize: 18,
+        bottom: 20
     },
     viewcontainerInffo: {
         flex: 1,
@@ -133,8 +134,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         width: '100%',
         height: HeightScreen * 0.1,
-        justifyContent : 'center',
-        alignItems : 'center'
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     companyInfo: {
         color: 'black',
@@ -145,6 +146,7 @@ const styles = StyleSheet.create({
         width: WidthScreen,
         height: HeightScreen * 0.1,
         flexDirection: 'row',
+        // backgroundColor : 'blue',
         alignItems: 'center',
     },
     title: {
@@ -183,11 +185,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    TextDelete : {
-        color : '#EE2525',
-        fontWeight : "600",
-        fontSize : 15,
-        paddingLeft : 10
+    TextDelete: {
+        color: '#EE2525',
+        fontWeight: "600",
+        fontSize: 15,
+        paddingLeft: 10
     }
 });
 

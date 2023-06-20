@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Text, View, StyleSheet, FlatList, TextInput, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, FlatList, TextInput, Image, Dimensions, TouchableOpacity , SafeAreaView } from 'react-native';
 import shopData from '../dataShopScreen/shopData';
 import { useNavigation } from '@react-navigation/native';
 
@@ -21,7 +21,7 @@ const SearchScreen = () => {
 
     const renderItem = ({ item }) => {
         return (
-            <View style={styles.ViewBorderPro}>
+            <SafeAreaView style={styles.ViewBorderPro}>
                 <View style={styles.borderPro}>
                     <View>
                         <Image style={styles.img_sp} source={item.imgproduct} />
@@ -45,12 +45,12 @@ const SearchScreen = () => {
                         <Image style={{ marginLeft: 24, marginTop: 9, width: 30, height: 30 }} source={require('../Assets/addbtn.png')} />
                     </View>
                 </View>
-            </View>
+            </SafeAreaView>
         );
     };
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.hearder}>
                 <TouchableOpacity style={{ marginRight : 10 }} onPress={() => {navigation.goBack()}}>
                     <Image source={require('../Assets/Back.png')} />
@@ -112,7 +112,7 @@ const SearchScreen = () => {
                     </View>
                 )}
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 

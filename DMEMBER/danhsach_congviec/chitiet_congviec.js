@@ -1,4 +1,4 @@
-import { Image, Text, View, TextInput, TouchableOpacity, Dimensions } from 'react-native'
+import { Image, Text, View, TextInput, SafeAreaView, Dimensions } from 'react-native'
 import React, { useState } from 'react';
 import styles from './style_chitiet_cv'
 
@@ -15,7 +15,7 @@ const Chitiet_congviec = () => {
         setActiveIndex(index);
     };
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             {/* view tổng  */}
             <View style={styles.view_list_cv}>
                 <View style={styles.view_hander}>
@@ -56,7 +56,7 @@ const Chitiet_congviec = () => {
                         standard dummy text ever since the 1500s</Text>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

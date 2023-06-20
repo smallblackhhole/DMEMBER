@@ -5,137 +5,67 @@ const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 import AccountScreenBeforeLogin from "../AccountScreenBFLOG/BeforeLoginScreen";
 import { useNavigation } from "@react-navigation/native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import LogoAccount from "../Component/LogoAccount";
 
 
 const AccountScreen = ({ route }) => {
     const navigation = useNavigation();
     const login = route.params?.data?.isLogin;
     const username = route.params?.data?.username;
-
     return !login ? (
         <AccountScreenBeforeLogin />
     ) : (
-        <ScrollView showsVerticalScrollIndicator={false}>
-            {username === '1' ? (
-                <View style={styles.container}>
-                    <View>
-                        <Text style={styles.texttitle}>Tài Khoản</Text>
-                    </View>
-                    <View style={styles.AccountBackground}>
-                        <View style={styles.borderRadiusImage}></View>
-                        <Image style={styles.ImageAccount} source={require('../Assets/ImageAccount.png')} />
-                        <View style={styles.viewname}>
-                            <Text style={styles.textName}>LÊ HUỲNH BÁ TOÀN</Text>
-                            <TouchableOpacity onPress={() => { navigation.navigate('InfomationScreen') }}>
-                                <Image style={styles.editname} source={require('../Assets/EditName.png')} />
-                            </TouchableOpacity>
-                        </View>
-                        <Text style={styles.potision}>Bank Office</Text>
-                        <View style={styles.viewdayend}>
-                            <Text style={styles.textdayend}>Ngày hết hạn: 24/05/2022</Text>
-                            <Text style={{ position: "relative", left: 14, zIndex: 999, color: 'white', fontWeight: "700" }}>!</Text>
-                            <Image style={styles.icondayend} source={require('../Assets/warningAccount.png')} />
-                        </View>
-                        <View style={styles.viewSale}>
-                            <View style={styles.potisionView}>
-                                <View style={{ flexDirection: "column" }}>
-                                    <Text style={styles.textPotision}>Bank Office</Text>
-                                    <Text style={styles.timelinePotision}>Vị trí hiện tại</Text>
-                                </View>
-                                <Image source={require('../Assets/Polygon.png')} />
-                                <View style={{ flexDirection: "column" }}>
-                                    <Text style={styles.textPotision}>Vị trí kế tiếp</Text>
-                                    <Text style={styles.timelinePotision}>Chưa xác định</Text>
-                                </View>
-                            </View>
-                            <ScrollView style={styles.SaleView} horizontal={true} showsHorizontalScrollIndicator={false}>
-                                <View style={styles.salecase1}>
-                                    <Text style={styles.textmoney}>0đ</Text>
-                                    <Text style={styles.textmoney}>Doanh số cá nhân</Text>
-                                </View>
-                                <View style={styles.salecase2}>
-                                    <Text style={styles.textmoney}>0đ</Text>
-                                    <Text style={styles.textmoney}>Doanh số hệ thống</Text>
-                                </View>
-                                <View style={styles.salecase3}>
-                                    <Text style={styles.textmoney}>0đ</Text>
-                                    <Text style={styles.textmoney}>Mục tiêu thành công</Text>
-                                </View>
-                            </ScrollView>
-                        </View>
-                        <View style={styles.ViewtextTitle2}>
-                            <Text style={styles.TextTitle2}>Chức năng khác</Text>
-                        </View>
-                        <View style={styles.MoreOption}>
-                            <BorderAccount
-                                icon={require('../Assets/share.png')}
-                                name={"Chia sẻ app"}
-                                navi={'Shareapp'} />
-                            <BorderAccount
-                                icon={require('../Assets/security.png')}
-                                name={"Thiết lập bảo mật"}
-                                navi={'Security'} />
-                            <BorderAccount
-                                icon={require('../Assets/map.png')}
-                                name={"Quản lí địa chỉ"}
-                                navi={"Map"} />
-                            <BorderAccount
-                                icon={require('../Assets/education.png')}
-                                name={"Đào tạo"} />
-                            <BorderAccount
-                                icon={require('../Assets/team.png')}
-                                name={"Danh sách thành viên"}
-                                navi={"Team"} />
-                            <BorderAccount
-                                icon={require('../Assets/report.png')}
-                                name={"Báo cáo"}
-                                navi={"Report"} />
-                        </View>
-                    </View>
-                </View>
-            ) : (
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    <View style={styles.container}>
+        <SafeAreaView>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                {username === '1' ? (
+                    <ScrollView style={styles.container}>
                         <View>
                             <Text style={styles.texttitle}>Tài Khoản</Text>
                         </View>
                         <View style={styles.AccountBackground}>
-                            <View style={styles.borderRadiusImage}></View>
-                            <Image style={styles.ImageAccount} source={require('../Assets/ImageAccount.png')} />
+                            <LogoAccount
+                                img={require('../Assets/ImageAccount.png')}
+                                isLoggedIn={true}
+                            />
                             <View style={styles.viewname}>
                                 <Text style={styles.textName}>LÊ HUỲNH BÁ TOÀN</Text>
                                 <TouchableOpacity onPress={() => { navigation.navigate('InfomationScreen') }}>
                                     <Image style={styles.editname} source={require('../Assets/EditName.png')} />
                                 </TouchableOpacity>
                             </View>
-                            <View style={styles.viewSale2}>
-                                <Image style={{ position: "absolute", width: '100%', height: '100%', resizeMode: "stretch" }} source={require('../Assets/imgAccount2.png')} />
+                            <Text style={styles.potision}>Bank Office</Text>
+                            <SafeAreaView style={styles.viewdayend}>
+                                <Text style={styles.textdayend}>Ngày hết hạn: 24/05/2022</Text>
+                                <Text style={{ position: "relative", left: 14, zIndex: 999, color: 'white', fontWeight: "700" }}>!</Text>
+                                <Image style={styles.icondayend} source={require('../Assets/warningAccount.png')} />
+                            </SafeAreaView>
+                            <View style={styles.viewSale}>
                                 <View style={styles.potisionView}>
                                     <View style={{ flexDirection: "column" }}>
-                                        <Text style={styles.textPotision2}>DOLO FRIEND</Text>
-                                        <Text style={styles.timelinePotision}>Thứ hạng hiện tại</Text>
+                                        <Text style={styles.textPotision}>Bank Office</Text>
+                                        <Text style={styles.timelinePotision}>Vị trí hiện tại</Text>
                                     </View>
-                                    <Image source={require('../Assets/Polygon2.png')} />
+                                    <Image source={require('../Assets/Polygon.png')} />
                                     <View style={{ flexDirection: "column" }}>
-                                        <Text style={styles.textPotision2}>DOLO FAMILY</Text>
-                                        <Text style={styles.timelinePotision}>Thứ hạng kế tiếp</Text>
+                                        <Text style={styles.textPotision}>Vị trí kế tiếp</Text>
+                                        <Text style={styles.timelinePotision}>Chưa xác định</Text>
                                     </View>
                                 </View>
-                                <View style={styles.Line1}>
-                                    <Image style={{ width: 25, height: 25, marginLeft: 25 }} source={require('../Assets/iconAccount2.png')} />
-                                    <Text style={styles.textAccount2}>Để thăng hạng Family</Text>
-                                </View>
-                                <View style={styles.Line2}>
-                                    <Text style={styles.textAccount1}>Tích lũy</Text>
-                                </View>
-                                <View style={styles.Line3}>
-                                    <Text style={styles.textAccount3}>5,055/</Text>
-                                    <Text style={styles.textAccount4}>10,000 DOLO POINT</Text>
-                                </View>
-                                <View style={styles.Line4}>
-                                    <Text style={styles.textAccount5}>Tích lũy thêm 4, 945 DOLO POINT để đạt hạng </Text>
-                                    <Text style={styles.textAccount6}>Family</Text>
-                                </View>
+                                <ScrollView style={styles.SaleView} horizontal={true} showsHorizontalScrollIndicator={false}>
+                                    <View style={styles.salecase1}>
+                                        <Text style={styles.textmoney}>0đ</Text>
+                                        <Text style={styles.textmoney}>Doanh số cá nhân</Text>
+                                    </View>
+                                    <View style={styles.salecase2}>
+                                        <Text style={styles.textmoney}>0đ</Text>
+                                        <Text style={styles.textmoney}>Doanh số hệ thống</Text>
+                                    </View>
+                                    <View style={styles.salecase3}>
+                                        <Text style={styles.textmoney}>0đ</Text>
+                                        <Text style={styles.textmoney}>Mục tiêu thành công</Text>
+                                    </View>
+                                </ScrollView>
                             </View>
                             <View style={styles.ViewtextTitle2}>
                                 <Text style={styles.TextTitle2}>Chức năng khác</Text>
@@ -166,10 +96,87 @@ const AccountScreen = ({ route }) => {
                                     navi={"Report"} />
                             </View>
                         </View>
-                    </View>
-                </ScrollView>
-            )}
-        </ScrollView>
+                    </ScrollView>
+                ) : (
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <View style={styles.container}>
+                            <View>
+                                <Text style={styles.texttitle}>Tài Khoản</Text>
+                            </View>
+                            <View style={styles.AccountBackground}>
+                                <LogoAccount
+                                    img={require('../Assets/ImageAccount.png')}
+                                    isLoggedIn={true}
+                                />
+                                <View style={styles.viewname}>
+                                    <Text style={styles.textName}>LÊ HUỲNH BÁ TOÀN</Text>
+                                    <TouchableOpacity onPress={() => { navigation.navigate('InfomationScreen') }}>
+                                        <Image style={styles.editname} source={require('../Assets/EditName.png')} />
+                                    </TouchableOpacity>
+                                </View>
+                                <SafeAreaView style={styles.viewSale2}>
+                                    <Image style={{ position: "absolute", width: '100%', height: '100%', resizeMode: "stretch" }} source={require('../Assets/imgAccount2.png')} />
+                                    <View style={styles.potisionView}>
+                                        <View style={{ flexDirection: "column" }}>
+                                            <Text style={styles.textPotision2}>DOLO FRIEND</Text>
+                                            <Text style={styles.timelinePotision}>Thứ hạng hiện tại</Text>
+                                        </View>
+                                        <Image source={require('../Assets/Polygon2.png')} />
+                                        <View style={{ flexDirection: "column" }}>
+                                            <Text style={styles.textPotision2}>DOLO FAMILY</Text>
+                                            <Text style={styles.timelinePotision}>Thứ hạng kế tiếp</Text>
+                                        </View>
+                                    </View>
+                                    <View style={styles.Line1}>
+                                        <Image style={{ width: 25, height: 25, marginLeft: 25 }} source={require('../Assets/iconAccount2.png')} />
+                                        <Text style={styles.textAccount2}>Để thăng hạng Family</Text>
+                                    </View>
+                                    <View style={styles.Line2}>
+                                        <Text style={styles.textAccount1}>Tích lũy</Text>
+                                    </View>
+                                    <View style={styles.Line3}>
+                                        <Text style={styles.textAccount3}>5,055/</Text>
+                                        <Text style={styles.textAccount4}>10,000 DOLO POINT</Text>
+                                    </View>
+                                    <SafeAreaView style={styles.Line4}>
+                                        <Text style={styles.textAccount5}>Tích lũy thêm 4, 945 DOLO POINT để đạt hạng </Text>
+                                        <Text style={styles.textAccount6}>Family</Text>
+                                    </SafeAreaView>
+                                </SafeAreaView>
+                                <View style={styles.ViewtextTitle2}>
+                                    <Text style={styles.TextTitle2}>Chức năng khác</Text>
+                                </View>
+                                <View style={styles.MoreOption}>
+                                    <BorderAccount
+                                        icon={require('../Assets/share.png')}
+                                        name={"Chia sẻ app"}
+                                        navi={'Shareapp'} />
+                                    <BorderAccount
+                                        icon={require('../Assets/security.png')}
+                                        name={"Thiết lập bảo mật"}
+                                        navi={'Security'} />
+                                    <BorderAccount
+                                        icon={require('../Assets/map.png')}
+                                        name={"Quản lí địa chỉ"}
+                                        navi={"Map"} />
+                                    <BorderAccount
+                                        icon={require('../Assets/education.png')}
+                                        name={"Đào tạo"} />
+                                    <BorderAccount
+                                        icon={require('../Assets/team.png')}
+                                        name={"Danh sách thành viên"}
+                                        navi={"Team"} />
+                                    <BorderAccount
+                                        icon={require('../Assets/report.png')}
+                                        name={"Báo cáo"}
+                                        navi={"Report"} />
+                                </View>
+                            </View>
+                        </View>
+                    </ScrollView>
+                )}
+            </ScrollView>
+        </SafeAreaView>
     );
 
 }
@@ -384,7 +391,7 @@ const styles = StyleSheet.create({
         marginLeft: 20
     },
     Line1: {
-        marginTop: 20,
+        marginTop: 10,
         width: '100%',
         height: '15%',
         alignItems: "center",
@@ -426,20 +433,18 @@ const styles = StyleSheet.create({
         fontWeight: "600",
     },
     Line4: {
-        width: '100%',
-        height: '15%',
-        alignItems: "center",
         flexDirection: 'row',
-    },
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
     textAccount5: {
         color: 'white',
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: "600",
-        marginLeft: 25
     },
     textAccount6: {
         color: '#FBAE35',
-        fontSize: 14,
+        fontSize: 12,
         fontWeight: "500",
     },
 });

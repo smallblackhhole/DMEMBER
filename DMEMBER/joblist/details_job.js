@@ -10,7 +10,7 @@ const { width: WidthScreen } = Dimensions.get('window');
 
 const Details_job = () => {
     return (
-        <View style={style.container}>
+        <SafeAreaView style={style.container}>
             <View style={{ flexDirection: 'row', margin: 20, justifyContent: 'center', alignContent: 'center' }}>
                 <View style={{ flex: 3 }}>
                     <Image source={require('../image/back.png')} />
@@ -86,7 +86,7 @@ const Details_job = () => {
                 </View>
             </View>
 
-        </View>
+        </SafeAreaView>
     );
 };
 

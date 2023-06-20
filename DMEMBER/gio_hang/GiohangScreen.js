@@ -1,4 +1,4 @@
-import { Image, Dimensions, Text, TouchableOpacity, View } from 'react-native'
+import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import styles from './style_giohang'
 import { Swipeable } from 'react-native-gesture-handler';
@@ -19,18 +19,15 @@ const GiohangScreen = ({ route }) => {
     const RightSwipe = () => {
         return (
             <View style={styles.right_delete}>
-                <View style={styles.OptionBox}>
-                <TouchableOpacity>
-                <Image style={styles.xoa}
+                <TouchableOpacity style={styles.OptionBox}>
+                    <Image style={styles.xoa}
                         source={require('../Assets/binCart.png')} />
                 </TouchableOpacity>
-                  
-                </View>
             </View>
         );
     };
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerbar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
@@ -105,7 +102,7 @@ const GiohangScreen = ({ route }) => {
                     <Text style={styles.buttonText}>Tiếp tục</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 export default GiohangScreen;

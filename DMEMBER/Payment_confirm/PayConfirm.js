@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Image, Dimensions, TouchableOpacity, Pressable, ScrollView, TextInput } from "react-native";
+import { StyleSheet, View, Text, Image, Dimensions, TouchableOpacity, Pressable, ScrollView, TextInput, SafeAreaView } from "react-native";
 import BorderPayComfirm from "../Component/BorderPayComfirm";
 import React, { useState } from "react";
 import ButtonBack from "../Component/ButtonBack";
@@ -8,21 +8,33 @@ import BorderPayComfirm2 from "../Component/BorderPayComfirm2";
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 const Payment = ({ route }) => {
-    const navigation  = useNavigation();
+    const navigation = useNavigation();
     const donepay = route.params;
     const [activecheckbox, setactivecheckbox] = useState("checkbox1");
     const handleOptionPress = (
         option) => {
         setactivecheckbox(option);
     };
-    const total = parseFloat(donepay.itemcart.itemchaged.item.price) * parseFloat(donepay.numberCart);
+    const price = donepay.itemcart.itemchaged.item.price.replace(/,/g, '');
+    const total = parseFloat(price)*parseFloat(donepay.numberCart);
+    const discount = parseFloat(total)*0.2;
+    const rose = parseFloat(total)*0.1;
     const formattedTotal = parseFloat(total).toLocaleString(undefined, {
         minimumFractionDigits: 0,
         maximumFractionDigits: 3
-      });
+    });
+    const formattedDiscount = parseFloat(discount).toLocaleString(undefined, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 3
+    });
+    const formattedRose = parseFloat(rose).toLocaleString(undefined, {
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 3
+    });
+    
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.headerbar}>
                     <ButtonBack
@@ -33,7 +45,7 @@ const Payment = ({ route }) => {
                     <View style={{ flex: 9, justifyContent: 'center' }}>
                         <Text style={styles.texttitle}>Địa chỉ nhận hàng</Text>
                     </View>
-                    <View style={{ flex:0.7, justifyContent: 'center' }}>
+                    <View style={{ flex: 0.7, justifyContent: 'center' }}>
                         <Image source={require('../Assets/Vector.png')} />
                     </View>
                 </View>
@@ -104,7 +116,7 @@ const Payment = ({ route }) => {
                     <View style={{ flex: 9, justifyContent: 'center' }}>
                         <Text style={styles.texttitle}>Sản phẩm chọn mua</Text>
                     </View>
-                    <View style={{ flex:0.7, justifyContent: 'center' }}>
+                    <View style={{ flex: 0.7, justifyContent: 'center' }}>
                         <Image source={require('../Assets/Vector.png')} />
                     </View>
                 </View>
@@ -124,7 +136,7 @@ const Payment = ({ route }) => {
                 </View>
                 <View style={styles.note}>
                     <View style={styles.bordernote}>
-                        <TextInput style={{color: 'black'}} />
+                        <TextInput style={{ color: 'black' }} />
                     </View>
                 </View>
                 <View style={styles.titleView}>
@@ -133,22 +145,22 @@ const Payment = ({ route }) => {
                     </View>
                 </View>
                 <View style={styles.ViewPay}>
-                    <Image style={{ width: WidthScreen * 0.9, height:HeightScreen * 0.135 }} source={require('../Assets/backgroundPay.png')} />
+                    <Image style={{ width: WidthScreen * 0.9, height: HeightScreen * 0.135 }} source={require('../Assets/backgroundPay.png')} />
                     <View style={styles.view_thanhtoan}>
-                        <View style={{alignItems: "flex-start"}}>
+                        <View style={{ alignItems: "flex-start" }}>
                             <Text style={styles.textpay1}>Tổng cộng:</Text>
                             <Text style={styles.textpay2}>Chiết khấu:</Text>
                             <Text style={styles.textpay2}>Hoa hồng:</Text>
                         </View>
-                        <View style={{alignItems: "flex-end", width: WidthScreen * 0.52}}>
-                            <Text style={styles.colpay1}>{formattedTotal},000</Text>
-                            <Text style={styles.colpay2}>790,000</Text>
-                            <Text style={styles.colpay3}>79,000</Text>
+                        <View style={{ alignItems: "flex-end", width: WidthScreen * 0.52 }}>
+                            <Text style={styles.colpay1}>{formattedTotal}</Text>
+                            <Text style={styles.colpay2}>{formattedDiscount}</Text>
+                            <Text style={styles.colpay3}>{formattedRose}</Text>
                         </View>
                     </View>
                 </View>
                 <View style={styles.btncomfirm}>
-                    <TouchableOpacity style={styles.borderbtn} onPress={()=>{navigation.navigate('History', {donepay , formattedTotal})}}>
+                    <TouchableOpacity style={styles.borderbtn} onPress={() => { navigation.navigate('History', { donepay, formattedTotal }) }}>
                         <Text style={{
                             color: 'white',
                             fontSize: 15,
@@ -157,7 +169,7 @@ const Payment = ({ route }) => {
                     </TouchableOpacity>
                 </View>
             </ScrollView>
-        </View>
+        </SafeAreaView>
     );
 };
 
@@ -172,14 +184,14 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.07,
         justifyContent: 'center'
     },
-    view_tt:{
+    view_tt: {
         with: WidthScreen,
-         justifyContent: 'center',
-          height: HeightScreen * 0.1, 
-          alignItems: 'center',  
-          marginTop:16,
-          marginBottom: 19
-         // backgroundColor: 'red',
+        justifyContent: 'center',
+        height: HeightScreen * 0.1,
+        alignItems: 'center',
+        marginTop: 16,
+        marginBottom: 19
+        // backgroundColor: 'red',
     },
     texttitle: {
         fontSize: 18,
@@ -199,7 +211,7 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.2,
         justifyContent: "center",
         alignItems: "center",
-        marginTop:7,
+        marginTop: 7,
         // backgroundColor: 'red',
     },
     Bordpay: {
@@ -215,7 +227,7 @@ const styles = StyleSheet.create({
         flex: 2,
         justifyContent: "center",
         alignItems: "center",
-        
+
     },
     flex2: {
         flex: 8,
@@ -265,7 +277,7 @@ const styles = StyleSheet.create({
         width: WidthScreen,
         height: HeightScreen * 0.1,
         alignItems: "center",
-        
+
     },
     bordernote: {
         width: WidthScreen * 0.9,
@@ -273,7 +285,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 10,
         borderWidth: 1,
-        borderStyle: 'dashed',   
+        borderStyle: 'dashed',
     },
     ViewPay: {
         width: WidthScreen,
@@ -281,11 +293,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     //view thanh toán
-    view_thanhtoan:{
-        marginTop:19,
-        position: "absolute", 
-        flexDirection: "row", 
-       // backgroundColor: 'red',
+    view_thanhtoan: {
+        marginTop: 19,
+        position: "absolute",
+        flexDirection: "row",
+        // backgroundColor: 'red',
     },
     textpay1: {
         color: 'black',

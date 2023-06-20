@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Dimensions, Text , TouchableOpacity } from "react-native";
+import { View, StyleSheet, Dimensions, Text , TouchableOpacity , SafeAreaView } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import ButtonBack from "../Component/ButtonBack";
 import BorderViewWallet from "../Component/BorderView";
@@ -10,7 +10,7 @@ const { width: WidthScreen } = Dimensions.get('window');
 const WalletDcash = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
                 <ButtonBack 
                 icon={require('../Assets/Back.png')}
@@ -51,7 +51,7 @@ const WalletDcash = () => {
                     navi={'Lichsu_ruttien'}
                 />
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react-native';
 import { useState } from "react";
-import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity, Switch, TextInput } from 'react-native'
+import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity, Switch, TextInput,SafeAreaView } from 'react-native'
 import ButtonBack from '../Component/ButtonBack';
 import MapBorder from '../Component/MapBorder';
 import { useNavigation } from '@react-navigation/native';
@@ -13,7 +13,7 @@ const { width: WidthScreen } = Dimensions.get('window');
 const Team = () => {
     const navigation = useNavigation();
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
@@ -48,7 +48,7 @@ const Team = () => {
                     damua={"Đã mua: 0đ"}
                 />
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 

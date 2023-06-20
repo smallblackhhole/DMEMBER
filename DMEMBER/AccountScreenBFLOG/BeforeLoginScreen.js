@@ -1,43 +1,48 @@
 import React from "react";
-import { View, StyleSheet, Dimensions, Text , TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Dimensions, Text, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 import ButtonBack from "../Component/ButtonBack";
 import LogoAccount from "../Component/LogoAccount";
 import BorderAccount from "../Component/BorderAccount";
 import { useNavigation } from "@react-navigation/native";
-const { height: HeightScreen } = Dimensions.get('window');
-const { width: WidthScreen } = Dimensions.get('window');
+
+const { height: HeightScreen, width: WidthScreen } = Dimensions.get('window');
 
 const AccountScreenBeforeLogin = () => {
     const navigation = useNavigation();
+
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <ButtonBack
                 icon={require('../Assets/Back.png')}
                 title={"Tài Khoản"} />
             <View style={styles.logo}>
                 <LogoAccount
                     img={require('../Assets/logoNull.png')}
+                    isLoggedIn={false}
                 />
             </View>
             <View style={styles.ViewFull}>
                 <View style={styles.View1}>
                     <Text style={styles.nameNull}>Account 1</Text>
-                    <TouchableOpacity style={styles.loginbtn} onPress={() => {navigation.navigate('Login')}}>
+                    <TouchableOpacity style={styles.loginbtn} onPress={() => { navigation.navigate('Login') }}>
                         <Text style={styles.textloginbtn}>Đăng nhập ngay</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.ViewtextTitle2}>
                     <Text style={styles.TextTitle2}>Chức năng khác</Text>
                 </View>
-                <View style={styles.MoreOption}>
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                    contentContainerStyle={styles.scrollViewContent}
+                >
                     <BorderAccount
                         icon={require('../Assets/share.png')}
-                        name={"Chia sẻ app"} 
-                        navi={"Login"}/>
+                        name={"Chia sẻ app"}
+                        navi={"Login"} />
                     <BorderAccount
                         icon={require('../Assets/security.png')}
-                        name={"Thiết lập bảo mật"} 
-                        navi={"Login"}/>
+                        name={"Thiết lập bảo mật"}
+                        navi={"Login"} />
                     <BorderAccount
                         icon={require('../Assets/map.png')}
                         name={"Quản lí địa chỉ"}
@@ -52,11 +57,12 @@ const AccountScreenBeforeLogin = () => {
                         navi={"Login"} />
                     <BorderAccount
                         icon={require('../Assets/report.png')}
-                        name={"Báo cáo"} 
-                        navi={"Login"}/>
-                </View>
+                        name={"Báo cáo"}
+                        navi={"Login"} />
+
+                </ScrollView>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -84,8 +90,7 @@ const styles = StyleSheet.create({
         zIndex: 998
     },
     ViewFull: {
-        width: WidthScreen,
-        height: '100%',
+        flex: 1,
         backgroundColor: 'white',
         borderTopRightRadius: 30,
         borderTopLeftRadius: 30
@@ -130,11 +135,11 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         marginLeft: 20
     },
-    MoreOption: {
-        width: WidthScreen,
-        height: '100%',
-        alignItems: "center",
+    scrollViewContent: {
+        flexGrow: 1,
+        paddingBottom: 50,
+        alignItems : "center"
     }
-})
+});
 
 export default AccountScreenBeforeLogin;

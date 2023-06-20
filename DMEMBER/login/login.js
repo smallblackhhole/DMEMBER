@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, Dimensions } from "react-native";
+import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, Dimensions ,SafeAreaView} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from 'react';
 import ButtonBack from "../Component/ButtonBack";
@@ -23,7 +23,7 @@ const Login = () => {
     };
 
     return (
-        <View style={style.container}>
+        <SafeAreaView style={style.container}>
             <View style={style.headerbar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
@@ -42,7 +42,8 @@ const Login = () => {
                         </View>
                         <View style={{ backgroundColor: 'white', marginTop: 18, width: WidthScreen * 0.7, height: HeightScreen * 0.08, borderRadius: 10, alignItems: 'center', flexDirection: 'row', paddingLeft: 15 }}>
                             <Image style={{ width: WidthScreen * 0.06, height: HeightScreen * 0.03, }} resizeMode="contain" source={require('../image/Lock.png')} />
-                            <TextInput style={{ marginLeft: 17, color: "#000000" }} placeholder='Mật khẩu' placeholderTextColor='rgba(0, 0, 0, 0.5)'
+                            <Image style={{ marginLeft: 17 }} source={require('../image/gach.png')} />
+                            <TextInput style={{ marginLeft: 5, color: "#000000" }} placeholder='Mật khẩu' placeholderTextColor='rgba(0, 0, 0, 0.5)'
                                 value={password}
                                 onChangeText={text => setPassword(text)} />
                         </View>
@@ -72,7 +73,7 @@ const Login = () => {
 
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
 
     );
 

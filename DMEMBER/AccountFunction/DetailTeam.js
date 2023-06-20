@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity, Switch, TextInput } from 'react-native'
+import { Text, View, StyleSheet, Dimensions, SafeAreaView, Image, TouchableOpacity, Switch, TextInput } from 'react-native'
 import ButtonBack from '../Component/ButtonBack';
 import Line from "../Component/Line";
 
@@ -9,15 +9,12 @@ const { width: WidthScreen } = Dimensions.get('window');
 
 const DetailTeam = () => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
                     title={"Chi tiết thành viên"}
                 />
-            </View>
-            <View style={styles.btndelete}>
-                <Text style={styles.deletetxt}>Xóa</Text>
             </View>
             <View style={styles.Viewmem}>
                 <View style={styles.Bordmem}>
@@ -50,7 +47,7 @@ const DetailTeam = () => {
             <View style={styles.ViewtextTitle2}>
                 <Text style={styles.TextTitle2}>Thông tin liên hệ</Text>
             </View>
-            <View style={styles.ViewInfo}>
+            <SafeAreaView style={styles.ViewInfo}>
                 <View style={styles.ViewInfoBord}>
                     <View style={styles.Info}>
                         <Text style={styles.text1}>Địa chỉ</Text>
@@ -69,8 +66,8 @@ const DetailTeam = () => {
                         <Text style={styles.text2}>Nữ</Text>
                     </View>
                 </View>
-            </View>
-        </View>
+            </SafeAreaView>
+        </SafeAreaView>
     );
 }
 
@@ -98,7 +95,7 @@ const styles = StyleSheet.create({
     },
     Viewmem: {
         width: WidthScreen,
-        marginTop: 50,
+        marginTop: 70,
         height: HeightScreen * 0.3,
         justifyContent: "center",
         alignItems: "center",
@@ -196,7 +193,7 @@ const styles = StyleSheet.create({
         borderRadius : 10
     },
     Info : {
-        marginTop : 25,
+        marginTop : 15,
         width : '90%',
     },
     text1 : {

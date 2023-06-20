@@ -14,7 +14,7 @@ const { width: WidthScreen } = Dimensions.get('window');
 const Time = ["Tháng", "Tuần", "Năm", "Ngày"]
 const Report = () => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
@@ -24,16 +24,14 @@ const Report = () => {
             <View style={styles.ViewtextTitle2}>
                 <Text style={styles.TextTitle2}>Tháng 1 - 2022</Text>
             </View>
-            <View style={styles.ViewRevenue}>
-                <SafeAreaView>
-                    <Revenue />
-                </SafeAreaView>
-            </View>
+            <SafeAreaView style={styles.ViewRevenue}>
+                <Revenue />
+            </SafeAreaView>
             <View style={styles.ViewtextTitle2}>
                 <Text style={styles.TextTitle2}>Doanh thu phòng ban</Text>
             </View>
             <View style={styles.ViewFull}>
-                <View style={styles.BordView}>
+                <SafeAreaView style={styles.BordView}>
                     <View style={styles.flex1}>
                         <View style={styles.headerReport}>
                             <Text style={styles.titleReport}>Lọc kết quả</Text>
@@ -44,16 +42,16 @@ const Report = () => {
                                     buttonStyle={styles.ViewOption}
                                     buttonTextStyle={{ fontSize: 13, fontWeight: "400" }}
                                 />
-                                <Image style={styles.imgdrop} source={require('../Assets/Vector.png')} />
+                                <Image resizeMode='contain' style={styles.imgdrop} source={require('../Assets/Vector.png')} />
                             </View>
                         </View>
                     </View>
                     <View style={styles.flex2}>
-                        <Image style={{ marginTop: 20 }} source={require('../Assets/Chart.png')} />
+                        <Image resizeMode='contain' style={{ marginTop: 20, width: '100%', height: '90%' }} source={require('../Assets/Chart.png')} />
                     </View>
-                </View>
+                </SafeAreaView>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     ViewtextTitle2: {
-        marginTop: 10,
+        marginTop: 20,
         width: WidthScreen,
         height: HeightScreen * 0.05,
         justifyContent: "center",
@@ -104,6 +102,7 @@ const styles = StyleSheet.create({
     },
     flex2: {
         flex: 8.5,
+        // backgroundColor : 'red'
     },
     headerReport: {
         flexDirection: 'row',

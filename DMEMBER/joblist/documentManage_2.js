@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text,  Image,  Dimensions } from "react-native";
+import { StyleSheet, View, Text,  Image,  Dimensions ,SafeAreaView} from "react-native";
 
 import Thongtin_dcm_2 from '../Component/Thongtin_dcm_2';
 const { height: HeightScreen } = Dimensions.get('window');
@@ -7,7 +7,7 @@ const { width: WidthScreen } = Dimensions.get('window');
 
 const documentmanage_2 = () => {
     return (
-        <View style={style.container}>
+        <SafeAreaView style={style.container}>
             <View style={{ flexDirection: 'row', margin: 20, justifyContent: 'center', alignContent: 'center', height: HeightScreen * 0.08 }}>
                 <View style={{ flex: 3 }}>
                     <Image source={require('../image/back.png')} />
@@ -64,7 +64,7 @@ const documentmanage_2 = () => {
             </View>
             
 
-        </View>
+        </SafeAreaView>
     );
 };
 

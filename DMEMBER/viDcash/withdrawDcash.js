@@ -18,7 +18,7 @@ const WithdrawDcash = () => {
         }
     };
     return (
-        <View style={style.container}>
+        <SafeAreaView style={style.container}>
             <View style={style.headerbar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
@@ -61,7 +61,7 @@ const WithdrawDcash = () => {
                     <Text style={{ color: 'white' }}>Rút tiền </Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 export default WithdrawDcash;

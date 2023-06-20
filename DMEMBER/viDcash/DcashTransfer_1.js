@@ -23,7 +23,7 @@ const DcashTransfer_1 = () => {
     };
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
@@ -59,7 +59,7 @@ const DcashTransfer_1 = () => {
                     </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 

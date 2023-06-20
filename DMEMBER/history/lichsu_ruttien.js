@@ -1,10 +1,10 @@
-import { Image, Text, View } from 'react-native'
+import { Image, Text, View ,SafeAreaView} from 'react-native'
 import React from 'react'
 import styles from './style_lichsu_all'
 import ButtonBack from '../Component/ButtonBack'
 const Lichsu_ruttien = () => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             {/* text */}
             <View style={styles.headerBar}>
                 <ButtonBack 
@@ -107,7 +107,7 @@ const Lichsu_ruttien = () => {
                     </View>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

@@ -10,7 +10,7 @@ const Screnn = () => {
     const navigation = useNavigation();
     useEffect(() => {
         const timer = setTimeout(() => {
-          navigation.navigate('Login'); // Chuyển đến màn hình khác (ví dụ: 'MainScreen')
+          navigation.navigate('MenuScreen'); // Chuyển đến màn hình khác (ví dụ: 'MainScreen')
         }, 2000); // 2 giây
     
         return () => clearTimeout(timer); // Hủy bỏ timer nếu màn hình bị unmount trước khi kết thúc 3 giây

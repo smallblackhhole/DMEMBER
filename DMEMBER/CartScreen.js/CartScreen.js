@@ -1,12 +1,12 @@
 import React, { Image, Text } from 'react-native';
-import {View , StyleSheet , TouchableOpacity} from 'react-native';
+import {View , StyleSheet , TouchableOpacity,SafeAreaView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import ButtonBack from '../Component/ButtonBack';
 
 const CartScreen = () => {
     const navigation = useNavigation();
     return(
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <ButtonBack 
                 icon={require('../Assets/Back.png')}
                 title={"Giỏ hàng"}/>
@@ -19,7 +19,7 @@ const CartScreen = () => {
                 </TouchableOpacity>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 

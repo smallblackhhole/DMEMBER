@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, Touchable, Touc
 const Walletdcredit = () => {
 
     return (
-        <View style={style.container}>
+        <SafeAreaView style={style.container}>
             <Image style={{ left: '5%', top: '2%' }} source={require('../image/back.png')} />
             <Image style={{ left: '90%',position:'absolute',top:'3%' }} source={require('../image/Group.png')} />
 
@@ -33,7 +33,7 @@ const Walletdcredit = () => {
 
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 export default Walletdcredit;

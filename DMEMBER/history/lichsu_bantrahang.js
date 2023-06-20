@@ -1,9 +1,9 @@
-import { Image, Text, View } from 'react-native'
+import { Image, Text, View,SafeAreaView } from 'react-native'
 import React from 'react'
 import styles from './style_lichsu_all'
 const Lichsu_bantrahang = () => {
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             {/* text */}
             <View style={{ alignItems: 'center' }}>
                 <Text style={styles.textlichsu}>Lịch sử bán trả hàng</Text>
@@ -117,7 +117,7 @@ const Lichsu_bantrahang = () => {
                     </View>
                 </View>             
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

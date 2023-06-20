@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity, Switch , TextInput } from 'react-native'
+import { Text, View, StyleSheet, Dimensions, SafeAreaView, Image, TouchableOpacity, Switch , TextInput } from 'react-native'
 import ButtonBack from '../Component/ButtonBack';
 
 const { height: HeightScreen } = Dimensions.get('window');
@@ -10,7 +10,7 @@ const Security = () => {
     const [isEnabled, setIsEnabled] = useState(false);
     const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
@@ -59,7 +59,7 @@ const Security = () => {
                     </View>
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -93,18 +93,18 @@ const styles = StyleSheet.create({
 
     },
     flex1: {
-          flex: 1,
-        // marginLeft:20,
+          flex: 8,
         justifyContent: "center",
+        alignItems  : "flex-start",
         padding:20,
-        //backgroundColor: 'red'
+        // backgroundColor: 'red'
     },
     flex2: {
-        flex: 1,
-        // marginLeft:143,
+        flex: 2,
          justifyContent: "center",
          padding:20,
-         //backgroundColor: 'pink'
+         alignItems  : "flex-end",
+        //  backgroundColor: 'pink'
     },
     text1: {
         color: 'black',

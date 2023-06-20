@@ -1,4 +1,4 @@
-import { Image, Text, View, TextInput, TouchableOpacity,Dimensions } from 'react-native'
+import { Image, Text, View, TextInput, TouchableOpacity,Dimensions,SafeAreaView } from 'react-native'
 import React, { useState } from 'react';
 import styles from './style_list_congviec'
 
@@ -16,7 +16,7 @@ const List_congviec = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* view tổng nội dung */}
       <View style={styles.view_list_cv}>
         {/* view header */}
@@ -117,7 +117,7 @@ const List_congviec = () => {
         </View>
 
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 

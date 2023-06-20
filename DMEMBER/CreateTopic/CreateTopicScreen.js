@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, Image, Dimensions, StyleSheet, FlatList } from "react-native";
+import { Text, View, Image, Dimensions, StyleSheet, FlatList,SafeAreaView } from "react-native";
 import detailproData from "../dataShopScreen/detailproData";
 import ButtonBack from "../Component/ButtonBack";
 
@@ -106,7 +106,7 @@ const CreateTopicScreen = ({ route }) => {
             );
         }
         return (
-            <View style={{ flex: 1, }}>
+            <SafeAreaView style={{ flex: 1, }}>
                 <View>
                     <FlatList
                         style={{ flex: 1 }}
@@ -140,14 +140,14 @@ const CreateTopicScreen = ({ route }) => {
                         </View>
                     </View>
                 </View>
-            </View>
+            </SafeAreaView>
         );
     };
 
 
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerbar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
@@ -162,7 +162,7 @@ const CreateTopicScreen = ({ route }) => {
                 />
             </View>
 
-        </View>
+        </SafeAreaView>
     );
 }
 

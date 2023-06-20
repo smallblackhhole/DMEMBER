@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, Image, Dimensions, StyleSheet, FlatList, TouchableOpacity } from "react-native";
+import { Text, View, Image, Dimensions, StyleSheet, FlatList, TouchableOpacity, SafeAreaView } from "react-native";
 import ButtonBack from "../Component/ButtonBack";
 import detailproData from "../dataShopScreen/detailproData";
 import { useNavigation } from "@react-navigation/native";
@@ -183,7 +183,7 @@ const DetailScreen = ({ route }) => {
                     }}
                 >
                     <Image
-                        style={{ width: 150, height: 180 }}
+                        style={{ width: 190, height: 220 }}
                         source={item.img}
                     />
                 </View>
@@ -192,7 +192,7 @@ const DetailScreen = ({ route }) => {
 
 
         return (
-            <View style={{ flex: 1, }}>
+            <SafeAreaView style={{ flex: 1, }}>
                 <View style={styles.detailView}>
                     <View style={styles.borderDetail}>
                         <View style={styles.holderView}>
@@ -201,8 +201,8 @@ const DetailScreen = ({ route }) => {
                                 <CarousellphoneS
                                     data={item.Data4}
                                     renderItem={renderCarouselItem}
-                                    width={250}
-                                    height={250}
+                                    width={300}
+                                    height={300}
                                     loop={true}
                                     autoPlayInterval={3000}
                                     autoPlay={true}
@@ -289,7 +289,7 @@ const DetailScreen = ({ route }) => {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </View>
+            </SafeAreaView>
         );
     };
 
@@ -297,7 +297,7 @@ const DetailScreen = ({ route }) => {
 
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.hearderbar}>
                 <View style={{ flex: 7 }}>
                     <ButtonBack
@@ -317,7 +317,7 @@ const DetailScreen = ({ route }) => {
                     keyExtractor={(item, index) => index.toString()}
                     showsVerticalScrollIndicator={false} />
             </View>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -355,25 +355,27 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.3,
         alignItems: "center",
         justifyContent: 'center',
-        marginBottom: 10
+        marginBottom: 10,
     },
     borderDetail: {
-        width: WidthScreen * 0.655,
-        height:  HeightScreen * 0.301,
+        width: WidthScreen * 0.7,
+        height:  HeightScreen * 0.315,
         alignItems: "center",
         justifyContent: "center",
         //backgroundColor: 'red',
     },
     holderView: {
-        width: WidthScreen * 0.595,
+        marginTop : 10,
+        width: '100%',
         alignItems: "center",
-        height:  HeightScreen * 0.268,
-       // backgroundColor: 'red',
+        height:  '100%',
+    //    backgroundColor: 'red',
     },
     //gia tiền
     price: {
         flexDirection: 'row',
         marginBottom: 10,
+        marginTop :20,
         justifyContent: "center",
         //backgroundColor: 'red',
     },

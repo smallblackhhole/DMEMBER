@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity,SafeAreaView } from 'react-native'
 import Line from "../Component/Line";
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
@@ -17,7 +17,7 @@ const HistoryScreen = ({ route }) => {
     };
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
                 <Text style={styles.TextTitle}>Đơn hàng</Text>
             </View>
@@ -223,7 +223,7 @@ const HistoryScreen = ({ route }) => {
                                     <View style={styles.line3}></View>
                                     <View style={styles.flex3}>
                                         <Text style={styles.text1}>{order.donepay.numberCart} sản phẩm</Text>
-                                        <Text style={styles.text3}>{order.formattedTotal},000</Text>
+                                        <Text style={styles.text3}>{order.formattedTotal}</Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>
@@ -232,7 +232,7 @@ const HistoryScreen = ({ route }) => {
                 </ScrollView>
             </View>
 
-        </View>
+        </SafeAreaView>
     );
 }
 

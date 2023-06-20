@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, Touchable, Touc
 const Address = () => {
 
     return (
-        <View style={style.container}>
+        <SafeAreaView style={style.container}>
             <Image style={{ left: '5%', top: '2%' }} source={require('../image/back.png')} />
             <Text style={{ fontSize: 20, fontWeight: 'bold', left: '30%', position: 'absolute', top: '2%' }}>Danh sách địa chỉ</Text>
             <View>
@@ -48,7 +48,7 @@ const Address = () => {
 
                 </View>
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 

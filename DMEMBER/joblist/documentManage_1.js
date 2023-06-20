@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text,  Image,    } from "react-native";
+import { StyleSheet, View, Text,  Image,SafeAreaView    } from "react-native";
 
 import Document from '../Component/Document';
 import Search from '../Component/Search';
 const documentManage_1 = () => {
     return (
-        <View style={style.container}>
+        <SafeAreaView style={style.container}>
             <View style={{ flexDirection: 'row', margin: 20, justifyContent: 'center', alignContent: 'center' }}>
                 <View style={{ flex: 3 }}>
                     <Image source={require('../image/back.png')} />
@@ -39,7 +39,7 @@ const documentManage_1 = () => {
                 name={"Lê Huỳnh Bá Toàn"}
                 />
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
 

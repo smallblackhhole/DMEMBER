@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, StyleSheet, View, Dimensions } from 'react-native'
+import { Image, StyleSheet, View, Dimensions, SafeAreaView } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HistoryScreen from './HistoryScreen'
@@ -28,7 +28,6 @@ import Register from "../login/Register";
 import DcashTransfer_1 from "../viDcash/DcashTransfer_1";
 import DcashTransfer_2 from "../viDcash/DcashTransfer_2";
 import WithdrawDcash from "../viDcash/withdrawDcash";
-import addaddress from "../address/addaddress";
 import Chitiet_donhang from "../don_hang/chitiet_donhang";
 import InforTransfer from "../viDcash/inforTransfer";
 import Lichsu_ruttien from "../history/lichsu_ruttien";
@@ -36,6 +35,7 @@ import CreateAccount from "../CreateAccount/CreateAccount";
 import Addaddress from "../address/addaddress";
 import News from "../News";
 import InfomationScreen from "../InfomationAccount/InfomationScreen";
+import ChooseBank from "../viDcash/ChooseBank";
 const Tab = createBottomTabNavigator();
 
 
@@ -48,6 +48,9 @@ function MyStack() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Screnn" component={Screnn} options={{
+          headerShown: false
+        }} />
         <Stack.Screen name="MenuScreen" component={MenuAccount} options={{
           headerShown: false
         }} />
@@ -114,9 +117,6 @@ function MyStack() {
         <Stack.Screen name="Addaddress" component={Addaddress} options={{
           headerShown: false
         }} />
-        <Stack.Screen name="Screnn" component={Screnn} options={{
-          headerShown: false
-        }} />
         <Stack.Screen name="Login" component={Login} options={{
           headerShown: false
         }} />
@@ -132,6 +132,9 @@ function MyStack() {
         <Stack.Screen name="InfomationScreen" component={InfomationScreen} options={{
           headerShown: false
         }} />
+        <Stack.Screen name="ChooseBank" component={ChooseBank} options={{
+          headerShown: false
+        }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -144,7 +147,6 @@ const MenuAccount = () => {
   }, []);
 
   return (
-
     <Tab.Navigator
       screenOptions={{
         tabBarActiveBackgroundColor: () => (
@@ -159,10 +161,10 @@ const MenuAccount = () => {
         options={{
           tabBarIcon: () => (
             focusBottom === 'Home' ? (
-              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <SafeAreaView style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <View style={styles.clickbottom}></View>
                 <Image style={styles.ImageIcon} source={require('../Assets/Home1.png')} />
-              </View>
+              </SafeAreaView>
             ) : (
               <Image
                 style={styles.ImageIcon}
@@ -184,10 +186,10 @@ const MenuAccount = () => {
         options={{
           tabBarIcon: () => (
             focusBottom === 'Shop' ? (
-              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <SafeAreaView style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <View style={styles.clickbottom}></View>
                 <Image style={styles.ImageIcon} source={require('../Assets/Shop1.png')} />
-              </View>
+              </SafeAreaView>
             ) : (
               <Image
                 style={styles.ImageIcon}
@@ -209,10 +211,10 @@ const MenuAccount = () => {
         options={{
           tabBarIcon: () => (
             focusBottom === 'Tranfers' ? (
-              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <SafeAreaView style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <View style={styles.clickbottom}></View>
                 <Image style={styles.ImageIcon} source={require('../Assets/Tranfers1.png')} />
-              </View>
+              </SafeAreaView>
             ) : (
               <Image
                 style={styles.ImageIcon}
@@ -234,10 +236,10 @@ const MenuAccount = () => {
         options={{
           tabBarIcon: () => (
             focusBottom === 'History' ? (
-              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <SafeAreaView style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <View style={styles.clickbottom}></View>
                 <Image style={styles.ImageIcon} source={require('../Assets/Group1.png')} />
-              </View>
+              </SafeAreaView>
             ) : (
               <Image
                 style={styles.ImageIcon}
@@ -259,10 +261,10 @@ const MenuAccount = () => {
         options={{
           tabBarIcon: () => (
             focusBottom === 'Account' ? (
-              <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <SafeAreaView style={{ alignItems: 'center', justifyContent: 'center' }}>
                 <View style={styles.clickbottom}></View>
                 <Image style={styles.ImageIcon} source={require('../Assets/Account1.png')} />
-              </View>
+              </SafeAreaView>
             ) : (
               <Image
                 style={styles.ImageIcon}

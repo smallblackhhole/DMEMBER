@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Text, View, StyleSheet, FlatList, ScrollView, TextInput, Image, SafeAreaView, Dimensions, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, FlatList, TextInput, Image, SafeAreaView, Dimensions, TouchableOpacity } from 'react-native'
 import shopData from "../dataShopScreen/shopData";
 import CarousellphoneS from 'react-native-reanimated-carousel';
 const { height: screenHeight } = Dimensions.get('window');
@@ -31,9 +31,9 @@ const ShopScreen = () => {
         const renderTopProduct = ({ item }) => {
             return (
                 <View style={styles.borderTopProduct}>
-                    <View>
+                    <View style={{ alignItems: "center" }}>
                         <Image source={item.imgtoppro} />
-                        <Image style={{ width: 27, height: 30, position: "absolute", left: 110, top: 10 }}
+                        <Image style={{ width: 25, height: 30, position: "absolute", right: 10, top: 0 }}
                             source={item.tag} />
                     </View>
                     <Text style={styles.textTopProduct}>{item.nametoppro}</Text>
@@ -44,7 +44,9 @@ const ShopScreen = () => {
                     <View style={styles.priceanddiscount}>
                         <Text style={styles.textpridis}>Chiết khấu : </Text>
                         <Text style={styles.disnum}>{item.dis}</Text>
-                        <Image style={{ width: 27, height: 27 }} resizeMode="contain" source={require('../Assets/addbtn.png')} />
+                        <TouchableOpacity style={{ position: "absolute", right: 10, bottom: 0 }}>
+                            <Image style={{ width: 27, height: 27}} resizeMode="contain" source={require('../Assets/addbtn.png')} />
+                        </TouchableOpacity>
                     </View>
                 </View>
             );
@@ -70,33 +72,33 @@ const ShopScreen = () => {
             return (
                 <TouchableOpacity onPress={() => { navigation.navigate('Detail', { item }) }}>
                     {/* <View style={styles.ViewBorderPro}> */}
-                        <View style={styles.borderPro}>
-                            <View>
-                                <Image style={styles.img_sp} source={item.imgproduct} />
-                                <Image style={{ width: 27, height: 30, position: "absolute", left: 95, top: -1 }}
-                                    source={item.tag} />
-                            </View>
-                            <Text style={styles.name_sp}>{item.nameproduct}</Text>
-                            <View style={{flexDirection: "row", justifyContent: 'space-between', alignItems: "center"}}>
-                                <View style={{ flexDirection: "column", }}>
-                                    <View style={styles.priceanddiscount2}>
-                                        <Text style={styles.textpridis}>Giá bán: </Text>
-                                        <Text style={styles.pricenum}>{item.price}</Text>
-                                    </View>
-                                    <View style={styles.priceanddiscount2}>
-                                        <Text style={styles.textpridis}>Chiết khấu: </Text>
-                                        <Text style={styles.disnum}>{item.dis}</Text>
-                                        <Image style={{ width: 27, height: 27, marginLeft:18 }} resizeMode="contain" source={require('../Assets/addbtn.png')} />
-                                    </View>
+                    <View style={styles.borderPro}>
+                        <View>
+                            <Image style={styles.img_sp} source={item.imgproduct} />
+                            <Image style={{ width: 27, height: 30, position: "absolute", left: 95, top: -1 }}
+                                source={item.tag} />
+                        </View>
+                        <Text style={styles.name_sp}>{item.nameproduct}</Text>
+                        <View style={{ flexDirection: "row", justifyContent: 'space-between', alignItems: "center" }}>
+                            <View style={{ flexDirection: "column", }}>
+                                <View style={styles.priceanddiscount2}>
+                                    <Text style={styles.textpridis}>Giá bán: </Text>
+                                    <Text style={styles.pricenum}>{item.price}</Text>
+                                </View>
+                                <View style={styles.priceanddiscount2}>
+                                    <Text style={styles.textpridis}>Chiết khấu: </Text>
+                                    <Text style={styles.disnum}>{item.dis}</Text>
+                                    <Image style={{ width: 27, height: 27, marginLeft: 18 }} resizeMode="contain" source={require('../Assets/addbtn.png')} />
                                 </View>
                             </View>
                         </View>
+                    </View>
                     {/* </View> */}
                 </TouchableOpacity>
             );
         }
         return (
-            <View>
+            <SafeAreaView>
                 <View style={{ alignItems: "center" }}>
                     <CarousellphoneS
                         data={item.Data}
@@ -182,7 +184,7 @@ const ShopScreen = () => {
                         <Text style={{ color: 'white', fontSize: 12, fontWeight: "400" }}>Xem tất cả</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
+            </SafeAreaView>
         );
     };
 
@@ -193,7 +195,7 @@ const ShopScreen = () => {
                     <Image style={styles.customsearchicon} source={require('../Assets/search.png')} />
                     <Text>TÌm kiếm...</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {navigation.navigate('News')}}>
+                <TouchableOpacity onPress={() => { navigation.navigate('News') }}>
                     <Image style={styles.iconheader} source={require('../Assets/Notification.png')} />
                     <View style={styles.customnumbernotification}></View>
                 </TouchableOpacity>
@@ -253,7 +255,7 @@ const styles = StyleSheet.create({
     },
     indicatorContainer: {
         flexDirection: 'row',
-        alignItems :  "center"
+        alignItems: "center"
     },
     indicator: {
         width: 8,
@@ -332,7 +334,7 @@ const styles = StyleSheet.create({
     //item ngang
     itemOption: {
         marginHorizontal: 10,
-      //  backgroundColor: 'green',
+        //  backgroundColor: 'green',
     },
     //TEXT item ngang
     nameoption: {
@@ -355,7 +357,7 @@ const styles = StyleSheet.create({
     //text sản phẩm bán chạy
     textProductHot: {
         marginTop: 40,
-       // backgroundColor:'pink',
+        // backgroundColor:'pink',
         justifyContent: 'center',
         marginBottom: 18
     },
@@ -390,20 +392,21 @@ const styles = StyleSheet.create({
         height: screenHeight * 0.30,
         justifyContent: "space-between",
         alignItems: "center",
-       // backgroundColor: 'blue',
+        //    backgroundColor: 'blue',
 
     },
     borderTopProduct: {
         backgroundColor: '#FFFFFF',
         flexDirection: "column",
-        width: WidthScreen * 0.385,//143
-        height: screenHeight * 0.298,//229
+        justifyContent: "center",
+        width: WidthScreen * 0.4,//143
+        height: '100%',
         borderRadius: 10,
-        marginLeft: 17,
+        marginHorizontal: 10
     },
     //text item NAME sản phẩm bán chạy
     textTopProduct: {
-       // backgroundColor: 'red',
+        // backgroundColor: 'red',
         height: screenHeight * 0.053,
         color: '#000000',
         fontSize: 13,
@@ -426,20 +429,21 @@ const styles = StyleSheet.create({
     },
     priceanddiscount: {
         flexDirection: "row",
-        marginLeft: 13,
+        alignItems: "center",
         // alignItems: 'center',
-        //backgroundColor: 'red',
+        // backgroundColor: 'red',
     },
     priceanddiscount2: {
         flexDirection: "row",
         marginLeft: 13,
         // alignItems: 'center',
-        //backgroundColor: 'green',
+        // backgroundColor: 'green',
     },
     textpridis: {
         color: 'black',
         fontSize: 10,
-        fontWeight: "400"
+        fontWeight: "400",
+        marginLeft: 10
     },
     pricenum: {
         color: '#BE7229',
@@ -448,7 +452,7 @@ const styles = StyleSheet.create({
     },
     disnum: {
         width: WidthScreen * 0.12,
-       // backgroundColor: 'red',
+        // backgroundColor: 'red',
         color: '#1151F5',
         fontSize: 10,
         fontWeight: "600"

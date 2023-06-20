@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TextInput, View,  TouchableOpacity } from 'react-native'
+import { Image, StyleSheet, Text, TextInput, View,  TouchableOpacity , SafeAreaView } from 'react-native'
 import { useNavigation } from "@react-navigation/native";
 
 import React from 'react'
@@ -15,7 +15,7 @@ const Register = () => {
     };
    
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.view_dk}>
                 {/* //text đầu  */}
                 <Text style={styles.text_ttdk}>Thông tin đăng kí</Text>
@@ -63,7 +63,7 @@ const Register = () => {
                 </View>
 
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 
