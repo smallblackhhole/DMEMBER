@@ -181,8 +181,43 @@ const styles = StyleSheet.create({
         fontSize: 15,
         textAlign: 'center',
         fontWeight: '600',
-
     },
+    ViewFullC : {
+        width : '100%',
+        height : '100%',
+        justifyContent : 'center' , 
+        alignItems : 'center'
+    },
+    ViewborC : {
+        width : '90%',
+        height : '70%',
+        flexDirection : 'column',
+        alignItems : 'center' , 
+        justifyContent : 'flex-start'
+    },
+    imgC : {
+        width : 100,
+        height  :100
+    },
+    text : {
+        color  :'black',
+        fontSize : 18 , 
+        fontWeight : "500"
+    },
+    btnaddCartC : {
+        backgroundColor : '#041F44',
+        width : 200,
+        height : '10%',
+        borderRadius : 10,
+        justifyContent : 'center',
+        alignItems : 'center',
+        marginTop : 20
+    },
+    text2 : {
+        color : 'white',
+        fontSize : 16,
+        fontWeight : "600"
+    }
 
 })
 export default styles

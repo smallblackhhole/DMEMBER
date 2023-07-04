@@ -15,7 +15,7 @@ const DetailScreen = ({ route }) => {
     const [numberCart, setnumberCart] = useState(1);
     const navigation = useNavigation();
     const itemchaged = route.params;
-    // console.log(numberCart);
+
 
     const handleChooseProduct = () => {
         Realm.open({ schema: [Products] }).then((realm) => {

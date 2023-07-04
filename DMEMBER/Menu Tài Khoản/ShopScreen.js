@@ -201,7 +201,7 @@ const ShopScreen = () => {
                     <View style={styles.customnumbernotification}></View>
                 </TouchableOpacity>
                 {/* cart */}
-                <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Cart2') }}>
                     <Image style={styles.iconheader} source={require('../Assets/Cart.png')} />
                 </TouchableOpacity>
             </View>
@@ -478,7 +478,8 @@ const styles = StyleSheet.create({
         marginTop: 17,
         flex: 1,
         flexDirection: "column",
-        //backgroundColor: 'red',
+        paddingBottom : 60
+        // backgroundColor: 'red',
     },
     // ViewBorderPro: {
     //     flexDirection: "row",
@@ -520,11 +521,13 @@ const styles = StyleSheet.create({
         // backgroundColor: 'pink',
     },
     ItemSeeAll: {
+        width : 60,
         right: '20%',
         bottom: '20%',
-        alignItems: "flex-end",
+        // alignItems: "flex-end",
         justifyContent: "center",
         flexDirection: "column",
+        position : "absolute",
         // backgroundColor: 'pink',
     }
 

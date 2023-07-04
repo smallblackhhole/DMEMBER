@@ -12,11 +12,11 @@ const HistoryScreen = ({ route }) => {
     const [activeOption, setActiveOption] = useState('done');
     const handleOptionPress = (
         option) => {
-        setActiveOption(option);
+            setActiveOption(option);
     };
 
-    const formatTotal = order.donepay.PriceToConfirm.toLocaleString();
-
+    
+    
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.headerBar}>
@@ -50,7 +50,7 @@ const HistoryScreen = ({ route }) => {
                                 </View>
                             ) : (
                                 <Text style={[styles.textOption, { color: 'black' }]}>Đã hủy</Text>
-                            )}
+                                )}
                         </TouchableOpacity>
                     </View>
                     <View style={styles.OptionLine2}>
@@ -70,7 +70,7 @@ const HistoryScreen = ({ route }) => {
                                 </View>
                             ) : (
                                 <Text style={[styles.textOption, { color: 'black' }]}>Dcash</Text>
-                            )}
+                                )}
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => handleOptionPress('Dpoint')}>
                             {activeOption === 'Dpoint' ? (
@@ -88,7 +88,7 @@ const HistoryScreen = ({ route }) => {
                                 </View>
                             ) : (
                                 <Text style={[styles.textOption, { color: 'black' }]}>Dcredit</Text>
-                            )}
+                                )}
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -192,7 +192,7 @@ const HistoryScreen = ({ route }) => {
                             </View>
                         </React.Fragment>
                     )}
-                    {activeOption === 'waitpay' && (
+                    {activeOption === 'waitpay' && order && order.donepay && order.donepay.products.length > 0 && (
                         <React.Fragment>
                             <TouchableOpacity style={styles.DetailView2} onPress={() => { navigation.navigate('chitiet_donghang', { order }) }}>
                                 <View style={styles.BordeDetailView}>
@@ -228,7 +228,7 @@ const HistoryScreen = ({ route }) => {
                                     <View style={styles.line3}></View>
                                     <View style={styles.flex3}>
                                         <Text style={styles.text1}>{order.donepay.Totalquantity} sản phẩm</Text>
-                                        <Text style={styles.text3}>{formatTotal}</Text>
+                                        <Text style={styles.text3}>{order.formatTotal}</Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>

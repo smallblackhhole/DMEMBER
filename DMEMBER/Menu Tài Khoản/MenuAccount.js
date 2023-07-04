@@ -9,7 +9,6 @@ import ShopScreen from "./ShopScreen";
 import TranfersScreen from "./TranfersScreen";
 import AccountScreen from "./AccountScreen";
 import WalletDcash from "../WalletScreen/WalletDcash";
-import CartScreen from "../CartScreen.js/CartScreen";
 import Shareapp from "../AccountFunction/Shareapp";
 import Security from "../AccountFunction/Security";
 import Team from "../AccountFunction/Team";
@@ -55,9 +54,6 @@ function MyStack() {
           headerShown: false
         }} />
         <Stack.Screen name="Dcash" component={WalletDcash} options={{
-          headerShown: false
-        }} />
-        <Stack.Screen name="Cart" component={CartScreen} options={{
           headerShown: false
         }} />
         <Stack.Screen name="Shareapp" component={Shareapp} options={{

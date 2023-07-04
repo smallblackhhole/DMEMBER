@@ -32,7 +32,6 @@ const HandleRender = ({ item, handleDeleteProduct, UpdateQuantity, UpdatePrice }
     // hàm tăng số lượng sản phẩm
     const PlusQuantity = () => {
         setNumberCart(numberCart + 1);
-
     };
 
     // sử dụng useEffect để cập nhật số lượng của từng sản phầm dựa theo id sản phẩm đó
@@ -101,7 +100,7 @@ const GiohangScreen = () => {
     const [Totalquantity, setTotalquantity] = useState(0);
     const [Totalprice, setTotalprice] = useState(0);
     const navigation = useNavigation();
-    const [PriceToConfirm , setPriceToConfirm] = useState(0);
+    const [PriceToConfirm, setPriceToConfirm] = useState(0);
 
     // sử dụng useEffect để thêm sản phẩm vào Realm và thêm vào mảng hiển thị trên layout Giỏ hàng
     useEffect(() => {
@@ -151,8 +150,6 @@ const GiohangScreen = () => {
         });
     };
 
-
-
     const renderItem = ({ item }) => {
         return <HandleRender
             item={item}
@@ -163,32 +160,49 @@ const GiohangScreen = () => {
 
     return (
         <SafeAreaView style={styles.container}>
+            {/* view tổng nội dung */}
             <View style={styles.headerbar}>
                 <ButtonBack
                     icon={require('../Assets/Back.png')}
                     title={"Giỏ hàng"} />
             </View>
-            {/* view tổng nội dung */}
-            <FlatList
-                data={products}
-                renderItem={renderItem}
-                keyExtractor={(item, index) => index.toString()}
-            />
-            <View style={styles.tongtien_gh}>
-                {/* //image bag */}
-                <View style={{ flexDirection: 'row', margin: 20 }}>
-                    <View>
-                        <Image source={require('../Assets/BagCart.png')} />
-                        <View style={styles.img_corner2}>
-                            <Text style={{ color: 'white', fontSize: 12 }}>{Totalquantity}</Text>
+            {products.length === 0 ? (
+                <View style={styles.container}>
+                    <View style={styles.ViewFullC}>
+                        <View style={styles.ViewborC}>
+                            <Image style={styles.imgC} source={require('../Assets/CartImg.png')} />
+                            <Text style={styles.text}>Giỏ hàng của bạn đang trống!</Text>
+                            <TouchableOpacity style={styles.btnaddCartC} onPress={() => { navigation.navigate('Shop') }}>
+                                <Text style={styles.text2}>Thêm vào giỏ</Text>
+                            </TouchableOpacity>
                         </View>
                     </View>
-                    <Text style={styles.text_tt}>{Totalprice}</Text>
                 </View>
-                <TouchableOpacity style={styles.button_tt} onPress={() => { navigation.navigate('PayComfirm', { products , PriceToConfirm , Totalquantity }) }}>
-                    <Text style={styles.buttonText}>Tiếp tục</Text>
-                </TouchableOpacity>
-            </View>
+            ) : (
+                <View style={styles.container}>
+                    <FlatList
+                        data={products}
+                        renderItem={renderItem}
+                        keyExtractor={(item, index) => index.toString()}
+                    />
+                    <View style={styles.tongtien_gh}>
+                        {/* //image bag */}
+                        <View style={{ flexDirection: 'row', margin: 20 }}>
+                            <View>
+                                <Image source={require('../Assets/BagCart.png')} />
+                                <View style={styles.img_corner2}>
+                                    <Text style={{ color: 'white', fontSize: 12 }}>{Totalquantity}</Text>
+                                </View>
+                            </View>
+                            <Text style={styles.text_tt}>{Totalprice}</Text>
+                        </View>
+                        <TouchableOpacity style={styles.button_tt} onPress={() => { navigation.navigate('PayComfirm', { products, PriceToConfirm, Totalquantity }) }}>
+                            <Text style={styles.buttonText}>Tiếp tục</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            )}
+
         </SafeAreaView>
     )
 };
