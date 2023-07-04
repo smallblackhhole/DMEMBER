@@ -1,35 +1,17 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, Image, Dimensions, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text, Image, Dimensions, FlatList } from "react-native";
 
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
-const BorderPayComfirm2 = ({ img, name, num, price, dis }) => {
-
+const BorderPayComfirm2 = ({ data , renderItem }) => {
     return (
-        <View style={styles.view_sp}>
-            <View style={styles.borderView}>
-                <View style={styles.img_all}>
-                    <Image source={img} style={styles.img_item} />
-                </View>
-                <View style={{ flexDirection: 'column', marginLeft: 10 }}>
-                    <Text style={styles.ten_sp}>{name}</Text>
-                    <View style={{ flexDirection: 'row' }}>
-                        <View style={{ flexDirection: 'column' }}>
-                            <Text style={styles.gia_chietkhau}>Giá bán:{' '}
-                                <Text style={{ fontWeight: '600', color: '#BE7229' }}>{price}</Text>
-                            </Text>
-                            <Text style={styles.gia_chietkhau}>Chiết khấu:{' '}
-                                <Text style={{ fontWeight: '600', color: '#1151F5' }}>{dis}</Text>
-                            </Text>
-                        </View>
-                        <View style={{ flexDirection: 'row', position: 'absolute', right: 0, bottom: 0 }}>
-                            <Text style={{ color: '#000000', fontWeight: '400', fontSize: 10 }}>Số lượng</Text>
-                            <Text style={{ color: '#000000', fontWeight: '400', fontSize: 10, marginLeft: 5 }}>{num}</Text>
-                        </View>
-                    </View>
-                </View>
-            </View>
+        <View>
+            <FlatList
+                data={data}
+                renderItem={renderItem}
+                keyExtractor={(item, index) => index.toString()}
+            />
         </View>
     );
 };
@@ -79,7 +61,7 @@ const styles = StyleSheet.create({
         height: HeightScreen * 0.135,
         marginTop: 10,
         alignItems: 'center',
-        justifyContent : 'center'
+        justifyContent: 'center'
     },
     //item hình ảnh
     img_all: {

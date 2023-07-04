@@ -69,6 +69,7 @@ const ShopScreen = () => {
         }
 
         const renderProduct = ({ item }) => {
+            // console.log(item);
             return (
                 <TouchableOpacity onPress={() => { navigation.navigate('Detail', { item }) }}>
                     {/* <View style={styles.ViewBorderPro}> */}

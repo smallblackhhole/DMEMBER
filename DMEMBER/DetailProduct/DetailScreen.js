@@ -7,6 +7,7 @@ import Carticon from "../Component/Carticon";
 import CarousellphoneS from 'react-native-reanimated-carousel';
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
+import Products from "../Realm/Products";
 
 
 const DetailScreen = ({ route }) => {
@@ -14,8 +15,26 @@ const DetailScreen = ({ route }) => {
     const [numberCart, setnumberCart] = useState(1);
     const navigation = useNavigation();
     const itemchaged = route.params;
-    const FlatlistrenderDetail = ({ item }) => {
+    // console.log(numberCart);
 
+    const handleChooseProduct = () => {
+        Realm.open({ schema: [Products] }).then((realm) => {
+            realm.write(() => {
+                const product = realm.create("Products", {
+                    id: itemchaged.item.id.toString(),
+                    imgproduct: itemchaged.item.imgproduct,
+                    tag : itemchaged.item.tag,
+                    nameproduct: itemchaged.item.nameproduct,
+                    price: itemchaged.item.price,
+                    dis : itemchaged.item.dis,
+                    current : numberCart
+                });
+            })
+        });
+        navigation.navigate("Cart2" , {itemchaged , numberCart});
+    };
+
+    const FlatlistrenderDetail = ({ item }) => {
         const renderListPro = ({ item }) => {
             return (
                 <View style={styles.InfoPro}>
@@ -48,27 +67,27 @@ const DetailScreen = ({ route }) => {
                             <View style={styles.line2}></View>
                         </View>
                         <View style={styles.InfoTextView}>
-                            <View style={{ width: WidthScreen * 0.9,marginBottom:10 }}>
+                            <View style={{ width: WidthScreen * 0.9, marginBottom: 10 }}>
                                 <Text style={styles.title}>{item.title1}</Text>
                             </View>
 
-                            <View style={{  width: WidthScreen * 0.8,marginBottom:10}}>
+                            <View style={{ width: WidthScreen * 0.8, marginBottom: 10 }}>
                                 <Text style={styles.textne}>{item.detail1}</Text>
                             </View>
 
-                            <View style={{  width: WidthScreen * 0.9,marginBottom:10 }}>
+                            <View style={{ width: WidthScreen * 0.9, marginBottom: 10 }}>
                                 <Text style={styles.title}>{item.title2}</Text>
                             </View>
 
-                            <View style={{  width: WidthScreen * 0.8,marginBottom:10  }}>
+                            <View style={{ width: WidthScreen * 0.8, marginBottom: 10 }}>
                                 <Text style={styles.textne}>{item.detail2}</Text>
                             </View>
 
-                            <View style={{  width: WidthScreen * 0.9,marginBottom:10 }}>
+                            <View style={{ width: WidthScreen * 0.9, marginBottom: 10 }}>
                                 <Text style={styles.title}>{item.title3}</Text>
                             </View>
 
-                            <View style={{  width: WidthScreen * 0.8,marginBottom:10 }}>
+                            <View style={{ width: WidthScreen * 0.8, marginBottom: 10 }}>
                                 <Text style={styles.textne}>{item.detail3}</Text>
                             </View>
                         </View>
@@ -91,7 +110,7 @@ const DetailScreen = ({ route }) => {
                     <View style={styles.priceanddiscount}>
                         <Text style={styles.textpridis}>Chiết khấu : </Text>
                         <Text style={styles.disnum}>{item.dis}</Text>
-                        <Image style={{ marginBottom: 2, marginLeft:10 }} source={require('../Assets/addbtn.png')} />
+                        <Image style={{ marginBottom: 2, marginLeft: 10 }} source={require('../Assets/addbtn.png')} />
                     </View>
                 </TouchableOpacity>
             );
@@ -105,20 +124,20 @@ const DetailScreen = ({ route }) => {
                             <Image source={require('../Assets/logocreatetopic.png')} />
                             <View style={{ flexDirection: "column", marginLeft: 10 }}>
                                 <Text style={styles.textnamecreatetopic}>Mỹ phẩm Milky Dress</Text>
-                                <Text style={{color : 'rgba(0, 0, 0, 0.8)'}}>17/06/2022, 17:50</Text>
+                                <Text style={{ color: 'rgba(0, 0, 0, 0.8)' }}>17/06/2022, 17:50</Text>
                             </View>
                         </View>
                         <View style={styles.ViewNameInfo2}>
                             <Text style={styles.NameInfo}>{itemchaged.item.nameproduct}</Text>
                         </View>
                         <View style={styles.ViewPrice}>
-                            <Image style={{ marginLeft:20 }} source={require('../Assets/pricegood.png')} />
+                            <Image style={{ marginLeft: 20 }} source={require('../Assets/pricegood.png')} />
                             <Text style={styles.textprice}>{itemchaged.item.price}</Text>
                         </View>
                         <View>
                             <Image style={{ margin: 20 }} source={require('../Assets/whylike.png')} />
                         </View>
-                        <View style={{ width: '85%', alignItems: "center", marginLeft: 20}}>
+                        <View style={{ width: '85%', alignItems: "center", marginLeft: 20 }}>
                             <Text style={styles.textcontent}>{item.whylike}</Text>
                         </View>
                         <View>
@@ -209,17 +228,17 @@ const DetailScreen = ({ route }) => {
                                     onSnapToItem={(index) => setCurrentPage(index)}
                                 />
                             </View>
-                                <View style={styles.indicatorContainer}>
-                                    {item.Data4.map((_, index) => (
-                                        <View
-                                            key={index} 
-                                            style={[
-                                                styles.indicator,
-                                                { backgroundColor: index === currentPage ? 'white' : 'gray' },
-                                            ]}
-                                        />
-                                    ))}
-                                </View>
+                            <View style={styles.indicatorContainer}>
+                                {item.Data4.map((_, index) => (
+                                    <View
+                                        key={index}
+                                        style={[
+                                            styles.indicator,
+                                            { backgroundColor: index === currentPage ? 'white' : 'gray' },
+                                        ]}
+                                    />
+                                ))}
+                            </View>
                             <Image style={{ position: "absolute", width: '90%', height: '60%', bottom: 10 }} source={require('../Assets/backDetail.png')} />
                         </View>
                     </View>
@@ -284,7 +303,7 @@ const DetailScreen = ({ route }) => {
                         </TouchableOpacity>
                     </View>
                     <View style={styles.ViewBtn2}>
-                        <TouchableOpacity style={styles.btnAdd} onPress={() => { navigation.navigate('Cart2', { itemchaged, numberCart }) }}>
+                        <TouchableOpacity style={styles.btnAdd} onPress={() => {handleChooseProduct(item)}}>
                             <Text style={{ color: 'white', fontWeight: "600", fontSize: 16 }}>Thêm vào giỏ</Text>
                         </TouchableOpacity>
                     </View>
@@ -292,9 +311,6 @@ const DetailScreen = ({ route }) => {
             </SafeAreaView>
         );
     };
-
-
-
 
     return (
         <SafeAreaView style={styles.container}>
@@ -358,24 +374,24 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     borderDetail: {
-        width: WidthScreen * 0.7,
-        height:  HeightScreen * 0.315,
+        width: WidthScreen * 0.66,
+        height: HeightScreen * 0.3,
         alignItems: "center",
         justifyContent: "center",
         //backgroundColor: 'red',
     },
     holderView: {
-        marginTop : 10,
+        marginTop: 10,
         width: '100%',
         alignItems: "center",
-        height:  '100%',
-    //    backgroundColor: 'red',
+        height: '100%',
+        //    backgroundColor: 'red',
     },
     //gia tiền
     price: {
         flexDirection: 'row',
         marginBottom: 10,
-        marginTop :20,
+        marginTop: 20,
         justifyContent: "center",
         //backgroundColor: 'red',
     },
@@ -411,7 +427,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     ViewNameInfo: {
-        marginTop:18,
+        marginTop: 18,
         // width: '100%',
         alignItems: "center",
         //backgroundColor: 'red',
@@ -422,14 +438,14 @@ const styles = StyleSheet.create({
         //backgroundColor: 'red',
     },
     NameInfo: {
-        width:WidthScreen * 0.8,//300,
+        width: WidthScreen * 0.8,//300,
         // height: HeightScreen * 0.082,//63
         color: '#000000',
         fontSize: 17,
         fontWeight: "500",
         textAlign: "left",
-       //  backgroundColor: 'yellow',
-       
+        //  backgroundColor: 'yellow',
+
     },
     line: {
         borderWidth: 0.3,
@@ -437,7 +453,7 @@ const styles = StyleSheet.create({
         width: WidthScreen * 0.64,
         opacity: 0.1,
         marginTop: 17,
-        marginBottom:13
+        marginBottom: 13
     },
     line2: {
         borderWidth: 0.3,
@@ -445,8 +461,8 @@ const styles = StyleSheet.create({
         width: WidthScreen * 0.62,
         opacity: 0.1,
         marginTop: 13,
-         marginBottom:13,
-        marginLeft:54
+        marginBottom: 13,
+        marginLeft: 54
     },
     InfoABC: {
         flexDirection: "row",
@@ -494,7 +510,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: "400",
         color: 'black',
-        textAlign:'left'
+        textAlign: 'left'
     },
     ProSame: {
         width: WidthScreen,
@@ -515,27 +531,27 @@ const styles = StyleSheet.create({
         width: WidthScreen * 0.375,
         height: HeightScreen * 0.285,//229
         justifyContent: "center",
-        alignItems:'center',
-        marginLeft:19,
+        alignItems: 'center',
+        marginLeft: 19,
         borderRadius: 15
     },
     textTopProduct: {
-         width: WidthScreen * 0.343,
+        width: WidthScreen * 0.343,
         height: HeightScreen * 0.048,
         color: 'black',
         fontSize: 10,
         fontWeight: "500",
         textAlign: "center",
         margin: 5,
-       // backgroundColor: 'pink',
+        // backgroundColor: 'pink',
     },
     priceanddiscount: {
         flexDirection: "row",
-        marginLeft:10
+        marginLeft: 10
     },
     priceanddiscount2: {
         flexDirection: "row",
-        marginRight:33
+        marginRight: 33
     },
     textpridis: {
         color: 'black',
@@ -552,11 +568,11 @@ const styles = StyleSheet.create({
         fontSize: 10,
         fontWeight: "600"
     },
-    image_product:{
-        width:WidthScreen * 0.32,//122
-        height:HeightScreen * 0.145,//116
-        marginTop:15,
-       // backgroundColor: 'red',
+    image_product: {
+        width: WidthScreen * 0.32,//122
+        height: HeightScreen * 0.145,//116
+        marginTop: 15,
+        // backgroundColor: 'red',
     },
     AddtoCartView: {
         marginTop: 40,
@@ -588,7 +604,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         height: HeightScreen * 0.066,//50
         margin: 20,
-       //backgroundColor: 'red',
+        //backgroundColor: 'red',
     },
     textnamecreatetopic: {
         color: 'black',
@@ -596,16 +612,16 @@ const styles = StyleSheet.create({
         fontWeight: "600"
     },
     ViewPrice: {
-        marginTop:15,
+        marginTop: 15,
         flexDirection: "row",
         alignItems: "center",
-       // backgroundColor: 'pink',
+        // backgroundColor: 'pink',
     },
     textprice: {
         color: '#EE2525',
         fontSize: 16,
         fontWeight: "600",
-        marginLeft:7
+        marginLeft: 7
     },
     textcontent: {
         color: 'black',
@@ -615,7 +631,7 @@ const styles = StyleSheet.create({
     imgtopic: {
         flexDirection: "column",
         // backgroundColor: 'pink',
-        marginTop:25
+        marginTop: 25
     },
     Line1: {
         flexDirection: "row",
@@ -686,7 +702,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         height: HeightScreen * 0.075,
-       // backgroundColor: 'pink',
+        // backgroundColor: 'pink',
     },
     btncreatetopicBord: {
         backgroundColor: 'black',
@@ -702,22 +718,9 @@ const styles = StyleSheet.create({
     indicator: {
         width: 14,
         height: 5,
-        borderRadius : 5,
+        borderRadius: 5,
         marginHorizontal: 3,
     },
-    // paginationContainer: {
-    //     height: 1,
-    //     width: 60,
-    // },
-    // dotStyle: {
-    //     width: 20,
-    //     marginHorizontal: 10,
-    //     height: 5,
-    //     backgroundColor: 'white',
-    // },
-    // indotStyle: {
-    //     backgroundColor: 'black'
-    // }
 })
 
 export default DetailScreen;

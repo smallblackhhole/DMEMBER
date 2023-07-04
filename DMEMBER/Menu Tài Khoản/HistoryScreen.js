@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity,SafeAreaView } from 'react-native'
-import Line from "../Component/Line";
+import { Text, View, StyleSheet, Dimensions, ScrollView, Image, TouchableOpacity, SafeAreaView } from 'react-native'
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
@@ -15,6 +14,8 @@ const HistoryScreen = ({ route }) => {
         option) => {
         setActiveOption(option);
     };
+
+    const formatTotal = order.donepay.PriceToConfirm.toLocaleString();
 
     return (
         <SafeAreaView style={styles.container}>
@@ -133,12 +134,12 @@ const HistoryScreen = ({ route }) => {
                                         <View style={styles.title}>
                                             <Text style={{ fontSize: 16, fontWeight: '500', color: 'black' }}>Luxe Intense 75ml - Nước hoa nữ phiên bản đặc biệt</Text>
                                         </View>
-                                        <View style={{ flexDirection: 'row', marginTop: 5, marginLeft: 15}}>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, marginLeft: 15 }}>
                                             <Text style={styles.text1}>Giá bán : </Text>
                                             <Text style={styles.text2}>1,100,000</Text>
                                         </View>
                                     </View>
-                                      <View style={styles.line2}></View>
+                                    <View style={styles.line2}></View>
                                     <View style={styles.flex3}>
                                         <Text style={styles.text1}>5 sản phẩm</Text>
                                         <Text style={styles.text3}>5,200,000</Text>
@@ -172,7 +173,7 @@ const HistoryScreen = ({ route }) => {
                                             <Image style={{ position: 'relative', top: 25, left: 20 }} source={require('../Assets/Vector.png')} />
                                         </View>
                                     </View>
-                                      <View style={styles.line3}></View>
+                                    <View style={styles.line3}></View>
                                     <View style={styles.flex3}>
                                         <Text style={styles.text1}>2 sản phẩm</Text>
                                         <Text style={styles.text3}>2,200,000</Text>
@@ -193,13 +194,13 @@ const HistoryScreen = ({ route }) => {
                     )}
                     {activeOption === 'waitpay' && (
                         <React.Fragment>
-                            <TouchableOpacity style={styles.DetailView2}  onPress={() => { navigation.navigate('chitiet_donghang') }}>
-                                <View style={styles.BordeDetailView2}>
+                            <TouchableOpacity style={styles.DetailView2} onPress={() => { navigation.navigate('chitiet_donghang', { order }) }}>
+                                <View style={styles.BordeDetailView}>
                                     <View style={styles.flex1}>
-                                        <View style={styles.logoShip2}>
+                                        <View style={styles.logoShip}>
                                             <Image style={{ zIndex: 999 }} source={require('../Assets/logoShip.png')} />
                                         </View>
-                                        <View style={{ flexDirection: 'column', justifyContent: 'center', marginLeft: 20 }}>
+                                        <View style={{ flexDirection: 'column', justifyContent: 'center' }}>
                                             <Text style={styles.Text1}>Mã đơn hàng: 002220321D9M</Text>
                                             <Text style={styles.Text_date}>25/03/2022 - 17:40</Text>
                                         </View>
@@ -207,23 +208,27 @@ const HistoryScreen = ({ route }) => {
                                     <View style={styles.line}></View>
                                     <View style={styles.flex2}>
                                         <View style={{ flexDirection: 'row' }}>
-                                            <View style={styles.logoShip3}>
-                                                <Image style={styles.styImage} source={order.donepay.itemcart.itemchaged.item.imgproduct} />
-                                            </View>
-                                            <View style={styles.title}>
-                                                <Text style={{ fontSize: 15, fontWeight: '500', color: 'black' }}>{order.donepay.itemcart.itemchaged.item.nameproduct}</Text>
-                                                <View style={{ flexDirection: 'row', marginTop: 5, marginBottom: 10 }}>
-                                                    <Text style={styles.text1}>Giá bán : </Text>
-                                                    <Text style={styles.text2}>{order.donepay.itemcart.itemchaged.item.price}</Text>
+                                            {order.donepay.products.map((product) => (
+                                                <View key={product.id} style={styles.logoShip3}>
+                                                    <Image style={styles.styImage} source={product.imgproduct} />
                                                 </View>
-                                            </View>
-                                            <Image style={{ position: 'relative', top: 25, left: 20 }} source={require('../Assets/Vector.png')} />
+                                            ))}
                                         </View>
+
+                                        <View style={styles.title}>
+                                            <Text style={{ fontSize: 15, fontWeight: '500', color: 'black' }}>{order.donepay.products[0].nameproduct}</Text>
+                                            <View style={{ flexDirection: 'row', marginTop: 5, marginBottom: 10 }}>
+                                                <Text style={styles.text1}>Giá bán : </Text>
+                                                <Text style={styles.text2}>{order.donepay.products[0].price}</Text>
+                                            </View>
+                                        </View>
+                                        <Image style={{ position: 'absolute', top: 25, right: 20 }} source={require('../Assets/Vector.png')} />
                                     </View>
+
                                     <View style={styles.line3}></View>
                                     <View style={styles.flex3}>
-                                        <Text style={styles.text1}>{order.donepay.numberCart} sản phẩm</Text>
-                                        <Text style={styles.text3}>{order.formattedTotal}</Text>
+                                        <Text style={styles.text1}>{order.donepay.Totalquantity} sản phẩm</Text>
+                                        <Text style={styles.text3}>{formatTotal}</Text>
                                     </View>
                                 </View>
                             </TouchableOpacity>
@@ -231,7 +236,6 @@ const HistoryScreen = ({ route }) => {
                     )}
                 </ScrollView>
             </View>
-
         </SafeAreaView>
     );
 }
@@ -335,7 +339,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(17, 81, 245, 0.1)',
         justifyContent: "center",
         alignItems: "center",
-        margin: 20
+        margin: 15
     },
     logoShip2: {
         width: WidthScreen * 0.105,//40
@@ -355,7 +359,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: 15,
-        marginLeft: 20
+        marginLeft: 20,
     },
     Text1: {
         color: 'black',
@@ -369,13 +373,13 @@ const styles = StyleSheet.create({
     },
     flex1: {
         flexDirection: 'row',
-        flex: 3,
+        flex: 2.5,
         // backgroundColor:'red'
     },
     flex2: {
-        flex: 5,
+        flex: 5.5,
         flexDirection: "column",
-       // backgroundColor:'red',
+        // backgroundColor:'red',
     },
     flex3: {
         flex: 2,
@@ -443,8 +447,8 @@ const styles = StyleSheet.create({
         opacity: 0.1,
         justifyContent: "center",
         alignItems: "center",
-        marginLeft:20
-        // marginTop: 17,
+        marginLeft: 20,
+        marginTop: 5,
         // marginBottom:13
     },
     line2: {
@@ -454,7 +458,7 @@ const styles = StyleSheet.create({
         opacity: 0.1,
         justifyContent: "center",
         alignItems: "center",
-        marginLeft:20,
+        marginLeft: 20,
         marginTop: 20,
         // marginBottom:9
     },
@@ -465,7 +469,7 @@ const styles = StyleSheet.create({
         opacity: 0.1,
         justifyContent: "center",
         alignItems: "center",
-        marginLeft:20
+        marginLeft: 20
         // marginTop: 17,
         // marginBottom:13
     },

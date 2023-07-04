@@ -81,6 +81,7 @@ export default ShopData = [
         }],
 
         Data6: [{
+            id : "1",
             imgproduct: require('../Assets/Pro1.png'),
             tag: require('../Assets/tagSale.png'),
             nameproduct: "Nước tẩy trang Dearanchy Purifying Pure Cleansing 30ml",
@@ -88,6 +89,7 @@ export default ShopData = [
             dis: "53,000"
         },
         {
+            id : "2",
             imgproduct: require('../Assets/Pro2.png'),
             tag: require('../Assets/tagSale.png'),
             nameproduct: "Dầu tẩy trang Dearanchy Purifying Pure Cleansing 30ml",
@@ -95,6 +97,7 @@ export default ShopData = [
             dis: "53,000"
         },
         {
+            id : "3",
             imgproduct: require('../Assets/Pro3.png'),
             tag: require('../Assets/tagSale.png'),
             nameproduct: "Sữa rửa mặt tạo bọt Dearanchy Purifying Derma PH Care 150ml",
@@ -102,6 +105,7 @@ export default ShopData = [
             dis: "53,000"
         },
         {
+            id : "4",
             imgproduct: require('../Assets/Pro4.png'),
             tag: require('../Assets/tagSale.png'),
             nameproduct: "Gel rửa mặt cho da dầu mụn 150ml",
@@ -109,6 +113,7 @@ export default ShopData = [
             dis: "53,000"
         },
         {
+            id : "5",
             imgproduct: require('../Assets/Pro5.png'),
             tag: require('../Assets/tagSale.png'),
             nameproduct: "Sữa rửa mặt vitamin làm trắng Dearanchy Moisture Vita 150ml",

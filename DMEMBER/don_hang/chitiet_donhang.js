@@ -1,16 +1,20 @@
-import { Image, Text, View, ScrollView, Dimensions, SafeAreaView } from 'react-native'
+import { Image, Text, View, ScrollView, Dimensions, SafeAreaView, FlatList } from 'react-native'
 import React from 'react'
 import styles from './style_chitiet_donhang'
 import ButtonBack from '../Component/ButtonBack'
 const { height: HeightScreen } = Dimensions.get('window');
 const { width: WidthScreen } = Dimensions.get('window');
 
-const Chitiet_donhang = () => {
+const Chitiet_donhang = ({ route }) => {
+    const ordered = route.params;
+
+    const formatTotal = ordered.order.donepay.PriceToConfirm.toLocaleString();
+    const profit = ordered.order.donepay.PriceToConfirm * 0.1;
+    const formatprofit = profit.toLocaleString();
+
 
     return (
         <SafeAreaView>
-
-
             <ScrollView>
                 <View style={styles.container}>
                     <View style={styles.view_chitiet_thontin}>
@@ -37,40 +41,40 @@ const Chitiet_donhang = () => {
                         <View style={styles.view_ttxb}>
                             <View style={styles.view_tt_so}>
                                 <Text style={styles.text_nhat_all}>Tổng tiền hàng:</Text>
-                                <Text style={styles.number_den}>5,580,000</Text>
+                                <Text style={styles.number_den}>{formatTotal}</Text>
                             </View>
                             <View style={styles.view_tt_so}>
-                                <Text style={styles.text_nhat_all}>Tổng tiền hàng:</Text>
-                                <Text style={styles.number_den}>5,580,000</Text>
+                                <Text style={styles.text_nhat_all}>Tổng thành tiền:</Text>
+                                <Text style={styles.number_den}>{formatTotal}</Text>
                             </View>
                             <View style={styles.horizontalLine}></View>
                             <View style={styles.view_thanhtoan}>
                                 <Text style={styles.text_dam_all}>Thanh toán khi nhận hàng:</Text>
-                                <Text style={styles.number_nau}>1,652,000</Text>
+                                <Text style={styles.number_nau}>{formatTotal}</Text>
                             </View>
                         </View>
                         <Text style={styles.text_tt_all}> Thông tin đơn hàng  </Text>
                         <View style={styles.view_ttdh}>
                             <View style={styles.view_tt_so}>
                                 <Text style={styles.text_nhat_all}>Tổng tiền hàng:</Text>
-                                <Text style={styles.number_den}>1,580,000</Text>
+                                <Text style={styles.number_den}>{formatTotal}</Text>
                             </View>
                             <View style={styles.view_tt_so}>
                                 <Text style={styles.text_nhat_all}>Lợi nhuận:</Text>
-                                <Text style={styles.number_xanhla}>580,000</Text>
+                                <Text style={styles.number_xanhla}>{formatprofit}</Text>
                             </View>
                             <View style={styles.view_tt_so}>
                                 <Text style={styles.text_nhat_all}>Lợi nhuận đơn hàng:</Text>
-                                <Text style={styles.number_xanhla}>580,000</Text>
+                                <Text style={styles.number_xanhla}>{formatprofit}</Text>
                             </View>
                             <View style={styles.view_tt_so}>
                                 <Text style={styles.text_nhat_all}>Tổng thành tiền:</Text>
-                                <Text style={styles.number_den}>1,580,000</Text>
+                                <Text style={styles.number_den}>{formatTotal}</Text>
                             </View>
                             <View style={styles.horizontalLine}></View>
                             <View style={styles.view_thanhtoan}>
                                 <Text style={styles.text_dam_all}>Số tiền thanh toán:</Text>
-                                <Text style={styles.number_nau}>1,652,000</Text>
+                                <Text style={styles.number_nau}>{formatTotal}</Text>
                             </View>
                         </View>
                         <Text style={styles.text_tt_all}>Địa chỉ nhận hàng</Text>
@@ -87,30 +91,31 @@ const Chitiet_donhang = () => {
                             </View>
                         </View>
                         <Text style={styles.text_tt_all}>Sản phẩm đã mua</Text>
-                        <View style={styles.view_sp}>
-                            <Image style={styles.img_item} source={require('../image/img_sp.png')} />
-                            <View style={{ flexDirection: 'column', marginLeft: 10 }}>
-                                <Text style={styles.ten_sp}>Dearanchy-Purifying Pure - Cleasing Water -
-                                    Nước tẩy trang làm sạch, khỏe da</Text>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <View style={{ flexDirection: 'column' }}>
-                                        <Text style={styles.gia_chietkhau}>Giá bán:{' '}
-                                            <Text style={{ fontWeight: '600', color: '#BE7229', fontSize: 9, }}>420,500</Text>
-                                        </Text>
-                                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                            <Text style={styles.gia_chietkhau}>Chiết khấu:{' '}
-                                                <Text style={{ fontWeight: '600', color: '#1151F5', fontSize: 9, }}>420,500</Text>
+                        {ordered.order.donepay.products.map((products) => (
+                            <View key={products.id} style={styles.view_sp}>
+                                <Image style={styles.img_item} source={products.imgproduct} />
+                                <View style={{ flexDirection: 'column', marginLeft: 10 }}>
+                                    <Text style={styles.ten_sp}>{products.nameproduct}</Text>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <View style={{ flexDirection: 'column' }}>
+                                            <Text style={styles.gia_chietkhau}>Giá bán:{' '}
+                                                <Text style={{ fontWeight: '600', color: '#BE7229', fontSize: 9, }}>{products.price}</Text>
                                             </Text>
-                                            <Text style={styles.soluong_damua}>Số lượng:{' '}
-                                                <Text style={styles.gia_chietkhau}>1</Text>
-                                            </Text>
+                                            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                                <Text style={styles.gia_chietkhau}>Chiết khấu:{' '}
+                                                    <Text style={{ fontWeight: '600', color: '#1151F5', fontSize: 9, }}>{products.dis}</Text>
+                                                </Text>
+                                                <Text style={styles.soluong_damua}>Số lượng:{' '}
+                                                    <Text style={styles.gia_chietkhau}>{products.current}</Text>
+                                                </Text>
+                                            </View>
                                         </View>
                                     </View>
                                 </View>
                             </View>
-                        </View>
-                        <View style={{ height: HeightScreen * 0.02, }}></View>
+                        ))}
 
+                        <View style={{ height: HeightScreen * 0.02, }}></View>
                     </View>
                 </View>
             </ScrollView>
